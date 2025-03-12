@@ -1,8 +1,12 @@
-<h2>PyShoe Dataset Annotation & Expansion/Enlargement for Loose Learned Inertial Odometry (LLIO)</h2>
+<h2>Gait Driven Inertial Navigation Dataset</h2>
 
-<p align="justify">Similar to <a href="https://github.com/mtahakoroglu/gradient-boosting-based-LLIO">LLIO</a> repository, the following installations are required to run the scripts and reproduce the results presented here and in the paper. Given scripts for creating the <b>pyshoe</b> virtual environment have worked successfully on various Windows systems, although we cannot guarantee compatibility with all system configurations.</p>
+<p align="justify">The following installations are required to run the scripts and reproduce the results presented here and in the paper. Given scripts for creating the <b>pyshoe</b> virtual environment have worked successfully on various Windows systems, although we cannot guarantee compatibility with all system configurations.</p>
 
-<p align="justify"><b>Note:</b> The Anaconda virtual environment is named <b>pyshoe</b> because initially the research was completely based on <a href="https://scholar.google.ca/citations?user=I_x8PVcAAAAJ&hl=en">Brandon Wagstaff's PyShoe study</a> and <a href="https://ieee-dataport.org/open-access/university-toronto-foot-mounted-inertial-navigation-dataset">public dataset</a>. Despite the transition to using exclusively self-collected data and building own inertial odometry public dataset, the original name was retained.</p>
+<p align="justify"><b>Note:</b> The Anaconda virtual environment is named <b>pyshoe</b> because initially our research of developing a stride and heading system (SHS) was completely based on <a href="https://ieeexplore.ieee.org/abstract/document/8533770">PyShoe study</a> and <a href="https://ieee-dataport.org/open-access/university-toronto-foot-mounted-inertial-navigation-dataset">public dataset</a> made by Brandon Wagstaff <i>et al.</i>. Despite the transition to using exclusively self-collected data and building own inertial odometry public dataset, the original name was retained.</p>
+
+<h3>Inertial Navigation System (INS) vs. Stride & Heading System</h3>
+
+<p align="justify">In the field of indoor positioning & navigation, in general, INS stands for studies that work with inertial sensor data samples that produce sample-wise location estimation. Robert Harle first defined the stride-wise dead-reckoning method as SHS in his <a href="https://ieeexplore.ieee.org/abstract/document/6407455">indoor inertial positioning systems for pedestrians survey paper</a> in 2013. Recently, Fu <i>et al.</i> introduced <b>sampling frequency driven</b> and <b>gait driven</b> methods titles for INS and SHS, respectively, in their <a href="https://ieeexplore.ieee.org/abstract/document/9918136">AI survey paper on pedestrian navigation with wearable inertial sensors</a>.</p>
 
 <h3>Creating <b>pyshoe</b> Virtual Environment in Anaconda</h3>
 <p align="justify">After installing Anaconda, launch <b>Anaconda PowerShell</b> and then type</p>
@@ -50,13 +54,13 @@ pip install pandas==1.1.5
 
 <p align="justify">After cloning this repository to your local computer, you must install <b><a href="https://github.com/utiasSTARS/liegroups" target="_blank">liegroups</a></b> package if you would like to reproduce the results shown here in this repo or the paper.</p>
 
-<h3>VICON Room Experiments - Annotation & Corrections for LLIO</h3>
+<h3>PyShoe Vicon Room Experiments - Annotation & Corrections</h3>
 
-<p align="justify">We aim to form a <b>gait-driven inertial navigation system (INS)</b> (also known as a <b>stride & heading system</b> - <b>SHS</b> as gait-driven means stride length and heading change updates in the dead-reckoning method</b>) from VICON room experiments of PyShoe dataset where VICON room experiments are sample-wise annotated pedestrian trajectories. Stride indexes would later be required for training a stride-wise SHS via Loose Learned Inertial Odometry approach.</p>
+<p align="justify">We aim to form a <b>gait-driven inertial navigation system (INS)</b> from VICON room experiments of PyShoe dataset where VICON room experiments are sample-wise annotated pedestrian trajectories. Stride indexes would later be required for training various data-driven SHS.</p>
 
 <p align="justify">Here, some troublesome experiments are shown to understand Zero Velocity (ZV) interval and stride detection problems. The optimal ZV detectors are selected (e.g., SHOE for experiment 4, ARED for experiment 6) with the corresponding optimal threshold values (optimal values are supplied by Wagstaff <i>et. al.</i> in the structure of the mat files for VICON room experiments of PyShoe dataset) for all VICON room experiments.</p>
 
-<p align="justify">The process depicted below is the ZV interval and stride index annotation (or correction) of some troublesome trajectories produced in VICON room experiments (PyShoe dataset). Eventually, ZV interval and stride index detection errors in VICON data are fixed. Extracted dataset is going to be used in training <a href="https://github.com/mtahakoroglu/LLIO">Loose Learned Inertial Odometry (LLIO)</a>, a gait & data driven INS. Some researchers call a data-driven INS as <b>learned inertial odometry</b>, which is the reason for the title given to the proposed modern INS.</p>
+<p align="justify">The process depicted below is the ZV interval and stride index annotation (or correction) of some troublesome trajectories produced in VICON room experiments (PyShoe dataset). Eventually, ZV interval and stride index detection errors in VICON data are fixed. Extracted dataset is going to be used in training various modern SHS as mentioned above.</p>
 
 <p align="justify">Please use <b>detect_missed_strides.m</b> located at <b>data/vicon/processed</b> if you like to reproduce the figures related to ZV interval annotation & correction.</p>
 
