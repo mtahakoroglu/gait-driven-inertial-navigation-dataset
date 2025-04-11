@@ -96,10 +96,27 @@ def rotate_trajectory(trajectory, theta):
                                 [np.sin(theta), np.cos(theta)]])
     return trajectory @ rotation_matrix.T
 
+# def downsample(data, original_freq, target_freq):
+#     # Calculate the time points for the original and target frequencies
+#     original_time_points = np.arange(0, len(data)) / original_freq
+#     target_time_points = np.arange(0, len(data) * target_freq / original_freq) / target_freq
+#     # Create an interpolation function
+#     interpolation_function = interp1d(original_time_points, data, axis=0, kind='linear')
+#     # Use the interpolation function to get the downsampled data
+#     downsampled_data = interpolation_function(target_time_points)
+#     return downsampled_data
+
 def downsample(data, original_freq, target_freq):
     # Calculate the time points for the original and target frequencies
     original_time_points = np.arange(0, len(data)) / original_freq
-    target_time_points = np.arange(0, len(data) * target_freq / original_freq) / target_freq
+    # Calculate the maximum time value
+    max_time = original_time_points[-1]
+    # Calculate the number of points for target frequency
+    num_points = int(max_time * target_freq) + 1
+    # Generate target time points that don't exceed max_time
+    target_time_points = np.arange(0, num_points) / target_freq
+    target_time_points = target_time_points[target_time_points <= max_time]
+    
     # Create an interpolation function
     interpolation_function = interp1d(original_time_points, data, axis=0, kind='linear')
     # Use the interpolation function to get the downsampled data
@@ -220,6 +237,10 @@ for file in sensor_data_files:
         GCP_align = strideAlign
     elif expNumber == 50:
         strideAlign = 5 # this stride number is selected according to the trajectory plot
+        GCP_align = strideAlign
+    # select the first stride in running motion
+    elif expNumber == 51 or expNumber == 52:
+        strideAlign = 1
         GCP_align = strideAlign
     
     _, thetaPyShoe = calculate_displacement_and_heading(traj_list[-1][:, :2], strideIndex[np.array([0,strideAlign])])
@@ -467,6 +488,13 @@ for file in sensor_data_files:
     elif expNumber == 51: # Extreme running motion experiment
         missedStride = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24]
         missedStrideIndex = [506, 682, 851, 1009, 1162, 1314, 1464, 1615, 1765, 1914, 2067, 2221, 2561, 2891, 3038, 3181, 3316, 3454, 3591, 3721, 3857, 3998]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 52: # Extreme running motion experiment
+        strideIndex[0] = 22-1
+        print(f"strideIndex[0] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
+        missedStride = [1, 2, 3, 4, 5]
+        missedStrideIndex = [195, 354, 505, 656, 800]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
         

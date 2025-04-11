@@ -409,7 +409,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 51 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 51 video can be viewed <a href="https://www.youtube.com/shorts/WhdPZzf2dTI">here</a>. Running motion.</p>
+<p align="justify">Experiment 51 video can be viewed <a href="https://www.youtube.com/shorts/WhdPZzf2dTI">here</a>. Running motion. The last stride is accidentally not annotated so it is cropped out.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -419,224 +419,22 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_51_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_51_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 52 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 52 video can be viewed <a href="https://www.youtube.com/shorts/bV5_u5Vz4_U">here</a>. Running motion. The stride marks were planned to be annotated the next morning but the initial stride and the strides [8:] were wiped so the data is cropped off. Total of six strides excluding the initial stride, which is stride #1 in the video.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_52_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_52_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_52_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_52_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 ```
-Total traveled distance in 21 hallway experiments is 1801.946 meters.
-Total traverse time in 21 hallway experiments is 1540.263s = 25.671mins.
+Total traveled distance in 22 hallway experiments is 1818.767 meters.
+Total traverse time in 22 hallway experiments is 1544.988s = 25.750mins.
 ```
-
-
-
-<!---
-| Final Stride Indexes on IMU data |
-|  :---:  |
-| <img src="results/figs/own/SensorConnectData_37_stride_annotation.png" alt="Stride indexes superimposed IMU data" width=%100 height=auto> |
---->
-
-<!---
-<h3>Experimental Test Results (Own Sensor Data)</h3>
-
-<p align="justify">Note that some experiments do not contain GCP or contain incorrectly documented GCP and thereby are not considered in performance evaluation. Also, in some experiments correct number of strides are not detected (with LSTM based robust ZV detector). These experiments are not used in evalation as well. However, in future, if a better ZV interval detector can be developed and detect all strides without missing any, then mentioned experiments could be involved in evaluation process.</p>
-
-<p align="justify"><b>Note:</b> One can run <b>plot_own_sensor_data.py</b> to obtain the same results shown below. To learn more about experiment info and results, one can view <b>output.txt</b> log file (located at <b>results/figs/own</b>) recorded while the code was running.</p>
-
-<h4>Experiment 6 (GCP not available - not used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_06_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_06.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_06_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_06_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 11 (GCP not available - not used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_11_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_11.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_11_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_11_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 13 (GCP not available - not used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_13_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_13.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_13_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_13_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 14 (GCP not available - not used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_06_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_14.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_14_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_14_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 15 (GCP available & all strides detected correctly - can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_15_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_15.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_15_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_15_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 16 (GCP available but not correct - not used for performance evaluation)</h4>
-
-<p align="justify">Despite correct detection of all strides, due to errors in GCP documentation, this experiment is not considered in performance evaluation.</p>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_16_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_16.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_16_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_16_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 17 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_17_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_17.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_17_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_17_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 18 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_18_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_18.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_18_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_18_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 19 (can be used for performance evaluation)</h4>
-
-| Zero Velocity |  Trajectory  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_19_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_19_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 20 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (SHS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_16_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_16.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_20_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_20_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 21 (42/43 strides detected - not used for performance evaluation) - Failure (23<sup>rd</sup> ZV interval (and the corresponding stride) is missed)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_21_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_21.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_21_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_21_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 22 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_22_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_22.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_22_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_22_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 23 (109/110 strides detected - not used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_23_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_23.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_23_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_23_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 24 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_24_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_24.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_24_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_24_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 25 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_25_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_25.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_25_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_25_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 26 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_26_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_26.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_26_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_26_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 27 (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_27_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_27.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_27_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_27_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 28 - a longer pedestrian traverse (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_28_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_28.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_28_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_28_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 29 - same path with exp 28 but at a higher pace (can be used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_29_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_29.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_29_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_29_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-<h4>Experiment 30 - same path with exp 28-29 but at the highest pace, i.e., almost running (54/85 strides detected - not used for performance evaluation)</h4>
-
-| Stride Indexes |  Trajectory (INS)  |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_30_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_30.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
-
-| Zero Velocity |  Trajectory (SHS) |
-|  :---:  |  :---:  |
-| <img src="results/figs/own/SensorConnectData_30_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_30_SHS.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
--->
 
 <h2>Citation</h2>
 
