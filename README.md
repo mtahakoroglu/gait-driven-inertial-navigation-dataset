@@ -409,7 +409,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 51 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 51 video can be viewed <a href="https://www.youtube.com/shorts/WhdPZzf2dTI">here</a>. Running motion. The last stride is accidentally not annotated so it is cropped out.</p>
+<p align="justify">Experiment 51 video can be viewed <a href="https://www.youtube.com/shorts/WhdPZzf2dTI">here</a>. Running motion. The last stride (in the video) is accidentally not annotated so it is cropped out.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -421,7 +421,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 52 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 52 video can be viewed <a href="https://www.youtube.com/shorts/bV5_u5Vz4_U">here</a>. Running motion. The stride marks were planned to be annotated the next morning but the initial stride and the strides [8:] were wiped so the data is cropped off. Total of six strides excluding the initial stride, which is stride #1 in the video.</p>
+<p align="justify">Experiment 52 video can be viewed <a href="https://www.youtube.com/shorts/bV5_u5Vz4_U">here</a>. Running motion. The stride marks were planned to be annotated the next morning but the initial stride and the strides [8:] were wiped so the data is cropped off. Total of six strides (excluding the initial stride, which is stride #1 in the video).</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -431,10 +431,23 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_52_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_52_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 53 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 53 video can be viewed <a href="">here</a>. Running motion.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_53_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_53_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_53_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_53_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 ```
-Total traveled distance in 22 hallway experiments is 1818.767 meters.
-Total traverse time in 22 hallway experiments is 1544.988s = 25.750mins.
+Total traveled distance in 23 hallway experiments is 1896.138 meters.
+Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 ```
+
 
 <h2>Citation</h2>
 
