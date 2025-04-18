@@ -433,7 +433,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 53 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 53 video can be viewed <a href="">here</a>. Running motion.</p>
+<p align="justify">Experiment 53 video can be viewed <a href="https://www.youtube.com/shorts/ECp1K2iAq-s">here</a>. Running motion.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -448,6 +448,22 @@ Total traveled distance in 23 hallway experiments is 1896.138 meters.
 Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 ```
 
+<h4>Experiment 54 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 54 video can be viewed <a href="https://www.youtube.com/shorts/SfQGboKcT3Q">here</a>. Running motion.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_54_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_54_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_54_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_54_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+```
+Total traveled distance in 24 hallway experiments is 1981.530 meters.
+Total traverse time in 24 hallway experiments is 1596.978s = 26.616mins.
+```
 
 <h2>Citation</h2>
 
