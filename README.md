@@ -462,7 +462,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 55 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 55 video can be viewed <a href="">here</a>. Running motion.</p>
+<p align="justify">Experiment 55 video can be viewed <a href="https://www.youtube.com/shorts/U86vBYe6edo">here</a>. Running motion.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
