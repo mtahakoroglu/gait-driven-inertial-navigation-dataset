@@ -238,8 +238,8 @@ for file in sensor_data_files:
     elif expNumber == 50:
         strideAlign = 5 # this stride number is selected according to the trajectory plot
         GCP_align = strideAlign
-    # select the first stride in running motion
-    elif expNumber == 51 or expNumber == 52:
+    # select the first stride in running motion experiments
+    elif expNumber > 50 :
         strideAlign = 1
         GCP_align = strideAlign
     
@@ -508,9 +508,14 @@ for file in sensor_data_files:
                              3335, 3471, 3600, 3721, 3847, 3975, 4113, 4264, 4427, 4764]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 55: # Extreme running motion experiment
+        missedStride = [1, 7, 11, 21, 25, 26, 27, 28, 29, 30, 32, 33]
+        missedStrideIndex = [502, 1531, 2187, 3884, 4542, 4706, 4866, 5022, 5179, 5339, 5657, 5824]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
         
     ############################### CORRECTED PLOTS ########################################
-    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 52, 53, 54]: # these experiments either needed stride index correction or introduction
+    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 52, 53, 54, 55]: # these experiments either needed stride index correction or introduction
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
         if expNumber <= 40:
