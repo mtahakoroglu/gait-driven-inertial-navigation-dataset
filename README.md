@@ -485,8 +485,8 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 | <img src="results/figs/own/SensorConnectData_56_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_56_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 ```
-Total traveled distance in 25 hallway experiments is 2061.156 meters.
-Total traverse time in 25 hallway experiments is 1628.972s = 27.150mins.
+Total traveled distance in 26 hallway experiments is 2.154km.
+Total traverse time in 26 hallway experiments is approximately 28mins.
 ```
 
 <h2>Citation</h2>
