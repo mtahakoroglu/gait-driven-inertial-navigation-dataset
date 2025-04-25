@@ -226,20 +226,14 @@ for file in sensor_data_files:
     # Align the trajectory wrt the selected stride - obsolete (this is an arbitrary rotation to align the trajectory along with x axis)
     # Align the trajectory wrt the selected GCP - this is a rotation from navigation coordinate frame to world-fix coordinate frame
     strideAlign = 3; GCP_align = strideAlign
-    if expNumber == 40: # Exp#40 is conducted at Science Road
+    if expNumber in [40, 42, 57]: # Exp#40 is conducted at Science Road
         strideAlign = 10 # this stride number is selected according to the trajectory plot
         GCP_align = strideAlign
-    elif expNumber == 42: # Exp#42 is conducted at Science Road
-        strideAlign = 10 # this stride number is selected according to the trajectory plot
-        GCP_align = strideAlign
-    elif expNumber == 43:
-        strideAlign = 5 # this stride number is selected according to the trajectory plot
-        GCP_align = strideAlign
-    elif expNumber == 50:
+    elif expNumber in [43, 50]:
         strideAlign = 5 # this stride number is selected according to the trajectory plot
         GCP_align = strideAlign
     # select the first stride in running motion experiments
-    elif expNumber > 50 :
+    elif expNumber > 50 and expNumber <= 56: # Exp#51, 52, 53, 54, 55, 56 are running motion
         strideAlign = 1
         GCP_align = strideAlign
     

@@ -484,14 +484,26 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_56_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_56_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 57 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 57 video can be viewed <a href="https://www.youtube.com/shorts/J1k8P8NiJEQ">here</a>. Extreme slow walking.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_57_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_57_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_57_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_57_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 ```
-Total traveled distance in 26 hallway experiments is 2.154km.
-Total traverse time in 26 hallway experiments is approximately 28mins.
+Total traveled distance in 27 hallway experiments is 2.236km.
+Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 ```
 
 <h2>Citation</h2>
 
-<p align="justify">If you use the code or dataset in your research, please cite:</p>
+<p align="justify">If you use the code or the dataset in your research, please cite:</p>
 
 ```
 @article{gait-driven-inertial-navigation-dataset,
