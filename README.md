@@ -159,11 +159,15 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <p align="justify">Experiments conducted here are manually <a href="https://www.dropbox.com/scl/fo/xl6szvjqfh129hxdpxas4/AGWk_iRdc8VASGbUhnKX1Vw?rlkey=9sbdq6vkctspe633cvb5a1jdh&st=gcj793t0&dl=0">annotated by using a ruler</a>. As the VICON room walks/experiments of PyShoe dataset is characteristically very different than hallway traversals, proposed <a href="https://github.com/mtahakoroglu/LLIO">LLIO</a> system required a bigger dataset that accounts for straight walk gait characteristics (at various walking paces). Additionally, realistic experiments (e.g., faster motion, change in speed) are conducted to make the dataset more diverse and thereby the developed data-driven INS more robust.</p>
 
-<p align="justify">Similar to the notation used for VICON room experiments, the start point is called as stride #0, i.e., initial stride. If <b>vicon_data.py</b> is viewed, one can see that ZV labels are (intuitively) filtered for accurate stride index detection. However, the filtered ZV values are not used in the trajectory generation. In other words, the pedestrian trajectories are obtained with the raw (not filtered) LSTM based PyShoe generated ZV labels while the strides that are visualized on the trajectories with marker <b>x</b> correspond to the last index of the ZV intervals of the filtered ZV signals (i.e., stride index).</p>
+<p align="justify">Similar to the notation used for Vicon room experiments, the start point is called as stride #0, i.e., initial stride. If <b>vicon_data.py</b> is viewed, one can see that ZV labels are (intuitively) filtered for accurate stride index detection. However, the filtered ZV values are not used in the trajectory generation. In other words, the pedestrian trajectories are obtained with the raw (not filtered) LSTM based PyShoe generated ZV labels while the strides that are visualized on the trajectories with marker <b>x</b> correspond to the last index of the ZV intervals of the filtered ZV signals (i.e., stride index).</p>
 
 <p align="justify">As all strides produced a foot-print on the ground that are later measured to form ground-truth data for the experiments, each stride location is called a Ground Control Point (GCP).</p>
 
 <p align="justify"><b>Note:</b> One can run <b>own_data.py</b> to obtain the same results shown below. To learn more about experiment info and results, one can view <b>output.txt</b> log file (located at <b>results/figs/own</b>) recorded while the code was running.</p>
+
+<img src="figure/data_annotation_process.jpg" alt="Data annotaion process" width=%100 height=auto>
+<figcaption><p align="justify">Ground truth data generation process: (a) A painted sponge is affixed to the shoe tread. (b) The sponge leaves a print on the floor after a stride. (c) Ground control points (GCPs) are annotated by measuring their orthogonal distances to the nearest tile edges.</p></figcaption>
+
 
 <h4>Experiment 31</h4>
 
