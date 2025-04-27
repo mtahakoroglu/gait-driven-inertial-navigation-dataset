@@ -530,8 +530,8 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 
 
 ```
-Total traveled distance in 27 hallway experiments is 2.327 km.
-Total traverse time in 27 hallway experiments is approximately 30.98 minutes.
+Total traveled distance in 28 hallway experiments is 2.327 km.
+Total traverse time in 28 hallway experiments is approximately 30.98 minutes.
 ```
 
 <h2>Citation</h2>
