@@ -157,17 +157,16 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 | <img src="https://www.zse.de/db_pics/shop_content/500x500/3dm-gx5-25.png" alt="3DM-GX5-25" width=auto height=200> | <img src="https://www.microstrain.com/sites/default/files/bitmap.png" alt="SensorConnect" width=auto height=200> |
 
 
-<p align="justify">Experiments conducted here are manually <a href="https://www.dropbox.com/scl/fo/xl6szvjqfh129hxdpxas4/AGWk_iRdc8VASGbUhnKX1Vw?rlkey=9sbdq6vkctspe633cvb5a1jdh&st=gcj793t0&dl=0">annotated by using a ruler</a>. As the VICON room walks/experiments of PyShoe dataset is characteristically very different than hallway traversals, proposed <a href="https://github.com/mtahakoroglu/LLIO">LLIO</a> system required a bigger dataset that accounts for straight walk gait characteristics (at various walking paces). Additionally, realistic experiments (e.g., faster motion, change in speed) are conducted to make the dataset more diverse and thereby the developed data-driven INS more robust.</p>
+<p align="justify">Experiments conducted here are manually <a href="https://www.dropbox.com/scl/fo/xl6szvjqfh129hxdpxas4/AGWk_iRdc8VASGbUhnKX1Vw?rlkey=9sbdq6vkctspe633cvb5a1jdh&st=gcj793t0&dl=0">annotated by using a tape measure</a>. As the Vicon room experiments of PyShoe dataset is characteristically very different than hallway traversals, proposed <a href="https://github.com/mtahakoroglu/LLIO">LLIO</a> system required a bigger dataset that accounts for straight walk gait characteristics (at various walking paces). Additionally, realistic experiments (e.g., faster motion, change in speed during the experiment, walking backwards and sideways) are conducted to make the dataset more diverse. Eventually the data-driven INS built on this dataset would be robust.</p>
 
 <p align="justify">Similar to the notation used for Vicon room experiments, the start point is called as stride #0, i.e., initial stride. If <b>vicon_data.py</b> is viewed, one can see that ZV labels are (intuitively) filtered for accurate stride index detection. However, the filtered ZV values are not used in the trajectory generation. In other words, the pedestrian trajectories are obtained with the raw (not filtered) LSTM based PyShoe generated ZV labels while the strides that are visualized on the trajectories with marker <b>x</b> correspond to the last index of the ZV intervals of the filtered ZV signals (i.e., stride index).</p>
 
-<p align="justify">As all strides produced a foot-print on the ground that are later measured to form ground-truth data for the experiments, each stride location is called a Ground Control Point (GCP).</p>
-
-<p align="justify"><b>Note:</b> One can run <b>own_data.py</b> to obtain the same results shown below. To learn more about experiment info and results, one can view <b>output.txt</b> log file (located at <b>results/figs/own</b>) recorded while the code was running.</p>
+<p align="justify">As all strides produced a sponge print on the ground that are later measured to form ground-truth data for the experiments. Each stride location is called a Ground Control Point (GCP).</p>
 
 <img src="figure/data_annotation_process.jpg" alt="Data annotaion process" width=%100 height=auto>
 <figcaption><p align="justify">Ground truth data generation process: (a) A painted sponge is affixed to the shoe tread. (b) The sponge leaves a print on the floor after a stride. (c) Ground control points (GCPs) are annotated by measuring their orthogonal distances to the nearest tile edges.</p></figcaption>
 
+<p align="justify"><b>Note:</b> One can run <b>own_data.py</b> to obtain the same results shown below. To learn more about experiment info and results, one can view <b>output.txt</b> log file (located at <b>results/figs/own</b>) recorded while the code was running.</p>
 
 <h4>Experiment 31</h4>
 
@@ -503,6 +502,36 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 ```
 Total traveled distance in 27 hallway experiments is 2.236km.
 Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
+```
+
+<h4>Experiment 58 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 58 video can be viewed <a href="https://www.youtube.com">here</a>. Regular walking (close to slow). Cardinal directions of the building are followed.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_58_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_58_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_58_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_58_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 59 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 59 video can be viewed <a href="https://www.youtube.com">here</a>. Regular walking (close to slow pace). Backwards and sideway walking as well as spinning motion are performed.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_59_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_59_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_59_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_59_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+
+```
+Total traveled distance in 27 hallway experiments is 2.327 km.
+Total traverse time in 27 hallway experiments is approximately 30.98 minutes.
 ```
 
 <h2>Citation</h2>
