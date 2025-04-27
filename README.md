@@ -506,7 +506,7 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 
 <h4>Experiment 58 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 58 video can be viewed <a href="https://www.youtube.com">here</a>. Regular walking (close to slow). Cardinal directions of the building are followed.</p>
+<p align="justify">Experiment 58 video can be viewed <a href="https://www.youtube.com/shorts/chofbjtN48Y">here</a>. Regular walking (close to slow). Cardinal directions of the building are followed.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
