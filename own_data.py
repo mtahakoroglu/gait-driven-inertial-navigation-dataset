@@ -512,10 +512,25 @@ for file in sensor_data_files:
         missedStrideIndex = [438, 799, 967, 1133, 1297, 1629, 2302, 2654, 3004, 3354, 3532, 3710, 4238, 5461, 5991, 6165]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 59: # 68/70
+        strideIndex = np.delete(strideIndex, 16) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[16] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 21-1) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[21] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 23-2) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[23] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 34-3) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[34] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 61-4) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[61] is removed for experiment #{expNumber} after MATLAB inspection.")
+        missedStride = [6, 17, 20, 23, 25, 36, 63]
+        missedStrideIndex = [1968, 4964, 5798, 6603, 7128, 10100, 17412]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
         
     ############################### CORRECTED PLOTS ########################################
     # these experiments either needed stride index correction or introduction
-    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 52, 53, 54, 55, 56]:
+    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 52, 53, 54, 55, 56, 59]:
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
         if expNumber <= 40:

@@ -518,7 +518,7 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 
 <h4>Experiment 59 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 59 video can be viewed <a href="https://www.youtube.com">here</a>. Regular walking (close to slow pace). Backwards and sideway walking as well as spinning motion are performed.</p>
+<p align="justify">Experiment 59 video can be viewed <a href="https://youtube.com/shorts/WZjPK_mxu7k">here</a>. Regular walking (close to slow pace). Backwards and sideway walking as well as spinning motion are performed.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -530,8 +530,8 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 
 
 ```
-Total traveled distance in 28 hallway experiments is 2.327 km.
-Total traverse time in 28 hallway experiments is approximately 30.98 minutes.
+Total traveled distance in 29 hallway experiments is 2.41 km.
+Total traverse time in 29 hallway experiments is approximately 32.6 minutes.
 ```
 
 <h2>Citation</h2>
