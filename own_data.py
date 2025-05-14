@@ -527,10 +527,14 @@ for file in sensor_data_files:
         missedStrideIndex = [1968, 4964, 5798, 6603, 7128, 10100, 17412]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-        
+    elif expNumber == 60: # 30/41
+        missedStride = [8, 26, 27, 29, 30, 32, 34, 35, 36, 38, 39]
+        missedStrideIndex = [2330, 5726, 5899, 6247, 6417, 6770, 7106, 7280, 7448, 7779, 7947]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
     ############################### CORRECTED PLOTS ########################################
     # these experiments either needed stride index correction or introduction
-    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 52, 53, 54, 55, 56, 59]:
+    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 52, 53, 54, 55, 56, 59, 60]:
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
         if expNumber <= 40:

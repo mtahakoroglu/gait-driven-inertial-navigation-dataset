@@ -528,28 +528,41 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_59_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_59_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 60 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 60 video can be viewed <a href="https://www.youtube.com/shorts/wuo6ZKUf6jU">here</a>. Various paces exist in the walk.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_60_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_60_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_60_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_60_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 ```
-Total traveled distance in 29 hallway experiments is 2.41 km.
-Total traverse time in 29 hallway experiments is approximately 32.6 minutes.
+Total traveled distance in 30 hallway experiments is 2.49 km.
+Total traverse time in 30 hallway experiments is approximately 33.32 minutes.
 ```
 
+<!--
 <h2>Citation</h2>
 
 <p align="justify">If you use the code or the dataset in your research, please cite:</p>
 
 ```
 @article{gait-driven-inertial-navigation-dataset,
-title={A Pioneering Stride-Wise Annotated Dataset for Gait Driven Inertial Odometry}, 
+title={Gait Driven Inertial Odometry with a Pioneering Stride-Wise Annotated Dataset}, 
 author={Gokhan Cetin and Muhammed Taha Koroglu},
-year={2025},
+year={2026},
 eprint={2510.048745},
 archivePrefix={arXiv},
 primaryClass={cs.RO}
 }
 ```
+-->
 
-<!---
+<!--
 
 <h2>REFERENCES</h2>
 
