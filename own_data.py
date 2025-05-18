@@ -233,7 +233,7 @@ for file in sensor_data_files:
         strideAlign = 5 # this stride number is selected according to the trajectory plot
         GCP_align = strideAlign
     # select the first stride in running motion experiments
-    elif expNumber > 50 and expNumber <= 56: # Exp#51, 52, 53, 54, 55, 56 are running motion
+    elif expNumber in [51, 53, 54, 55, 56]: # Exp#51, 53, 54, 55, 56 are running motion
         strideAlign = 1
         GCP_align = strideAlign
     
@@ -484,11 +484,13 @@ for file in sensor_data_files:
         missedStrideIndex = [506, 682, 851, 1009, 1162, 1314, 1464, 1615, 1765, 1914, 2067, 2221, 2561, 2891, 3038, 3181, 3316, 3454, 3591, 3721, 3857, 3998]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 52: # Extreme running motion experiment
-        strideIndex[0] = 22-1
-        print(f"strideIndex[0] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
-        missedStride = [1, 2, 3, 4, 5]
-        missedStrideIndex = [195, 354, 505, 656, 800]
+    elif expNumber == 52:
+        strideIndex[7] = 1988
+        print(f"strideIndex[7] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, -2)
+        missedStride = [8, 9, 10, 11, 12, 13, 14, 18, 26, 27, 29, 32, 33, 34, 36, 37, 38, 39, 40, 41, 42, 44, 47]
+        missedStrideIndex = [2162, 2329, 2485, 2637, 2788, 2938, 3094, 3880, 5568, 5729, 6043, 6525, 6687, 6837, 7139, 7294, 
+                             7448, 7612, 7769, 7928, 8083, 8399, 9011]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
     elif expNumber == 53: # Extreme running motion experiment
@@ -534,7 +536,7 @@ for file in sensor_data_files:
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
     ############################### CORRECTED PLOTS ########################################
     # these experiments either needed stride index correction or introduction
-    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 52, 53, 54, 55, 56, 59, 60]:
+    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
         if expNumber <= 40:

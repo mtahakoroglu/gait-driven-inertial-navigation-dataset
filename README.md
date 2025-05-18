@@ -424,7 +424,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 52 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 52 video can be viewed <a href="https://www.youtube.com/shorts/bV5_u5Vz4_U">here</a>. Running motion. The stride marks were planned to be annotated the next morning but the initial stride and the strides [8:] were wiped so the data is cropped off. Total of six strides (excluding the initial stride, which is stride #1 in the video).</p>
+<p align="justify">Experiment 52 video can be viewed <a href="https://www.youtube.com/shorts/2yCIG-PAxSs">here</a>. Pedestrian traversed a rectangle. At the first edge, for the first six strides, regular walk. Subsequently, running motion until the first corner. After the completion of the first edge, lateral walk, running backwards as fast as possible and finally lateral walk, respectively, at each edge of the rectangle.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -541,8 +541,8 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 | <img src="results/figs/own/SensorConnectData_60_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_60_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 ```
-Total traveled distance in 30 hallway experiments is 2.49 km.
-Total traverse time in 30 hallway experiments is approximately 33.32 minutes.
+Total traveled distance in 30 hallway experiments is 2.56 km.
+Total traverse time in 30 hallway experiments is approximately 34.129 minutes.
 ```
 
 <!--
