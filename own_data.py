@@ -146,16 +146,18 @@ for file in sensor_data_files:
     GCP_data = sio.loadmat(sensor_data_dir + '/' + base_filename + '.mat')
     # extract the number after _ in base_filename
     expNumberData = int(base_filename.split('_')[1])
-
+    # calibrated (200Hz) vs. compensated (250Hz) IMU data experiments
+    calibratedIMUdata = expNumberData > 10 and expNumberData <= 40
+    compensatedIMUdata = expNumberData <= 10 or expNumberData > 40
     # Extract the relevant columns from csv data files (SensorConnect by LORD Microstrain)
     timestamps = sensor_data['Time'].values
-    if expNumberData <= 40: # experiments before 41 captured compensated imu data at 200Hz that is compatible with PyShoe LSTM detector
+    if calibratedIMUdata: # calibrated imu data at 200Hz that is compatible with PyShoe LSTM detector
         imu_data = sensor_data[['inertial-6253.76535:scaledAccelX', 'inertial-6253.76535:scaledAccelY', 'inertial-6253.76535:scaledAccelZ',
             'inertial-6253.76535:scaledGyroX', 'inertial-6253.76535:scaledGyroY', 'inertial-6253.76535:scaledGyroZ']].copy()
         # Multiply accelerations by gravity
         imu_data[['inertial-6253.76535:scaledAccelX', 'inertial-6253.76535:scaledAccelY', 'inertial-6253.76535:scaledAccelZ']] *= g
         euler_angles = sensor_data[['inertial-6253.76535:roll', 'inertial-6253.76535:pitch', 'inertial-6253.76535:yaw']].copy()
-    else: # experiments after 40 captured compensated imu data at 250Hz and then downsampled to 200Hz
+    elif compensatedIMUdata: # compensated imu data at 250Hz and then downsampled to 200Hz
         imu_data = sensor_data[['inertial-6253.76535:estCompensatedAccelX', 'inertial-6253.76535:estCompensatedAccelY', 'inertial-6253.76535:estCompensatedAccelZ',
             'inertial-6253.76535:estAngularRateX', 'inertial-6253.76535:estAngularRateY', 'inertial-6253.76535:estAngularRateZ']].copy()
         euler_angles = sensor_data[['inertial-6253.76535:estRoll', 'inertial-6253.76535:estPitch', 'inertial-6253.76535:estYaw']].copy()
@@ -180,13 +182,13 @@ for file in sensor_data_files:
     GCP_stride_numbers = np.squeeze(GCP_data['GCP_stride_numbers'])
     numberOfStrides =  GCP_data['numberOfStrides'].item() # total number of strides is equal to the last GCP stride number, i.e., GCP_stride_numbers[-1]
     
-    if expNumber > 30: # update this statement later to include only the experiments that are manually annotated for LLIO training
+    if expNumber <= 60: # update this statement later to include only the experiments that are manually annotated for LLIO training
         extract_LLIO_training_data = True
 
     # Initialize INS object with correct parameters - adopted the exact parameters used in PyShoe research (makes sense as our sensor is in the same family)
-    if expNumber <= 40:
+    if calibratedIMUdata:
         ins = INS(imu_data.values, sigma_a=0.00098, sigma_w=8.7266463e-5, T=1.0/200)
-    else:
+    elif compensatedIMUdata:
         ins = INS(imu_data, sigma_a=0.00098, sigma_w=8.7266463e-5, T=1.0/200)
 
     traj_list, zv_list = [], []
@@ -352,14 +354,14 @@ for file in sensor_data_files:
 
     # Plot stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
     plt.figure()
-    if expNumber <= 40:
+    if calibratedIMUdata:
         plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, :3].values, axis=1), label=r'$\Vert\mathbf{a}\Vert$')
         plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, 3:].values, axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
         plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, :3].values, axis=1), 
                     c='r', marker='x', label='Stride', zorder=3)
         plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, 3:].values, axis=1), 
                     c='r', marker='x', zorder=3)
-    else:
+    elif compensatedIMUdata:
         plt.plot(timestamps, np.linalg.norm(imu_data[:, :3], axis=1), label=r'$\Vert\mathbf{a}\Vert$')
         plt.plot(timestamps, np.linalg.norm(imu_data[:, 3:], axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
         plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data[strideIndex, :3], axis=1),
@@ -375,9 +377,9 @@ for file in sensor_data_files:
     # Plot Euler angles vs. time
     plt.figure()
     plt.subplot(3, 1, 1)
-    if expNumber <= 40:
+    if calibratedIMUdata:
         plt.plot(timestamps, euler_angles.values[:, 0], c='b', label="Roll (IMU)", linewidth=0.9)
-    else:
+    elif compensatedIMUdata:
         plt.plot(timestamps, euler_angles[:, 0], c='b', label="Roll (IMU)", linewidth=0.9)
     plt.plot(timestamps, x[:, 6], c='r', label="Roll (PyShoe)", linewidth=0.8)
     plt.title(f'{base_filename} - Euler Angles')
@@ -385,9 +387,9 @@ for file in sensor_data_files:
     plt.grid(True, which='both', linestyle='--', linewidth=1)
     plt.legend()
     plt.subplot(3, 1, 2)
-    if expNumber <= 40:
+    if calibratedIMUdata:
         plt.plot(timestamps, euler_angles.values[:, 1], c='b', label="Pitch (IMU)", linewidth=0.9)
-    else:
+    elif compensatedIMUdata:
         plt.plot(timestamps, euler_angles[:, 1], c='b', label="Pitch (IMU)", linewidth=0.9)
     plt.plot(timestamps, x[:, 7], c='r', label="Pitch (PyShoe)", linewidth=0.8)
     # plt.title(f'{base_filename} - Pitch Angle')
@@ -395,9 +397,9 @@ for file in sensor_data_files:
     plt.grid(True, which='both', linestyle='--', linewidth=1)
     plt.legend()
     plt.subplot(3, 1, 3)
-    if expNumber <= 40:
+    if calibratedIMUdata:
         plt.plot(timestamps, euler_angles.values[:, -1], c='b', label="Yaw (IMU)", linewidth=0.9)
-    else:
+    elif compensatedIMUdata:
         plt.plot(timestamps, euler_angles[:, -1], c='b', label="Yaw (IMU)", linewidth=0.9)
     plt.plot(timestamps, x[:, -1], c='r', label="Yaw (PyShoe)", linewidth=0.8)
     # plt.title(f'{base_filename} - Yaw Angle')
@@ -408,8 +410,15 @@ for file in sensor_data_files:
     plt.savefig(os.path.join(output_dir, f'{base_filename}_euler_angles.png'), dpi=600, bbox_inches='tight')
     plt.close()
 
-    #################### STRIDE INDEX ANNOTATION (IN CASE OF PYSHOE (LSTM) MISSES ZV INTERVALS) ##################################
-    if expNumber == 32 and strideIndex[-2] == 14203:
+    #################### MANUAL STRIDE INDEX ANNOTATION (IN CASE OF PYSHOE (LSTM) MISSES ZV INTERVALS) ##########################
+    # missed stride numbers are counted at MATLAB side and correponding indexes are retrieved by using timestamp values as index at MATLAB side
+    if expNumber == 1:
+        strideIndex[4] = 1318
+        missedStride = [37, 38, 39, 40, 41, 42, 43, 44]
+        missedStrideIndex = [9047, 9211, 9374, 9530, 9685, 9839, 9993, 10153]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 32 and strideIndex[-2] == 14203:
         strideIndex[-2] = 14131-1
         print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
     elif expNumber == 33 and strideIndex[12] == 2979:
@@ -536,17 +545,17 @@ for file in sensor_data_files:
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
     ############################### CORRECTED PLOTS ########################################
     # these experiments either needed stride index correction or introduction
-    if expNumber in [32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
+    if expNumber in [1, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
-        if expNumber <= 40:
+        if calibratedIMUdata:
             plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, :3].values, axis=1), label=r'$\Vert\mathbf{a}\Vert$')
             plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, 3:].values, axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
             plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, :3].values, axis=1), 
                         c='r', marker='x', label='Stride', zorder=3)
             plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, 3:].values, axis=1), 
                         c='r', marker='x', zorder=3)
-        else:
+        elif compensatedIMUdata:
             plt.plot(timestamps, np.linalg.norm(imu_data[:, :3], axis=1), label=r'$\Vert\mathbf{a}\Vert$')
             plt.plot(timestamps, np.linalg.norm(imu_data[:, 3:], axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
             plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data[strideIndex, :3], axis=1), 
@@ -589,14 +598,14 @@ for file in sensor_data_files:
         # omegaX = imu_data[:,3]; omegaY = imu_data[:,4]; omegaZ = imu_data[:,5]
 
         # save stride indexes, timestamps, GCP stride coordinates and IMU data to mat file
-        if expNumber <=40:
+        if calibratedIMUdata:
             sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_LLIO.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'GCP': GCP, 'imu_data': imu_data.values, 
                         'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n,
                         'euler_angles_imu': euler_angles.values, 'thetaPyShoe': thetaPyShoe, 'thetaGCP': thetaGCP, 
                         'theta': theta, 'traveled_distance': traveled_distance, 'traverse_time': traverse_time, 
                         'GCP_wcf': GCP_wcf, 'traj_wcf': traj_wcf, 'reconstructed_traj_wcf': reconstructed_traj_wcf})
-        else:
+        elif compensatedIMUdata:
             sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_LLIO.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'GCP': GCP, 'imu_data': imu_data, 
                         'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n,
@@ -605,10 +614,10 @@ for file in sensor_data_files:
                         'GCP_wcf': GCP_wcf, 'traj_wcf': traj_wcf, 'reconstructed_traj_wcf': reconstructed_traj_wcf})
     else:
         # still save the stride indexes and the associated timestamps for further analysis in MATLAB side
-        if expNumber <= 40:
+        if calibratedIMUdata:
             sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_nontraining_data/{base_filename}_LLIO_nontraining_data.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'imu_data': imu_data.values})
-        else:
+        elif compensatedIMUdata:
             sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_nontraining_data/{base_filename}_LLIO_nontraining_data.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'imu_data': imu_data})
 
