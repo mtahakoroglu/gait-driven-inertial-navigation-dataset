@@ -170,7 +170,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 1 (calibrated IMU data)</h4>
 
-<p align="justify">The experiment was carried out in the hallway adjacent to the Martyr Teacher Necmettin Yılmaz Hallway. The pedestrian covered the first half of the distance at a steady walking pace. After reaching the end of the hallway and turning back, the pedestrian began running and completed the return path at the fastest possible speed. The experiment was performed by Pedestrian 1, who is 5 feet 8 inches tall. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/V36Lu44EJxw">viewing</a>.</p>
+<p align="justify">The experiment was carried out in the hallway adjacent to the Martyr Teacher Necmettin Yılmaz Hallway. The pedestrian covered the first half of the distance at a steady walking pace. After reaching the end of the hallway and turning back, the pedestrian began running and completed the return path at the fastest possible speed. The experiment was performed by Pedestrian 1, who is 5" 8' inches tall. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/V36Lu44EJxw">viewing</a>.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -179,6 +179,18 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 | Zero Velocity |  Trajectory (SHS) |
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_1_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_1_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 2 (calibrated IMU data)</h4>
+
+<p align="justify">The experiment was carried out in the Martyr Teacher Necmettin Yilmaz Hallway. Pedestrian 2, who is 6" tall, traversed the hallway like a sine-wave at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/_DqLATIYWY0">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_2_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_2_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_2_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_2_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 <h4>Experiment 31</h4>
 
