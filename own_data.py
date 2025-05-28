@@ -379,14 +379,14 @@ for file in sensor_data_files:
     # Align the trajectory wrt the selected stride - obsolete (this is an arbitrary rotation to align the trajectory along with x axis)
     # Align the trajectory wrt the selected GCP - this is a rotation from navigation coordinate frame to world-fix coordinate frame
     strideAlign = 3; GCP_align = strideAlign
-    # if expNumber in [40, 42, 57, 58]: # Exp#40 is conducted at Science Road
-    #     strideAlign = 10 # this stride number is selected according to the trajectory plot
-    #     GCP_align = strideAlign
-    # elif expNumber in [43, 50]:
-    #     strideAlign = 5; GCP_align = strideAlign
+    if expNumber in [40, 42, 57, 58]: # Exp#40 is conducted at Science Road
+        strideAlign = 10 # this stride number is selected according to the trajectory plot
+        GCP_align = strideAlign
+    elif expNumber in [43, 50, 55, 56]:
+        strideAlign = 5; GCP_align = strideAlign
     # select the first stride in running motion experiments
-    # elif expNumber in [4, 51, 53, 54, 55, 56]: # Exp#51, 53, 54, 55, 56 are running motion
-    #     strideAlign = 1; GCP_align = strideAlign
+    elif expNumber in [51, 53, 54]: # Exp#51, 53, 54, 55, 56 are running motion
+        strideAlign = 1; GCP_align = strideAlign
     
     _, thetaPyShoe = calculate_displacement_and_heading(traj_list[-1][:, :2], strideIndex[np.array([0,strideAlign])])
     _, thetaGCP = calculate_displacement_and_heading(GCP, np.array([0,GCP_align]))
