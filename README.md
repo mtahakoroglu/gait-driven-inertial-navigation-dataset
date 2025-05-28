@@ -204,6 +204,19 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_3_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_3_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 4 (calibrated IMU data)</h4>
+
+<p align="justify">The experiment was carried out in a region nearby Necmettin Yilmaz Hallway. Pedestrian 4, who is a kid, walked a circular trajectory at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/7bj3s-9ikkM">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_4_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_4_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_4_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_4_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+
 <h4>Experiment 31</h4>
 
 | Stride Indexes |  Trajectory (INS)  |
@@ -577,8 +590,8 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 | <img src="results/figs/own/SensorConnectData_60_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_60_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 ```
-Total traveled distance in 30 hallway experiments is 2.56 km.
-Total traverse time in 30 hallway experiments is approximately 34.129 minutes.
+Total traveled distance in 34 hallway experiments is 2.84 km.
+Total traverse time in 34 hallway experiments is approximately 38.19 minutes.
 ```
 
 <!--
