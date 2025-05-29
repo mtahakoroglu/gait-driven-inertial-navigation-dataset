@@ -225,123 +225,27 @@ for file in sensor_data_files:
     initial_position = traj_list[-1][strideIndex[0], :2] # Starting point
     reconstructed_traj = reconstruct_trajectory(displacements, heading_changes, initial_position)
     
-    
-    #################### MANUAL STRIDE INDEX ANNOTATION (IN CASE OF PYSHOE (LSTM) MISSES ZV INTERVALS) ##########################
+    # MANUAL ANNOTATION OF STRIDE INDEXES for EXPERIMENTS THAT MISSED ANY STRIDE DETECTION w/ PyShoe IN THE FIRST THREE STRIDES
     # missed stride numbers are counted at MATLAB side and correponding indexes are retrieved by using timestamp values as index at MATLAB side
-    if expNumber == 1:
-        strideIndex[4] = 1318
-        missedStride = [37, 38, 39, 40, 41, 42, 43, 44]
-        missedStrideIndex = [9047, 9211, 9374, 9530, 9685, 9839, 9993, 10153]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 2:
-        missedStride = [4, 11]
-        missedStrideIndex = [1566, 3638]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 3:
-        strideIndex[46] = 11804
-        missedStride = [40, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
-        missedStrideIndex = [10411, 12089, 12385, 12540, 12694, 12831, 12961, 13096, 13231, 13366, 13502, 13631, 13759]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 4:
+    if expNumber == 4: # not a running motion experiment (missed the very first stride detection w/ PyShoe LSTM)
         missedStride = [1]; missedStrideIndex = [502]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 32 and strideIndex[-2] == 14203:
-        strideIndex[-2] = 14131-1
-        print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
-    elif expNumber == 33 and strideIndex[12] == 2979:
-        strideIndex[12] = 2921-1
-        print(f"strideIndex[12] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
-    elif expNumber == 34: # Stride #7 and #15 are missed; at MATLAB side they are manually annotated and inserted into the list
-        strideIndex = np.insert(strideIndex, 7, 1705-1) # Stride #7 index is inserted
-        strideIndex = np.insert(strideIndex, 15, 3278-1) # Stride #15 index is inserted
-    elif expNumber == 35: # Stride #{2, 5, 17, 18, 19} are missed; at MATLAB side they are manually annotated and inserted into the list
+    elif expNumber == 35: # running motion experiment
         missedStride, missedStrideIndex = [2, 5, 17, 18, 19], [951-1, 1453-1, 3591-1, 3740-1, 3892-1]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 36 and strideIndex[17] == 4470:
-        strideIndex[17] = 4416-1
-        print(f"strideIndex[17] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
-    elif expNumber == 37 and strideIndex[33] == 8776 and strideIndex[34] == 8998: # stride indexes are the same as MATLAB side
-        strideIndex[33], strideIndex[34] = 8722-1, 8942-1
-        if strideIndex[41] == 10548:
-            strideIndex[41] = 10500-1
-        if strideIndex[43] == 10979:
-            strideIndex[43] = 10933-1
-        if strideIndex[60] == 14765:
-            strideIndex[60] = 14710-1
-    elif expNumber == 38: # At MATLAB side missed strides are manually annotated and inserted into the list
-        missedStride = [5, 6, 7, 17, 19, 20, 21, 22, 23, 24, 25, 26, 28, 29, 30, 31, 41]
-        missedStrideIndex = [1348-1, 1535-1, 1732-1, 3636-1, 3983-1, 4155-1, 4329-1, 4500-1, 4672-1, 4843-1, 
-                             5013-1, 5180-1, 5517-1, 5687-1, 5854-1, 6017-1, 7947-1]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-        # At MATLAB side some strides are manually corrected as follows
-        if strideIndex[45] == 8831-1:
-            strideIndex[45] = 8763-1
-        if strideIndex[59] == 11758-1:
-            strideIndex[59] = 11686-1
-    elif expNumber == 40: # At MATLAB side missed strides are manually annotated and inserted into the list
+    elif expNumber == 40: # missed third stride index
         missedStride, missedStrideIndex = [3], [981-1]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 42: # At MATLAB side missed strides are manually annotated and inserted into the list
+    elif expNumber == 42: # missed first stride index
         missedStride, missedStrideIndex = [1], [545-1]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    # starting at exp#43, now any incorrect stride index is deleted first and then annotated from scratch instead of correction
-    elif expNumber == 43: # there are 9 missed strides indexes and an incorrect stride index | incorrect stride index is deleted
-        strideIndex = np.delete(strideIndex, 34) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"strideIndex[34] is removed for experiment #{expNumber} after MATLAB inspection.")
-        missedStride, missedStrideIndex = [19, 20, 21, 23, 37, 41, 42, 43, 44], [3963, 4148, 4332, 4692, 7594, 8326, 8508, 8688, 8868]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 44: # 52/65: 2 stride indexes are removed and 15 missed stride indexes are added
-        strideIndex = np.delete(strideIndex, 7) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"strideIndex[7] is removed for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, -3) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"strideIndex[-3] is removed for experiment #{expNumber} after MATLAB inspection.")
-        missedStride = [8, 10, 11, 15, 25, 26, 27, 42, 43, 47, 54, 55, 57, 58, 63]
-        missedStrideIndex = [1998, 2350, 2532, 3245, 5171, 5357, 5547, 8472, 8657, 9402, 10701, 10886, 11264, 11439, 12535]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 45: # 74/74 but 11th, 16th & 27th stride indexes are incorrectly detected by PyShoe LSTM
-        strideIndex = np.delete(strideIndex, 11) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"strideIndex[11] is removed for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, 16-1) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"strideIndex[16] is removed for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, 27-2) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"strideIndex[27] is removed for experiment #{expNumber} after MATLAB inspection.")
-        missedStride = [11, 16, 27]
-        missedStrideIndex = [2992, 4166, 6800]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
     elif expNumber == 51: # Extreme running motion experiment
         missedStride = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24]
         missedStrideIndex = [506, 682, 851, 1009, 1162, 1314, 1464, 1615, 1765, 1914, 2067, 2221, 2561, 2891, 3038, 3181, 3316, 3454, 3591, 3721, 3857, 3998]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 52:
-        strideIndex[7] = 1988
-        print(f"strideIndex[7] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, -2)
-        missedStride = [8, 9, 10, 11, 12, 13, 14, 18, 26, 27, 29, 32, 33, 34, 36, 37, 38, 39, 40, 41, 42, 44, 47]
-        missedStrideIndex = [2162, 2329, 2485, 2637, 2788, 2938, 3094, 3880, 5568, 5729, 6043, 6525, 6687, 6837, 7139, 7294, 
-                             7448, 7612, 7769, 7928, 8083, 8399, 9011]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 53: # Extreme running motion experiment
-        missedStride = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
-        missedStrideIndex = [623, 782, 933, 1081, 1228, 1375, 1519, 1663, 1810, 1963, 2133, 2828, 2991, 3134, 3277, 3420, 3558, 3696, 3840, 3987, 4139]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 54: # Extreme running motion experiment
-        missedStride = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28]
-        missedStrideIndex = [871, 1037, 1192, 1342, 1487, 1623, 1760, 1902, 2049, 2211, 2377, 2537, 2866, 3027, 3184, 
-                             3335, 3471, 3600, 3721, 3847, 3975, 4113, 4264, 4427, 4764]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
     elif expNumber == 55: # Extreme running motion experiment
@@ -354,39 +258,29 @@ for file in sensor_data_files:
         missedStrideIndex = [438, 799, 967, 1133, 1297, 1629, 2302, 2654, 3004, 3354, 3532, 3710, 4238, 5461, 5991, 6165]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 59: # 68/70
-        strideIndex = np.delete(strideIndex, 16) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"Detected strideIndex[16] is removed for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, 21-1) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"Detected strideIndex[21] is removed for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, 23-2) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"Detected strideIndex[23] is removed for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, 34-3) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"Detected strideIndex[34] is removed for experiment #{expNumber} after MATLAB inspection.")
-        strideIndex = np.delete(strideIndex, 61-4) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
-        print(f"Detected strideIndex[61] is removed for experiment #{expNumber} after MATLAB inspection.")
-        missedStride = [6, 17, 20, 23, 25, 36, 63]
-        missedStrideIndex = [1968, 4964, 5798, 6603, 7128, 10100, 17412]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 60: # 30/41
-        missedStride = [8, 26, 27, 29, 30, 32, 34, 35, 36, 38, 39]
-        missedStrideIndex = [2330, 5726, 5899, 6247, 6417, 6770, 7106, 7280, 7448, 7779, 7947]
-        for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    
 
     # Align the trajectory wrt the selected stride - obsolete (this is an arbitrary rotation to align the trajectory along with x axis)
     # Align the trajectory wrt the selected GCP - this is a rotation from navigation coordinate frame to world-fix coordinate frame
     strideAlign = 3; GCP_align = strideAlign
-    if expNumber in [40, 42, 57, 58]: # Exp#40 is conducted at Science Road
-        strideAlign = 10 # this stride number is selected according to the trajectory plot
-        GCP_align = strideAlign
-    elif expNumber in [43, 50, 55, 56]:
-        strideAlign = 5; GCP_align = strideAlign
-    # select the first stride in running motion experiments
-    elif expNumber in [51, 53, 54]: # Exp#51, 53, 54, 55, 56 are running motion
+    if expNumber in [40, 57, 58]:
+        strideAlign = 10; GCP_align = strideAlign
+    elif expNumber in [51]: # this experiment is very fast motion
+        strideAlign = 13; GCP_align = strideAlign
+    elif expNumber in [53, 54]: # Exp#51, 53, 54, 55, 56 are running motion
         strideAlign = 1; GCP_align = strideAlign
+    elif expNumber in [56]:
+        strideAlign = 2; GCP_align = strideAlign
+    # strideAlign = 3; GCP_align = strideAlign
+    # if expNumber in [37, 39, 40, 46, 50, 57, 58]: # Exp#40 is conducted at Science Road
+    #     strideAlign = 10 # this stride number is selected according to the trajectory plot
+    #     GCP_align = strideAlign
+    # elif expNumber in [2, 35, 43, 50, 52, 55, 56]:
+    #     strideAlign = 5; GCP_align = strideAlign
+    # # select the first stride in running motion experiments
+    # elif expNumber in [42, 51, 53]: # Exp#51, 53, 54, 55, 56 are running motion
+    #     strideAlign = 4; GCP_align = strideAlign
+    # elif expNumber in [54]:
+    #     strideAlign = 1; GCP_align = strideAlign
     
     _, thetaPyShoe = calculate_displacement_and_heading(traj_list[-1][:, :2], strideIndex[np.array([0,strideAlign])])
     _, thetaGCP = calculate_displacement_and_heading(GCP, np.array([0,GCP_align]))
@@ -560,30 +454,180 @@ for file in sensor_data_files:
     plt.close()
 
     
-    # ############################### CORRECTED PLOTS ########################################
-    # # these experiments either needed stride index correction or introduction
-    # if expNumber in [1, 2, 3, 4, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
-    #     # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
-    #     plt.figure()
-    #     if calibratedIMUdata:
-    #         plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, :3].values, axis=1), label=r'$\Vert\mathbf{a}\Vert$')
-    #         plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, 3:].values, axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
-    #         plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, :3].values, axis=1), 
-    #                     c='r', marker='x', label='Stride', zorder=3)
-    #         plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, 3:].values, axis=1), 
-    #                     c='r', marker='x', zorder=3)
-    #     elif compensatedIMUdata:
-    #         plt.plot(timestamps, np.linalg.norm(imu_data[:, :3], axis=1), label=r'$\Vert\mathbf{a}\Vert$')
-    #         plt.plot(timestamps, np.linalg.norm(imu_data[:, 3:], axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
-    #         plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data[strideIndex, :3], axis=1), 
-    #                     c='r', marker='x', label='Stride', zorder=3)
-    #         plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data[strideIndex, 3:], axis=1), 
-    #                     c='r', marker='x', zorder=3)
-    #     plt.title(f'{base_filename} - Stride Detection on IMU Data')
-    #     plt.xlabel('Time [s]'); plt.ylabel(r'Magnitude'); plt.legend()
-    #     plt.grid(True, which='both', linestyle='--', linewidth=1.5)
-    #     plt.savefig(os.path.join(output_dir, f'{base_filename}_stride_detection_annotation.png'), dpi=600, bbox_inches='tight')
-    #     plt.close()
+    #################### MANUAL STRIDE INDEX ANNOTATION (IN CASE OF PYSHOE (LSTM) MISSES ZV INTERVALS) ##########################
+    # missed stride numbers are counted at MATLAB side and correponding indexes are retrieved by using timestamp values as index at MATLAB side
+    if expNumber == 1:
+        strideIndex[4] = 1318
+        missedStride = [37, 38, 39, 40, 41, 42, 43, 44]
+        missedStrideIndex = [9047, 9211, 9374, 9530, 9685, 9839, 9993, 10153]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 2:
+        missedStride = [4, 11]
+        missedStrideIndex = [1566, 3638]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 3:
+        strideIndex[46] = 11804
+        missedStride = [40, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+        missedStrideIndex = [10411, 12089, 12385, 12540, 12694, 12831, 12961, 13096, 13231, 13366, 13502, 13631, 13759]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    # elif expNumber == 4:
+    #     missedStride = [1]; missedStrideIndex = [502]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 32 and strideIndex[-2] == 14203:
+        strideIndex[-2] = 14131-1
+        print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
+    elif expNumber == 33 and strideIndex[12] == 2979:
+        strideIndex[12] = 2921-1
+        print(f"strideIndex[12] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
+    elif expNumber == 34: # Stride #7 and #15 are missed; at MATLAB side they are manually annotated and inserted into the list
+        strideIndex = np.insert(strideIndex, 7, 1705-1) # Stride #7 index is inserted
+        strideIndex = np.insert(strideIndex, 15, 3278-1) # Stride #15 index is inserted
+    # elif expNumber == 35: # Stride #{2, 5, 17, 18, 19} are missed; at MATLAB side they are manually annotated and inserted into the list
+    #     missedStride, missedStrideIndex = [2, 5, 17, 18, 19], [951-1, 1453-1, 3591-1, 3740-1, 3892-1]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 36 and strideIndex[17] == 4470:
+        strideIndex[17] = 4416-1
+        print(f"strideIndex[17] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
+    elif expNumber == 37 and strideIndex[33] == 8776 and strideIndex[34] == 8998: # stride indexes are the same as MATLAB side
+        strideIndex[33], strideIndex[34] = 8722-1, 8942-1
+        if strideIndex[41] == 10548:
+            strideIndex[41] = 10500-1
+        if strideIndex[43] == 10979:
+            strideIndex[43] = 10933-1
+        if strideIndex[60] == 14765:
+            strideIndex[60] = 14710-1
+    elif expNumber == 38: # At MATLAB side missed strides are manually annotated and inserted into the list
+        missedStride = [5, 6, 7, 17, 19, 20, 21, 22, 23, 24, 25, 26, 28, 29, 30, 31, 41]
+        missedStrideIndex = [1348-1, 1535-1, 1732-1, 3636-1, 3983-1, 4155-1, 4329-1, 4500-1, 4672-1, 4843-1, 
+                             5013-1, 5180-1, 5517-1, 5687-1, 5854-1, 6017-1, 7947-1]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+        # At MATLAB side some strides are manually corrected as follows
+        if strideIndex[45] == 8831-1:
+            strideIndex[45] = 8763-1
+        if strideIndex[59] == 11758-1:
+            strideIndex[59] = 11686-1
+    # elif expNumber == 40: # At MATLAB side missed strides are manually annotated and inserted into the list
+    #     missedStride, missedStrideIndex = [3], [981-1]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    # elif expNumber == 42: # At MATLAB side missed strides are manually annotated and inserted into the list
+    #     missedStride, missedStrideIndex = [1], [545-1]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    # starting at exp#43, now any incorrect stride index is deleted first and then annotated from scratch instead of correction
+    elif expNumber == 43: # there are 9 missed strides indexes and an incorrect stride index | incorrect stride index is deleted
+        strideIndex = np.delete(strideIndex, 34) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"strideIndex[34] is removed for experiment #{expNumber} after MATLAB inspection.")
+        missedStride, missedStrideIndex = [19, 20, 21, 23, 37, 41, 42, 43, 44], [3963, 4148, 4332, 4692, 7594, 8326, 8508, 8688, 8868]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 44: # 52/65: 2 stride indexes are removed and 15 missed stride indexes are added
+        strideIndex = np.delete(strideIndex, 7) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"strideIndex[7] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, -3) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"strideIndex[-3] is removed for experiment #{expNumber} after MATLAB inspection.")
+        missedStride = [8, 10, 11, 15, 25, 26, 27, 42, 43, 47, 54, 55, 57, 58, 63]
+        missedStrideIndex = [1998, 2350, 2532, 3245, 5171, 5357, 5547, 8472, 8657, 9402, 10701, 10886, 11264, 11439, 12535]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 45: # 74/74 but 11th, 16th & 27th stride indexes are incorrectly detected by PyShoe LSTM
+        strideIndex = np.delete(strideIndex, 11) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"strideIndex[11] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 16-1) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"strideIndex[16] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 27-2) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"strideIndex[27] is removed for experiment #{expNumber} after MATLAB inspection.")
+        missedStride = [11, 16, 27]
+        missedStrideIndex = [2992, 4166, 6800]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    # elif expNumber == 51: # Extreme running motion experiment
+    #     missedStride = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+    #     missedStrideIndex = [506, 682, 851, 1009, 1162, 1314, 1464, 1615, 1765, 1914, 2067, 2221, 2561, 2891, 3038, 3181, 3316, 3454, 3591, 3721, 3857, 3998]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 52:
+        strideIndex[7] = 1988
+        print(f"strideIndex[7] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, -2)
+        missedStride = [8, 9, 10, 11, 12, 13, 14, 18, 26, 27, 29, 32, 33, 34, 36, 37, 38, 39, 40, 41, 42, 44, 47]
+        missedStrideIndex = [2162, 2329, 2485, 2637, 2788, 2938, 3094, 3880, 5568, 5729, 6043, 6525, 6687, 6837, 7139, 7294, 
+                             7448, 7612, 7769, 7928, 8083, 8399, 9011]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 53: # Extreme running motion experiment
+        missedStride = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+        missedStrideIndex = [623, 782, 933, 1081, 1228, 1375, 1519, 1663, 1810, 1963, 2133, 2828, 2991, 3134, 3277, 3420, 3558, 3696, 3840, 3987, 4139]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 54: # Extreme running motion experiment
+        missedStride = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28]
+        missedStrideIndex = [871, 1037, 1192, 1342, 1487, 1623, 1760, 1902, 2049, 2211, 2377, 2537, 2866, 3027, 3184, 
+                             3335, 3471, 3600, 3721, 3847, 3975, 4113, 4264, 4427, 4764]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    # elif expNumber == 55: # Extreme running motion experiment
+    #     missedStride = [1, 7, 11, 21, 25, 26, 27, 28, 29, 30, 32, 33]
+    #     missedStrideIndex = [502, 1531, 2187, 3884, 4542, 4706, 4866, 5022, 5179, 5339, 5657, 5824]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    # elif expNumber == 56: # Running motion experiment (not extreme)
+    #     missedStride = [1, 3, 4, 5, 6, 8, 12, 14, 16, 18, 19, 20, 23, 30, 33, 34]
+    #     missedStrideIndex = [438, 799, 967, 1133, 1297, 1629, 2302, 2654, 3004, 3354, 3532, 3710, 4238, 5461, 5991, 6165]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 59: # 68/70
+        strideIndex = np.delete(strideIndex, 16) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[16] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 21-1) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[21] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 23-2) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[23] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 34-3) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[34] is removed for experiment #{expNumber} after MATLAB inspection.")
+        strideIndex = np.delete(strideIndex, 61-4) # remove incorrectly annotated (by PyShoe (LSTM)) stride index
+        print(f"Detected strideIndex[61] is removed for experiment #{expNumber} after MATLAB inspection.")
+        missedStride = [6, 17, 20, 23, 25, 36, 63]
+        missedStrideIndex = [1968, 4964, 5798, 6603, 7128, 10100, 17412]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 60: # 30/41
+        missedStride = [8, 26, 27, 29, 30, 32, 34, 35, 36, 38, 39]
+        missedStrideIndex = [2330, 5726, 5899, 6247, 6417, 6770, 7106, 7280, 7448, 7779, 7947]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+            
+    
+    ############################### CORRECTED PLOTS ########################################
+    # these experiments either needed stride index correction or introduction
+    if expNumber in [1, 2, 3, 4, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
+        # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
+        plt.figure()
+        if calibratedIMUdata:
+            plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, :3].values, axis=1), label=r'$\Vert\mathbf{a}\Vert$')
+            plt.plot(timestamps, np.linalg.norm(imu_data.iloc[:, 3:].values, axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
+            plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, :3].values, axis=1), 
+                        c='r', marker='x', label='Stride', zorder=3)
+            plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data.iloc[strideIndex, 3:].values, axis=1), 
+                        c='r', marker='x', zorder=3)
+        elif compensatedIMUdata:
+            plt.plot(timestamps, np.linalg.norm(imu_data[:, :3], axis=1), label=r'$\Vert\mathbf{a}\Vert$')
+            plt.plot(timestamps, np.linalg.norm(imu_data[:, 3:], axis=1), label=r'$\Vert\mathbf{\omega}\Vert$')
+            plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data[strideIndex, :3], axis=1), 
+                        c='r', marker='x', label='Stride', zorder=3)
+            plt.scatter(timestamps[strideIndex], np.linalg.norm(imu_data[strideIndex, 3:], axis=1), 
+                        c='r', marker='x', zorder=3)
+        plt.title(f'{base_filename} - Stride Detection on IMU Data')
+        plt.xlabel('Time [s]'); plt.ylabel(r'Magnitude'); plt.legend()
+        plt.grid(True, which='both', linestyle='--', linewidth=1.5)
+        plt.savefig(os.path.join(output_dir, f'{base_filename}_stride_detection_annotation.png'), dpi=600, bbox_inches='tight')
+        plt.close()
     ################################################ SAVE TRAINING DATA for LLIO TRAINING ###############################################
     if extract_LLIO_training_data:
         # Stride coordinates (GCP) is the target in LLIO training yet we can save polar coordinates for the sake of completeness
