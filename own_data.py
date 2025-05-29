@@ -262,7 +262,7 @@ for file in sensor_data_files:
     # Align the trajectory wrt the selected stride - obsolete (this is an arbitrary rotation to align the trajectory along with x axis)
     # Align the trajectory wrt the selected GCP - this is a rotation from navigation coordinate frame to world-fix coordinate frame
     strideAlign = 3; GCP_align = strideAlign
-    if expNumber in [40, 57, 58]:
+    if expNumber in [4, 40, 57, 58]:
         strideAlign = 10; GCP_align = strideAlign
     elif expNumber in [51]: # this experiment is very fast motion
         strideAlign = 13; GCP_align = strideAlign
