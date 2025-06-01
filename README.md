@@ -168,7 +168,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <p align="justify"><b>Note:</b> One can run <b>own_data.py</b> to obtain the same results shown below. To learn more about experiment info and results, one can view <b>output.txt</b> log file (located at <b>results/figs/own</b>) recorded while the code was running.</p>
 
-<h4>Experiment 1 (calibrated IMU data)</h4>
+<h4>Experiment 1 (compensated IMU data)</h4>
 
 <p align="justify">The experiment was carried out in the hallway adjacent to the Martyr Teacher Necmettin Yılmaz Hallway. The pedestrian covered the first half of the distance at a steady walking pace. After reaching the end of the hallway and turning back, the pedestrian began running and completed the return path at the fastest possible speed. The experiment was performed by Pedestrian 1, who is 5" 8' inches tall. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/V36Lu44EJxw">viewing</a>.</p>
 
@@ -180,7 +180,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_1_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_1_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 2 (calibrated IMU data)</h4>
+<h4>Experiment 2 (compensated IMU data)</h4>
 
 <p align="justify">The experiment was carried out in the Martyr Teacher Necmettin Yilmaz Hallway. Pedestrian 2, who is 6" tall, traversed the hallway like a sine-wave at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/_DqLATIYWY0">viewing</a>.</p>
 
@@ -192,7 +192,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_2_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_2_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 3 (calibrated IMU data)</h4>
+<h4>Experiment 3 (compensated IMU data)</h4>
 
 <p align="justify">The experiment was carried out in the Martyr Teacher Necmettin Yilmaz Hallway. Pedestrian 3, who is 5"11' tall, walked all the way to the end of the hallway at a slow pace. Subsequently, the pedestrian returned back to the start point at a higher pace. A video recording of the action trajectory is available for <a href="https://youtube.com/shorts/6sTDNu-OFLc">viewing</a>.</p>
 
@@ -204,7 +204,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_3_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_3_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 4 (calibrated IMU data)</h4>
+<h4>Experiment 4 (compensated IMU data)</h4>
 
 <p align="justify">The experiment was carried out in a region nearby Necmettin Yilmaz Hallway. Pedestrian 4, who is a kid, walked a circular trajectory at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/7bj3s-9ikkM">viewing</a>.</p>
 
@@ -215,6 +215,18 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 | Zero Velocity |  Trajectory (SHS) |
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_4_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_4_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 5 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out in Necmettin Yilmaz Hallway. Pedestrian 1 walked all the way to the end of the hallway at a slow pace and returned back to initial neighborhood at a high pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/tHR_BwWzR84">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_5_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_5_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_5_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_5_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 
 <h4>Experiment 31</h4>

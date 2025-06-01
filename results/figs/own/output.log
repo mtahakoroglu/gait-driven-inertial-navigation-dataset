@@ -1451,3 +1451,60 @@ Total traverse time in 1 hallway experiments (to be used for LLIO training/test)
 ===================================================================================================================
 There are 1 experiments processed.
 Processing complete for all files.
+===================================================================================================================
+Processing file data/own\SensorConnectData_5.csv
+GCP are available & correct for file SensorConnectData_5.
+Processing LSTM detector for file SensorConnectData_5.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_5.
+There are 12/47 strides detected in experiment #5.
+File SensorConnectData_5, i.e., experiment 5 will not be used in performance evaluation.
+Experiment #5 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 86.694 meters in experiment #5.
+Travel time is 46.483 seconds in experiment #5.
+===================================================================================================================
+Total traveled distance in 0 hallway experiments (to be used for LLIO training/test) is 86.694 meters.
+Total traverse time in 0 hallway experiments (to be used for LLIO training/test) is 46.483s = 0.775mins.
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.
+===================================================================================================================
+Processing file data/own\SensorConnectData_1.csv
+GCP are available & correct for file SensorConnectData_1.
+Processing LSTM detector for file SensorConnectData_1.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_1.
+There are 39/47 strides detected in experiment #1.
+===================================================================================================================
+Processing file data/own\SensorConnectData_5.csv
+===================================================================================================================
+Processing file data/own\SensorConnectData_5.csv
+GCP are available & correct for file SensorConnectData_5.
+Processing LSTM detector for file SensorConnectData_5.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_5.
+There are 38/50 strides detected in experiment #5.
+File SensorConnectData_5, i.e., experiment 5 will not be used in performance evaluation.
+Experiment #5 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 87.736 meters in experiment #5.
+Travel time is 51.998 seconds in experiment #5.
+===================================================================================================================
+Total traveled distance in 0 hallway experiments (to be used for LLIO training/test) is 87.736 meters.
+Total traverse time in 0 hallway experiments (to be used for LLIO training/test) is 51.998s = 0.867mins.
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.
+===================================================================================================================
+Processing file data/own\SensorConnectData_5.csv
+GCP are available & correct for file SensorConnectData_5.
+Processing LSTM detector for file SensorConnectData_5.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_5.
+There are 38/50 strides detected in experiment #5.
+File SensorConnectData_5, i.e., experiment 5 will not be used in performance evaluation.
+There are 50/50 strides detected in experiment #5.
+Experiment #5 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 87.736 meters in experiment #5.
+Travel time is 51.998 seconds in experiment #5.
+===================================================================================================================
+Total traveled distance in 1 hallway experiments (to be used for LLIO training/test) is 87.736 meters.
+Total traverse time in 1 hallway experiments (to be used for LLIO training/test) is 51.998s = 0.867mins.
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.

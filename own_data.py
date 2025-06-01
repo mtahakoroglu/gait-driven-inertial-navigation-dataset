@@ -27,7 +27,7 @@ extracted_training_data_dir = "data/" # training data (imu, zv) for LSTM retrain
 # Detectors and labels
 det_list = ['lstm'] # 'ared', 'shoe'
 # Define thresholds for each detector
-thresh_list = [0] # 0.55, 8.5e7 
+thresh_list = [0] # 0.55, 8.5e7
 W_list = [0] # 5, 5, 0
 legend = ['PyShoe (LSTM)'] # 'ARED', 'SHOE'
 
@@ -231,6 +231,11 @@ for file in sensor_data_files:
         missedStride = [1]; missedStrideIndex = [502]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    # if expNumber == 5: # extreme running motion experiment
+    #     missedStride = [1, 2, *range(8,16), *range(17,23), *range(25,29), 30, 32, 33, *range(35,47)]
+    #     missedStrideIndex = [175, 278, 883, 972, 1061, 1147, 1237, 1327, 1417, 1507, 1665, 1737, 1809, 
+    #                          1885, 1957, 2031, 2256, 2327, 2402, 2486, 2634, 2786, 2857, 2979, 3041, 
+    #                          3109, 3162, 3214, 3262, 3310, 3355, 3404, 3458, 3521, 3592]
     elif expNumber == 35: # running motion experiment
         missedStride, missedStrideIndex = [2, 5, 17, 18, 19], [951-1, 1453-1, 3591-1, 3740-1, 3892-1]
         for i in range(len(missedStride)):
@@ -270,17 +275,6 @@ for file in sensor_data_files:
         strideAlign = 1; GCP_align = strideAlign
     elif expNumber in [56]:
         strideAlign = 2; GCP_align = strideAlign
-    # strideAlign = 3; GCP_align = strideAlign
-    # if expNumber in [37, 39, 40, 46, 50, 57, 58]: # Exp#40 is conducted at Science Road
-    #     strideAlign = 10 # this stride number is selected according to the trajectory plot
-    #     GCP_align = strideAlign
-    # elif expNumber in [2, 35, 43, 50, 52, 55, 56]:
-    #     strideAlign = 5; GCP_align = strideAlign
-    # # select the first stride in running motion experiments
-    # elif expNumber in [42, 51, 53]: # Exp#51, 53, 54, 55, 56 are running motion
-    #     strideAlign = 4; GCP_align = strideAlign
-    # elif expNumber in [54]:
-    #     strideAlign = 1; GCP_align = strideAlign
     
     _, thetaPyShoe = calculate_displacement_and_heading(traj_list[-1][:, :2], strideIndex[np.array([0,strideAlign])])
     _, thetaGCP = calculate_displacement_and_heading(GCP, np.array([0,GCP_align]))
@@ -477,6 +471,12 @@ for file in sensor_data_files:
     #     missedStride = [1]; missedStrideIndex = [502]
     #     for i in range(len(missedStride)):
     #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 5:
+        strideIndex[1] = 649; strideIndex[37] = 8315
+        missedStride = [*range(38,50)]
+        missedStrideIndex = [8481, 8634, 8772, 8905, 9025, 9141, 9256, 9367,9506, 9650, 9813, 9981]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
     elif expNumber == 32 and strideIndex[-2] == 14203:
         strideIndex[-2] = 14131-1
         print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
