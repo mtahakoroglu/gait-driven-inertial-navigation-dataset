@@ -206,7 +206,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 4 (compensated IMU data)</h4>
 
-<p align="justify">The experiment was carried out in a region nearby Necmettin Yilmaz Hallway. Pedestrian 4, who is a kid, walked a circular trajectory at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/7bj3s-9ikkM">viewing</a>.</p>
+<p align="justify">The experiment was carried out in a region nearby Necmettin Yilmaz Hallway. Pedestrian 4, who is a kid, walked a circular trajectory (rotating direction is clockwise) at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/7bj3s-9ikkM">viewing</a>.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -239,6 +239,30 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 | Zero Velocity |  Trajectory (SHS) |
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_6_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_6_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 7 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out in a region nearby marty teacher laboratory. Pedestrian 4 (seven year old kid), walked a circular trajectory (rotating direction is clockwise) at a regular pace and after the whirling action completed the trajectory with non-circular traversals. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/qXwWt9wIOyU">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_7_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_7_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_7_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_7_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 8 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian 3 walked all the way to the end of the hallway at a slow pace and returned back to initial neighborhood at a higher pace (as the pedestrian is a seven year old kid, it is hard to carry the laptop during running so max speed is avoided). A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/WgJ2CbhHr-c">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_8_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_8_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_8_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_8_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 <h4>Experiment 31</h4>
 

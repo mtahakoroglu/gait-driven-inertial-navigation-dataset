@@ -482,6 +482,13 @@ for file in sensor_data_files:
                              6881, 7435, 7567, 7706, 7819, 7936, 8063, 8202]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 8:
+        missedStride = [29, 32, *range(41,45), *range(46,61)]
+        missedStrideIndex = [6310, 6797, 8511, 8667, 8809, 8953, 9281, 9427, 9580, 9732, 9880, 10022, 10159, 10296, 10440, 10579, 10720, 10859, 10990, 11126, 11261]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+        strideIndex[1] = 393; strideIndex[2] = 629; strideIndex[6] = 1582; strideIndex[10] = 2491; strideIndex[12] = 2949; strideIndex[13] = 3183; 
+        strideIndex[25] = 5550; strideIndex[26] = 5762; strideIndex[61] = 11462; strideIndex[62] = 11679; strideIndex[64] = 12166; strideIndex[65] = 12410
     elif expNumber == 32 and strideIndex[-2] == 14203:
         strideIndex[-2] = 14131-1
         print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
