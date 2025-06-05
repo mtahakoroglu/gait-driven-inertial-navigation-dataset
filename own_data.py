@@ -248,11 +248,19 @@ for file in sensor_data_files:
         missedStride, missedStrideIndex = [1], [545-1]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 51: # Extreme running motion experiment
-        missedStride = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24]
-        missedStrideIndex = [506, 682, 851, 1009, 1162, 1314, 1464, 1615, 1765, 1914, 2067, 2221, 2561, 2891, 3038, 3181, 3316, 3454, 3591, 3721, 3857, 3998]
+    # elif expNumber == 51: # Extreme running motion experiment (OBSOLETE EXPERIMENT)
+    #     missedStride = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+    #     missedStrideIndex = [506, 682, 851, 1009, 1162, 1314, 1464, 1615, 1765, 1914, 2067, 2221, 2561, 2891, 3038, 3181, 3316, 3454, 3591, 3721, 3857, 3998]
+    #     for i in range(len(missedStride)):
+    #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 51:
+        missedStride = [1, *range(8,16), 21, 22, *range(25,35)]
+        missedStrideIndex = [540, 2019, 2200, 2369, 2534, 2693, 2855, 3013, 3177, 4300, 4481, 5013, 5166, 5309, 5441, 5565, 5686, 5811, 5933, 6062, 6217]
         for i in range(len(missedStride)):
-            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+        corrections = {6: 1655, 7: 1851}  
+        for idx, value in corrections.items():
+            strideIndex[idx] = value
     elif expNumber == 55: # Extreme running motion experiment
         missedStride = [1, 7, 11, 21, 25, 26, 27, 28, 29, 30, 32, 33]
         missedStrideIndex = [502, 1531, 2187, 3884, 4542, 4706, 4866, 5022, 5179, 5339, 5657, 5824]
@@ -269,8 +277,6 @@ for file in sensor_data_files:
     strideAlign = 3; GCP_align = strideAlign
     if expNumber in [4, 40, 57, 58]:
         strideAlign = 10; GCP_align = strideAlign
-    elif expNumber in [51]: # this experiment is very fast motion
-        strideAlign = 13; GCP_align = strideAlign
     elif expNumber in [53, 54]: # Exp#51, 53, 54, 55, 56 are running motion
         strideAlign = 1; GCP_align = strideAlign
     elif expNumber in [56]:
@@ -487,8 +493,13 @@ for file in sensor_data_files:
         missedStrideIndex = [6310, 6797, 8511, 8667, 8809, 8953, 9281, 9427, 9580, 9732, 9880, 10022, 10159, 10296, 10440, 10579, 10720, 10859, 10990, 11126, 11261]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-        strideIndex[1] = 393; strideIndex[2] = 629; strideIndex[6] = 1582; strideIndex[10] = 2491; strideIndex[12] = 2949; strideIndex[13] = 3183; 
-        strideIndex[25] = 5550; strideIndex[26] = 5762; strideIndex[61] = 11462; strideIndex[62] = 11679; strideIndex[64] = 12166; strideIndex[65] = 12410
+        # Create a dictionary of corrections and apply them all at once
+        corrections = {1: 393, 2: 629, 6: 1582, 10: 2491, 12: 2949, 13: 3183,
+              25: 5550, 26: 5762, 61: 11462, 62: 11679, 64: 12166, 65: 12410}  
+        for idx, value in corrections.items():
+            strideIndex[idx] = value
+        # strideIndex[1] = 393; strideIndex[2] = 629; strideIndex[6] = 1582; strideIndex[10] = 2491; strideIndex[12] = 2949; strideIndex[13] = 3183; 
+        # strideIndex[25] = 5550; strideIndex[26] = 5762; strideIndex[61] = 11462; strideIndex[62] = 11679; strideIndex[64] = 12166; strideIndex[65] = 12410
     elif expNumber == 32 and strideIndex[-2] == 14203:
         strideIndex[-2] = 14131-1
         print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
@@ -618,7 +629,7 @@ for file in sensor_data_files:
     
     ############################### CORRECTED PLOTS ########################################
     # these experiments either needed stride index correction or introduction
-    if expNumber in [1, 2, 3, 4, 5, 6, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
+    if expNumber in [1, 2, 3, 4, 5, 6, 8, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
         if calibratedIMUdata:

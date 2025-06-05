@@ -254,7 +254,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 8 (compensated IMU data)</h4>
 
-<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian 3 walked all the way to the end of the hallway at a slow pace and returned back to initial neighborhood at a higher pace (as the pedestrian is a seven year old kid, it is hard to carry the laptop during running so max speed is avoided). A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/WgJ2CbhHr-c">viewing</a>.</p>
+<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian 4 walked all the way to the end of the hallway at a slow pace and returned back to initial neighborhood at a higher pace (as the pedestrian is a seven year old kid, it is hard to carry the laptop during running so max speed is avoided). A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/WgJ2CbhHr-c">viewing</a>.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -508,7 +508,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 51 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 51 video can be viewed <a href="https://www.youtube.com/shorts/WhdPZzf2dTI">here</a>. Running motion. The last stride (in the video) is accidentally not annotated so it is cropped out.</p>
+<p align="justify">Experiment 51 video can be viewed <a href="https://www.youtube.com/shorts/A-5UdxFcpOs">here</a>. Running & sprinting motions performed.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
