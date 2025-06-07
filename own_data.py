@@ -500,6 +500,18 @@ for file in sensor_data_files:
             strideIndex[idx] = value
         # strideIndex[1] = 393; strideIndex[2] = 629; strideIndex[6] = 1582; strideIndex[10] = 2491; strideIndex[12] = 2949; strideIndex[13] = 3183; 
         # strideIndex[25] = 5550; strideIndex[26] = 5762; strideIndex[61] = 11462; strideIndex[62] = 11679; strideIndex[64] = 12166; strideIndex[65] = 12410
+    elif expNumber == 9:
+        strideIndex = np.delete(strideIndex, -2)
+        missedStride = [25, 33, 45, 54, 55]
+        missedStrideIndex = [6167, 7922, 10524, 12042, 12168]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 10:
+        missedStride = [*range(6,12), 17, *range(21,26), 28, *range(31,34), 35, 37, 38, 42, 44, 46, 49, 50]
+        missedStrideIndex = [1635, 1789, 1941, 2079, 2224, 2363, 3174, 3840, 3981, 4124, 4265, 4416, 4872, 5312, 5453, 5583,
+                             5848, 6110, 6242, 6772, 7084, 7389, 7848, 7992]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
     elif expNumber == 32 and strideIndex[-2] == 14203:
         strideIndex[-2] = 14131-1
         print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
@@ -629,7 +641,7 @@ for file in sensor_data_files:
     
     ############################### CORRECTED PLOTS ########################################
     # these experiments either needed stride index correction or introduction
-    if expNumber in [1, 2, 3, 4, 5, 6, 8, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
+    if expNumber in [*range(1,11), 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60]:
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
         if calibratedIMUdata:
