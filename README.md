@@ -288,6 +288,19 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_10_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_10_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 11 (calibrated IMU data)</h4>
+
+<p align="justify">The experiment was carried out by Pedestrian 1 in Science Road (Engineering Building, 2<sup>nd</sup> floor). Walking & running (sudden sprints & extreme speed) motion are performed. Video of the action trajectory is not available for this experiment.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_11_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_11_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_11_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_11_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+
 <h4>Experiment 31</h4>
 
 | Stride Indexes |  Trajectory (INS)  |

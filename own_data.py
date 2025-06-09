@@ -512,6 +512,18 @@ for file in sensor_data_files:
                              5848, 6110, 6242, 6772, 7084, 7389, 7848, 7992]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+    elif expNumber == 11:
+        missedStride = [7, *range(13,16), *range(17,21), 29, 30, 33, *range(35,44), 48, 50]
+        missedStrideIndex = [1905, 3035, 3210, 3377, 3714, 3880, 4044, 4212, 5808, 5985, 6509, 6803, 6931, 7049, 7159, 7265, 
+                             7371, 7488, 7620, 7777, 8677, 9057]
+        for i in range(len(missedStride)):
+            strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
+        # Create a dictionary of corrections and apply them all at once
+        corrections = {4: 1283}
+        for idx, value in corrections.items():
+            strideIndex[idx] = value
+        # strideIndex[1] = 393; strideIndex[2] = 629; strideIndex[6] = 1582; strideIndex[10] = 2491; strideIndex[12] = 2949; strideIndex[13] = 3183; 
+        # strideIndex[25] = 5550; strideIndex[26] = 5762; strideIndex[61] = 11462; strideIndex[62] = 11679; strideIndex[64] = 12166; strideIndex[65] = 12410
     elif expNumber == 32 and strideIndex[-2] == 14203:
         strideIndex[-2] = 14131-1
         print(f"strideIndex[-2] is manually corrected for experiment #{expNumber} after MATLAB inspection.")
