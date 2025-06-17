@@ -290,7 +290,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 11 (calibrated IMU data)</h4>
 
-<p align="justify">The experiment was carried out by Pedestrian 1 in Science Road (Engineering Building, 2<sup>nd</sup> floor). Walking & running (sudden sprints & extreme speed) motion are performed. Video of the action trajectory is not available for this experiment.</p>
+<p align="justify">The experiment was carried out by Pedestrian 1 in Science Road (Engineering Building, 2<sup>nd</sup> floor). Walking & running (sudden acceleration, sprinting at max speed for short time) motions are performed. Video of the action trajectory is not available for this experiment.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -632,11 +632,6 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_57_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_57_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-```
-Total traveled distance in 27 hallway experiments is 2.236km.
-Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
-```
-
 <h4>Experiment 58 (Compensated IMU data)</h4>
 
 <p align="justify">Experiment 58 video can be viewed <a href="https://www.youtube.com/shorts/chofbjtN48Y">here</a>. Regular walking (close to slow). Cardinal directions of the building are followed.</p>
@@ -672,6 +667,19 @@ Total traverse time in 27 hallway experiments is approximately 29.3 minutes.
 | Zero Velocity |  Trajectory (SHS) |
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_60_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_60_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 61 (Compensated IMU data)</h4>
+
+<p align="justify">Experiment 61 video can be viewed <a href="https://www.youtube.com">here</a>. Slow pace walk.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_61_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_61_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_61_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_61_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 
 ```
 Total traveled distance in 40 hallway experiments is 3.36 km.

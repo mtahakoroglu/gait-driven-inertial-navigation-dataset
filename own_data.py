@@ -58,7 +58,7 @@ def heuristic_zv_filter_and_stride_detector(zv, k):
             zv[strideIndexFall[i]:strideIndexRise[i]] = 1 # make all samples in between one
     # after the correction is completed, do the stride index detection process again
     n, strideIndexFall = count_one_to_zero_transitions(zv)
-    strideIndexFall = strideIndexFall - 1 # make all stride indexes the last samples of the respective ZUPT phase
+    strideIndexFall = strideIndexFall - 1 # make all stride indexes the last samples of the respective ZV interval
     strideIndexFall = np.append(strideIndexFall, len(zv)-1) # last sample is the last stride index
     return zv, n, strideIndexFall
 
@@ -182,7 +182,7 @@ for file in sensor_data_files:
     GCP_stride_numbers = np.squeeze(GCP_data['GCP_stride_numbers'])
     numberOfStrides =  GCP_data['numberOfStrides'].item() # total number of strides is equal to the last GCP stride number, i.e., GCP_stride_numbers[-1]
     
-    if expNumber <= 60: # update this statement later to include only the experiments that are manually annotated for LLIO training
+    if expNumber <= 70: # update this statement later to include only the experiments that are manually annotated for LLIO training
         extract_LLIO_training_data = True
 
     # Initialize INS object with correct parameters - adopted the exact parameters used in PyShoe research (makes sense as our sensor is in the same family)
