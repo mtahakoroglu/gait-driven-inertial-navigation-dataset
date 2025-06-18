@@ -1,0 +1,92 @@
+===================================================================================================================
+Processing file data/own\SensorConnectData_62.csv
+GCP are available & correct for file SensorConnectData_62.
+Processing LSTM detector for file SensorConnectData_62.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_62.
+There are 72/72 strides detected in experiment #62.
+File SensorConnectData_62, i.e., experiment 62 will be used in performance evaluation.
+There are 73 GCP for file SensorConnectData_62, i.e., experiment 62.
+RMSE for GCP 1 stepped on at stride 0 is 0.0003
+RMSE for GCP 2 stepped on at stride 1 is 0.0222
+RMSE for GCP 3 stepped on at stride 2 is 0.0422
+RMSE for GCP 4 stepped on at stride 3 is 0.0709
+RMSE for GCP 5 stepped on at stride 4 is 0.1552
+RMSE for GCP 6 stepped on at stride 5 is 0.1073
+RMSE for GCP 7 stepped on at stride 6 is 0.1273
+RMSE for GCP 8 stepped on at stride 7 is 0.2212
+RMSE for GCP 9 stepped on at stride 8 is 0.1820
+RMSE for GCP 10 stepped on at stride 9 is 0.2157
+RMSE for GCP 11 stepped on at stride 10 is 0.2443
+RMSE for GCP 12 stepped on at stride 11 is 0.2577
+RMSE for GCP 13 stepped on at stride 12 is 0.2781
+RMSE for GCP 14 stepped on at stride 13 is 0.3073
+RMSE for GCP 15 stepped on at stride 14 is 0.4086
+RMSE for GCP 16 stepped on at stride 15 is 0.3700
+RMSE for GCP 17 stepped on at stride 16 is 0.3749
+RMSE for GCP 18 stepped on at stride 17 is 0.4352
+RMSE for GCP 19 stepped on at stride 18 is 0.4058
+RMSE for GCP 20 stepped on at stride 19 is 0.4201
+RMSE for GCP 21 stepped on at stride 20 is 0.4493
+RMSE for GCP 22 stepped on at stride 21 is 0.4790
+RMSE for GCP 23 stepped on at stride 22 is 0.5131
+RMSE for GCP 24 stepped on at stride 23 is 0.5426
+RMSE for GCP 25 stepped on at stride 24 is 0.6117
+RMSE for GCP 26 stepped on at stride 25 is 0.5764
+RMSE for GCP 27 stepped on at stride 26 is 0.5899
+RMSE for GCP 28 stepped on at stride 27 is 0.6422
+RMSE for GCP 29 stepped on at stride 28 is 0.5840
+RMSE for GCP 30 stepped on at stride 29 is 0.6008
+RMSE for GCP 31 stepped on at stride 30 is 0.6227
+RMSE for GCP 32 stepped on at stride 31 is 0.6527
+RMSE for GCP 33 stepped on at stride 32 is 0.6676
+RMSE for GCP 34 stepped on at stride 33 is 0.7051
+RMSE for GCP 35 stepped on at stride 34 is 0.7770
+RMSE for GCP 36 stepped on at stride 35 is 0.7441
+RMSE for GCP 37 stepped on at stride 36 is 0.7516
+RMSE for GCP 38 stepped on at stride 37 is 0.8123
+RMSE for GCP 39 stepped on at stride 38 is 0.7774
+RMSE for GCP 40 stepped on at stride 39 is 0.8009
+RMSE for GCP 41 stepped on at stride 40 is 0.8108
+RMSE for GCP 42 stepped on at stride 41 is 0.8815
+RMSE for GCP 43 stepped on at stride 42 is 0.9300
+RMSE for GCP 44 stepped on at stride 43 is 0.9268
+RMSE for GCP 45 stepped on at stride 44 is 0.9181
+RMSE for GCP 46 stepped on at stride 45 is 0.9016
+RMSE for GCP 47 stepped on at stride 46 is 0.8619
+RMSE for GCP 48 stepped on at stride 47 is 0.8439
+RMSE for GCP 49 stepped on at stride 48 is 0.8249
+RMSE for GCP 50 stepped on at stride 49 is 0.8002
+RMSE for GCP 51 stepped on at stride 50 is 0.7708
+RMSE for GCP 52 stepped on at stride 51 is 0.7436
+RMSE for GCP 53 stepped on at stride 52 is 0.7266
+RMSE for GCP 54 stepped on at stride 53 is 0.6925
+RMSE for GCP 55 stepped on at stride 54 is 0.6769
+RMSE for GCP 56 stepped on at stride 55 is 0.6544
+RMSE for GCP 57 stepped on at stride 56 is 0.6284
+RMSE for GCP 58 stepped on at stride 57 is 0.5990
+RMSE for GCP 59 stepped on at stride 58 is 0.5804
+RMSE for GCP 60 stepped on at stride 59 is 0.5605
+RMSE for GCP 61 stepped on at stride 60 is 0.5469
+RMSE for GCP 62 stepped on at stride 61 is 0.5247
+RMSE for GCP 63 stepped on at stride 62 is 0.5167
+RMSE for GCP 64 stepped on at stride 63 is 0.4732
+RMSE for GCP 65 stepped on at stride 64 is 0.4440
+RMSE for GCP 66 stepped on at stride 65 is 0.4306
+RMSE for GCP 67 stepped on at stride 66 is 0.4024
+RMSE for GCP 68 stepped on at stride 67 is 0.3857
+RMSE for GCP 69 stepped on at stride 68 is 0.3455
+RMSE for GCP 70 stepped on at stride 69 is 0.3292
+RMSE for GCP 71 stepped on at stride 70 is 0.3091
+RMSE for GCP 72 stepped on at stride 71 is 0.2854
+RMSE for GCP 73 stepped on at stride 72 is 0.2478
+Average RMSE for all GCP strides in experiment 62 is 0.5222
+There are 72/72 strides detected in experiment #62.
+Experiment #62 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 88.494 meters in experiment #62.
+Travel time is 93.496 seconds in experiment #62.
+===================================================================================================================
+Total traveled distance in 1 hallway experiments (to be used for LLIO training/test) is 88.494 meters.
+Total traverse time in 1 hallway experiments (to be used for LLIO training/test) is 93.496s = 1.558mins.
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.
