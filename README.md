@@ -43,7 +43,7 @@ conda install scikit-learn==0.19.1
 ```
 
 ```
-conda install matplotlib
+conda install matplotlib==3.3.2
 ```
 
 ```
@@ -53,6 +53,14 @@ pip install pandas==1.1.5
 <h3>Installing <b>liegroups</b> package</h3>
 
 <p align="justify">After cloning this repository to your local computer, you must install <b><a href="https://github.com/utiasSTARS/liegroups" target="_blank">liegroups</a></b> package if you would like to reproduce the results shown here in this repo or the paper.</p>
+
+```
+git clone https://github.com/utiasSTARS/liegroups.git
+```
+
+```
+pip install .
+```
 
 <h3>Inertial Navigation System (INS) vs. Stride & Heading System</h3>
 
@@ -670,7 +678,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 61 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 61 video can be viewed <a href="https://www.youtube.com">here</a>. Slow pace walk.</p>
+<p align="justify">The experiment was carried out in Science Road (Engineering Building, 2<sup>nd</sup> floor). Slow pace walk by pedestrian 1. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/SAqctgk3cpU">viewing</a>. Should be compared to experiment 63 and 65.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -682,7 +690,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 62 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 62 video can be viewed <a href="https://www.youtube.com/shorts/nNdeDkryVOU">here</a>. Slow pace walk.</p>
+<p align="justify"><p align="justify">The experiment was carried out in the Martyr Teacher Necmettin Yilmaz Hallway. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/nNdeDkryVOU">viewing</a>. Slow pace walk.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -694,7 +702,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 63 (Compensated IMU data)</h4>
 
-<p align="justify">Experiment 63 video can be viewed <a href="https://www.youtube.com/shorts/V-1LTix4K7Y">here</a>. Middle pace walk.</p>
+<p align="justify">The experiment was carried out in Science Road (Engineering Building, 2<sup>nd</sup> floor). A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/V-1LTix4K7Y">viewing</a>. The pace is faster than experiment 61. Should be compared to experiment 61 and 65.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -704,9 +712,21 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_63_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_63_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 64 (Compensated IMU data)</h4>
+
+<p align="justify"><p align="justify">The experiment was carried out in the marty teacher Necmettin Yilmaz Hallway. No video available. The pace is faster than experiment 62. Should be compared to experiment 62 and 66.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_64_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_64_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_64_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_64_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 ```
-Total traveled distance in 40 hallway experiments is 3.36 km.
-Total traverse time in 40 hallway experiments is approximately 43.86 mins.
+Total traveled distance in 45 hallway experiments is 3.83 meters km.
+Total traverse time in 45 hallway experiments is approximately 50 mins.
 ```
 
 
