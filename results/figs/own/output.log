@@ -1732,3 +1732,115 @@ Total traverse time in 45 hallway experiments (to be used for LLIO training/test
 ===================================================================================================================
 There are 45 experiments processed.
 Processing complete for all files.
+===================================================================================================================
+Processing file data/own\SensorConnectData_65.csv
+GCP are available & correct for file SensorConnectData_65.
+Processing LSTM detector for file SensorConnectData_65.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_65.
+There are 92/92 strides detected in experiment #65.
+File SensorConnectData_65, i.e., experiment 65 will be used in performance evaluation.
+There are 93 GCP for file SensorConnectData_65, i.e., experiment 65.
+RMSE for GCP 1 stepped on at stride 0 is 0.0008
+RMSE for GCP 2 stepped on at stride 1 is 0.0199
+RMSE for GCP 3 stepped on at stride 2 is 0.0364
+RMSE for GCP 4 stepped on at stride 3 is 0.0484
+RMSE for GCP 5 stepped on at stride 4 is 0.0541
+RMSE for GCP 6 stepped on at stride 5 is 0.0645
+RMSE for GCP 7 stepped on at stride 6 is 0.1260
+RMSE for GCP 8 stepped on at stride 7 is 0.1445
+RMSE for GCP 9 stepped on at stride 8 is 0.1726
+RMSE for GCP 10 stepped on at stride 9 is 0.1981
+RMSE for GCP 11 stepped on at stride 10 is 0.2147
+RMSE for GCP 12 stepped on at stride 11 is 0.2265
+RMSE for GCP 13 stepped on at stride 12 is 0.2577
+RMSE for GCP 14 stepped on at stride 13 is 0.2740
+RMSE for GCP 15 stepped on at stride 14 is 0.2839
+RMSE for GCP 16 stepped on at stride 15 is 0.3092
+RMSE for GCP 17 stepped on at stride 16 is 0.3200
+RMSE for GCP 18 stepped on at stride 17 is 0.3673
+RMSE for GCP 19 stepped on at stride 18 is 0.4399
+RMSE for GCP 20 stepped on at stride 19 is 0.4687
+RMSE for GCP 21 stepped on at stride 20 is 0.4780
+RMSE for GCP 22 stepped on at stride 21 is 0.4962
+RMSE for GCP 23 stepped on at stride 22 is 0.5729
+RMSE for GCP 24 stepped on at stride 23 is 0.6305
+RMSE for GCP 25 stepped on at stride 24 is 0.6521
+RMSE for GCP 26 stepped on at stride 25 is 0.6542
+RMSE for GCP 27 stepped on at stride 26 is 0.6684
+RMSE for GCP 28 stepped on at stride 27 is 0.7288
+RMSE for GCP 29 stepped on at stride 28 is 0.7879
+RMSE for GCP 30 stepped on at stride 29 is 0.8452
+RMSE for GCP 31 stepped on at stride 30 is 0.8390
+RMSE for GCP 32 stepped on at stride 31 is 0.8471
+RMSE for GCP 33 stepped on at stride 32 is 0.8476
+RMSE for GCP 34 stepped on at stride 33 is 0.8494
+RMSE for GCP 35 stepped on at stride 34 is 0.8051
+RMSE for GCP 36 stepped on at stride 35 is 0.7570
+RMSE for GCP 37 stepped on at stride 36 is 0.7922
+RMSE for GCP 38 stepped on at stride 37 is 0.8226
+RMSE for GCP 39 stepped on at stride 38 is 0.8096
+RMSE for GCP 40 stepped on at stride 39 is 0.7868
+RMSE for GCP 41 stepped on at stride 40 is 0.7805
+RMSE for GCP 42 stepped on at stride 41 is 0.7501
+RMSE for GCP 43 stepped on at stride 42 is 0.6975
+RMSE for GCP 44 stepped on at stride 43 is 0.6228
+RMSE for GCP 45 stepped on at stride 44 is 0.6220
+RMSE for GCP 46 stepped on at stride 45 is 0.6024
+RMSE for GCP 47 stepped on at stride 46 is 0.5399
+RMSE for GCP 48 stepped on at stride 47 is 0.4530
+RMSE for GCP 49 stepped on at stride 48 is 0.4091
+RMSE for GCP 50 stepped on at stride 49 is 0.4083
+RMSE for GCP 51 stepped on at stride 50 is 0.3986
+RMSE for GCP 52 stepped on at stride 51 is 0.3381
+RMSE for GCP 53 stepped on at stride 52 is 0.2578
+RMSE for GCP 54 stepped on at stride 53 is 0.2396
+RMSE for GCP 55 stepped on at stride 54 is 0.2200
+RMSE for GCP 56 stepped on at stride 55 is 0.2318
+RMSE for GCP 57 stepped on at stride 56 is 0.2532
+RMSE for GCP 58 stepped on at stride 57 is 0.2800
+RMSE for GCP 59 stepped on at stride 58 is 0.2537
+RMSE for GCP 60 stepped on at stride 59 is 0.2020
+RMSE for GCP 61 stepped on at stride 60 is 0.1506
+RMSE for GCP 62 stepped on at stride 61 is 0.1435
+RMSE for GCP 63 stepped on at stride 62 is 0.1643
+RMSE for GCP 64 stepped on at stride 63 is 0.1953
+RMSE for GCP 65 stepped on at stride 64 is 0.2286
+RMSE for GCP 66 stepped on at stride 65 is 0.2494
+RMSE for GCP 67 stepped on at stride 66 is 0.2686
+RMSE for GCP 68 stepped on at stride 67 is 0.2679
+RMSE for GCP 69 stepped on at stride 68 is 0.3143
+RMSE for GCP 70 stepped on at stride 69 is 0.3528
+RMSE for GCP 71 stepped on at stride 70 is 0.3662
+RMSE for GCP 72 stepped on at stride 71 is 0.5032
+RMSE for GCP 73 stepped on at stride 72 is 0.5678
+RMSE for GCP 74 stepped on at stride 73 is 0.6011
+RMSE for GCP 75 stepped on at stride 74 is 0.5932
+RMSE for GCP 76 stepped on at stride 75 is 0.5967
+RMSE for GCP 77 stepped on at stride 76 is 0.6392
+RMSE for GCP 78 stepped on at stride 77 is 0.6511
+RMSE for GCP 79 stepped on at stride 78 is 0.6578
+RMSE for GCP 80 stepped on at stride 79 is 0.7463
+RMSE for GCP 81 stepped on at stride 80 is 0.8180
+RMSE for GCP 82 stepped on at stride 81 is 0.8087
+RMSE for GCP 83 stepped on at stride 82 is 0.8017
+RMSE for GCP 84 stepped on at stride 83 is 0.7754
+RMSE for GCP 85 stepped on at stride 84 is 0.7244
+RMSE for GCP 86 stepped on at stride 85 is 0.6518
+RMSE for GCP 87 stepped on at stride 86 is 0.5870
+RMSE for GCP 88 stepped on at stride 87 is 0.5928
+RMSE for GCP 89 stepped on at stride 88 is 0.7022
+RMSE for GCP 90 stepped on at stride 89 is 0.7976
+RMSE for GCP 91 stepped on at stride 90 is 0.8717
+RMSE for GCP 92 stepped on at stride 91 is 0.9175
+RMSE for GCP 93 stepped on at stride 92 is 0.9560
+Average RMSE for all GCP strides in experiment 65 is 0.4895
+There are 92/92 strides detected in experiment #65.
+Experiment #65 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 117.880 meters in experiment #65.
+Travel time is 114.495 seconds in experiment #65.
+===================================================================================================================
+Total traveled distance in 1 hallway experiments (to be used for LLIO training/test) is 117.880 meters.
+Total traverse time in 1 hallway experiments (to be used for LLIO training/test) is 114.495s = 1.908mins.
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.

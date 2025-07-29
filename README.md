@@ -714,7 +714,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 64 (Compensated IMU data)</h4>
 
-<p align="justify"><p align="justify">The experiment was carried out in the marty teacher Necmettin Yilmaz Hallway. No video available. The pace is faster than experiment 62. Should be compared to experiment 62 and 66.</p>
+<p align="justify"><p align="justify">The experiment was carried out in the marty teacher Necmettin Yilmaz Hallway. The pace is faster than experiment 62. Should be compared to experiment 62 and 66.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -723,6 +723,18 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 | Zero Velocity |  Trajectory (SHS) |
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_64_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_64_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 65 (Compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out in Science Road (Engineering Building, 2<sup>nd</sup> floor). Regular walking pace but the action track is not linear. Should be compared to experiment 61 and 63.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_65_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_65_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_65_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_65_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 ```
 Total traveled distance in 45 hallway experiments is 3.83 meters km.
