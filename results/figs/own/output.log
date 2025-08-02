@@ -1,58 +1,14 @@
 ===================================================================================================================
-Processing file data/own\SensorConnectData_1.csv
-GCP are available & correct for file SensorConnectData_1.
-Processing LSTM detector for file SensorConnectData_1.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_1.
-There are 39/47 strides detected in experiment #1.
-File SensorConnectData_1, i.e., experiment 1 will not be used in performance evaluation.
-There are 47/47 strides detected in experiment #1.
-Experiment #1 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 82.451 meters in experiment #1.
-Travel time is 54.998 seconds in experiment #1.
-===================================================================================================================
-Processing file data/own\SensorConnectData_10.csv
-GCP are available & correct for file SensorConnectData_10.
-Processing LSTM detector for file SensorConnectData_10.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_10.
-There are 30/54 strides detected in experiment #10.
-File SensorConnectData_10, i.e., experiment 10 will not be used in performance evaluation.
-There are 54/54 strides detected in experiment #10.
-Experiment #10 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 94.750 meters in experiment #10.
-Travel time is 43.994 seconds in experiment #10.
-===================================================================================================================
-Processing file data/own\SensorConnectData_11.csv
-GCP are available & correct for file SensorConnectData_11.
-Processing LSTM detector for file SensorConnectData_11.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_11.
-There are 34/56 strides detected in experiment #11.
-File SensorConnectData_11, i.e., experiment 11 will not be used in performance evaluation.
-There are 56/56 strides detected in experiment #11.
-Experiment #11 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 113.460 meters in experiment #11.
-Travel time is 52.493 seconds in experiment #11.
-===================================================================================================================
-Processing file data/own\SensorConnectData_2.csv
-GCP are available & correct for file SensorConnectData_2.
-Processing LSTM detector for file SensorConnectData_2.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_2.
-There are 35/37 strides detected in experiment #2.
-File SensorConnectData_2, i.e., experiment 2 will not be used in performance evaluation.
-There are 37/37 strides detected in experiment #2.
-Experiment #2 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 49.022 meters in experiment #2.
-Travel time is 52.993 seconds in experiment #2.
-===================================================================================================================
-Processing file data/own\SensorConnectData_3.csv
-GCP are available & correct for file SensorConnectData_3.
-Processing LSTM detector for file SensorConnectData_3.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_3.
-There are 54/67 strides detected in experiment #3.
-File SensorConnectData_3, i.e., experiment 3 will not be used in performance evaluation.
-There are 67/67 strides detected in experiment #3.
-Experiment #3 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 87.626 meters in experiment #3.
-Travel time is 74.498 seconds in experiment #3.
+Processing file data/own\SensorConnectData_30.csv
+GCP are available & correct for file SensorConnectData_30.
+Processing LSTM detector for file SensorConnectData_30.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_30.
+There are 34/56 strides detected in experiment #30.
+File SensorConnectData_30, i.e., experiment 30 will not be used in performance evaluation.
+There are 56/56 strides detected in experiment #30.
+Experiment #30 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 113.460 meters in experiment #30.
+Travel time is 52.493 seconds in experiment #30.
 ===================================================================================================================
 Processing file data/own\SensorConnectData_31.csv
 GCP are available & correct for file SensorConnectData_31.
@@ -137,7 +93,7 @@ RMSE for GCP 26 stepped on at stride 25 is 0.1736
 RMSE for GCP 27 stepped on at stride 26 is 0.4185
 RMSE for GCP 28 stepped on at stride 27 is 0.4122
 RMSE for GCP 29 stepped on at stride 28 is 0.4358
-RMSE for GCP 30 stepped on at stride 29 is 0.4597
+RMSE for GCP 30 stepped on at stride 29 is 0.4598
 RMSE for GCP 31 stepped on at stride 30 is 0.5152
 RMSE for GCP 32 stepped on at stride 31 is 0.5615
 RMSE for GCP 33 stepped on at stride 32 is 0.6264
@@ -145,7 +101,7 @@ RMSE for GCP 34 stepped on at stride 33 is 0.6899
 RMSE for GCP 35 stepped on at stride 34 is 0.7662
 RMSE for GCP 36 stepped on at stride 35 is 0.8568
 RMSE for GCP 37 stepped on at stride 36 is 0.9283
-RMSE for GCP 38 stepped on at stride 37 is 1.0033
+RMSE for GCP 38 stepped on at stride 37 is 1.0034
 RMSE for GCP 39 stepped on at stride 38 is 1.0921
 RMSE for GCP 40 stepped on at stride 39 is 1.1718
 RMSE for GCP 41 stepped on at stride 40 is 1.2795
@@ -190,14 +146,14 @@ RMSE for GCP 4 stepped on at stride 3 is 0.0774
 RMSE for GCP 5 stepped on at stride 4 is 0.1111
 RMSE for GCP 6 stepped on at stride 5 is 0.1341
 RMSE for GCP 7 stepped on at stride 6 is 0.1718
-RMSE for GCP 8 stepped on at stride 7 is 0.2061
-RMSE for GCP 9 stepped on at stride 8 is 0.2463
+RMSE for GCP 8 stepped on at stride 7 is 0.2060
+RMSE for GCP 9 stepped on at stride 8 is 0.2462
 RMSE for GCP 10 stepped on at stride 9 is 0.2696
-RMSE for GCP 11 stepped on at stride 10 is 0.3204
+RMSE for GCP 11 stepped on at stride 10 is 0.3203
 RMSE for GCP 12 stepped on at stride 11 is 0.3500
-RMSE for GCP 13 stepped on at stride 12 is 0.6571
-RMSE for GCP 14 stepped on at stride 13 is 1.4744
-RMSE for GCP 15 stepped on at stride 14 is 1.5088
+RMSE for GCP 13 stepped on at stride 12 is 0.6570
+RMSE for GCP 14 stepped on at stride 13 is 1.4743
+RMSE for GCP 15 stepped on at stride 14 is 1.5087
 RMSE for GCP 16 stepped on at stride 15 is 1.6245
 RMSE for GCP 17 stepped on at stride 16 is 1.6545
 RMSE for GCP 18 stepped on at stride 17 is 1.6897
@@ -208,12 +164,12 @@ RMSE for GCP 22 stepped on at stride 21 is 1.7314
 RMSE for GCP 23 stepped on at stride 22 is 1.7799
 RMSE for GCP 24 stepped on at stride 23 is 1.7872
 RMSE for GCP 25 stepped on at stride 24 is 1.7319
-RMSE for GCP 26 stepped on at stride 25 is 1.7387
+RMSE for GCP 26 stepped on at stride 25 is 1.7386
 RMSE for GCP 27 stepped on at stride 26 is 1.6468
 RMSE for GCP 28 stepped on at stride 27 is 1.5399
-RMSE for GCP 29 stepped on at stride 28 is 1.5432
+RMSE for GCP 29 stepped on at stride 28 is 1.5431
 RMSE for GCP 30 stepped on at stride 29 is 1.5740
-RMSE for GCP 31 stepped on at stride 30 is 1.5690
+RMSE for GCP 31 stepped on at stride 30 is 1.5689
 RMSE for GCP 32 stepped on at stride 31 is 1.5014
 RMSE for GCP 33 stepped on at stride 32 is 1.4414
 RMSE for GCP 34 stepped on at stride 33 is 1.3987
@@ -224,14 +180,14 @@ RMSE for GCP 38 stepped on at stride 37 is 1.3350
 RMSE for GCP 39 stepped on at stride 38 is 1.2761
 RMSE for GCP 40 stepped on at stride 39 is 1.2455
 RMSE for GCP 41 stepped on at stride 40 is 1.2509
-RMSE for GCP 42 stepped on at stride 41 is 1.2800
+RMSE for GCP 42 stepped on at stride 41 is 1.2799
 RMSE for GCP 43 stepped on at stride 42 is 1.3601
 RMSE for GCP 44 stepped on at stride 43 is 1.4154
 RMSE for GCP 45 stepped on at stride 44 is 1.4399
 RMSE for GCP 46 stepped on at stride 45 is 1.5033
 RMSE for GCP 47 stepped on at stride 46 is 1.5675
 RMSE for GCP 48 stepped on at stride 47 is 1.6136
-Average RMSE for all GCP strides in experiment 33 is 1.1683
+Average RMSE for all GCP strides in experiment 33 is 1.1682
 There are 47/47 strides detected in experiment #33.
 Experiment #33 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
 Traveled distance is 64.162 meters in experiment #33.
@@ -530,17 +486,6 @@ Experiment #39 is annotated stride-wise (GCP) & going to be used in LLIO trainin
 Traveled distance is 98.341 meters in experiment #39.
 Travel time is 99.991 seconds in experiment #39.
 ===================================================================================================================
-Processing file data/own\SensorConnectData_4.csv
-GCP are available & correct for file SensorConnectData_4.
-Processing LSTM detector for file SensorConnectData_4.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_4.
-There are 49/50 strides detected in experiment #4.
-File SensorConnectData_4, i.e., experiment 4 will not be used in performance evaluation.
-There are 50/50 strides detected in experiment #4.
-Experiment #4 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 57.928 meters in experiment #4.
-Travel time is 60.998 seconds in experiment #4.
-===================================================================================================================
 Processing file data/own\SensorConnectData_40.csv
 GCP are available & correct for file SensorConnectData_40.
 Processing LSTM detector for file SensorConnectData_40.
@@ -786,20 +731,20 @@ Plotting zero velocity detection for LSTM detector for file SensorConnectData_46
 There are 98/98 strides detected in experiment #46.
 File SensorConnectData_46, i.e., experiment 46 will be used in performance evaluation.
 There are 99 GCP for file SensorConnectData_46, i.e., experiment 46.
-RMSE for GCP 1 stepped on at stride 0 is 0.0019
+RMSE for GCP 1 stepped on at stride 0 is 0.0020
 RMSE for GCP 2 stepped on at stride 1 is 0.0510
 RMSE for GCP 3 stepped on at stride 2 is 0.0321
 RMSE for GCP 4 stepped on at stride 3 is 0.0120
 RMSE for GCP 5 stepped on at stride 4 is 0.0486
-RMSE for GCP 6 stepped on at stride 5 is 0.0913
-RMSE for GCP 7 stepped on at stride 6 is 0.1525
+RMSE for GCP 6 stepped on at stride 5 is 0.0912
+RMSE for GCP 7 stepped on at stride 6 is 0.1524
 RMSE for GCP 8 stepped on at stride 7 is 0.1706
 RMSE for GCP 9 stepped on at stride 8 is 0.1566
 RMSE for GCP 10 stepped on at stride 9 is 0.1432
 RMSE for GCP 11 stepped on at stride 10 is 0.2056
 RMSE for GCP 12 stepped on at stride 11 is 0.1879
 RMSE for GCP 13 stepped on at stride 12 is 0.1515
-RMSE for GCP 14 stepped on at stride 13 is 0.1811
+RMSE for GCP 14 stepped on at stride 13 is 0.1812
 RMSE for GCP 15 stepped on at stride 14 is 0.2116
 RMSE for GCP 16 stepped on at stride 15 is 0.2934
 RMSE for GCP 17 stepped on at stride 16 is 0.3793
@@ -818,43 +763,43 @@ RMSE for GCP 29 stepped on at stride 28 is 1.1688
 RMSE for GCP 30 stepped on at stride 29 is 1.0066
 RMSE for GCP 31 stepped on at stride 30 is 0.8407
 RMSE for GCP 32 stepped on at stride 31 is 0.7411
-RMSE for GCP 33 stepped on at stride 32 is 0.7041
+RMSE for GCP 33 stepped on at stride 32 is 0.7042
 RMSE for GCP 34 stepped on at stride 33 is 0.7265
-RMSE for GCP 35 stepped on at stride 34 is 0.7812
+RMSE for GCP 35 stepped on at stride 34 is 0.7813
 RMSE for GCP 36 stepped on at stride 35 is 0.8867
 RMSE for GCP 37 stepped on at stride 36 is 1.0903
-RMSE for GCP 38 stepped on at stride 37 is 1.2719
-RMSE for GCP 39 stepped on at stride 38 is 1.2063
+RMSE for GCP 38 stepped on at stride 37 is 1.2718
+RMSE for GCP 39 stepped on at stride 38 is 1.2062
 RMSE for GCP 40 stepped on at stride 39 is 1.1304
 RMSE for GCP 41 stepped on at stride 40 is 1.1640
-RMSE for GCP 42 stepped on at stride 41 is 1.2958
+RMSE for GCP 42 stepped on at stride 41 is 1.2957
 RMSE for GCP 43 stepped on at stride 42 is 1.4683
 RMSE for GCP 44 stepped on at stride 43 is 1.5813
 RMSE for GCP 45 stepped on at stride 44 is 1.6472
 RMSE for GCP 46 stepped on at stride 45 is 1.8562
 RMSE for GCP 47 stepped on at stride 46 is 2.2156
-RMSE for GCP 48 stepped on at stride 47 is 2.5993
+RMSE for GCP 48 stepped on at stride 47 is 2.5992
 RMSE for GCP 49 stepped on at stride 48 is 2.9641
 RMSE for GCP 50 stepped on at stride 49 is 3.3609
 RMSE for GCP 51 stepped on at stride 50 is 3.7362
 RMSE for GCP 52 stepped on at stride 51 is 4.1223
 RMSE for GCP 53 stepped on at stride 52 is 4.5303
-RMSE for GCP 54 stepped on at stride 53 is 4.9683
-RMSE for GCP 55 stepped on at stride 54 is 5.3927
+RMSE for GCP 54 stepped on at stride 53 is 4.9682
+RMSE for GCP 55 stepped on at stride 54 is 5.3926
 RMSE for GCP 56 stepped on at stride 55 is 5.8114
 RMSE for GCP 57 stepped on at stride 56 is 6.2113
 RMSE for GCP 58 stepped on at stride 57 is 6.5673
 RMSE for GCP 59 stepped on at stride 58 is 6.8859
 RMSE for GCP 60 stepped on at stride 59 is 7.2935
-RMSE for GCP 61 stepped on at stride 60 is 7.7984
+RMSE for GCP 61 stepped on at stride 60 is 7.7983
 RMSE for GCP 62 stepped on at stride 61 is 8.2430
-RMSE for GCP 63 stepped on at stride 62 is 8.6624
+RMSE for GCP 63 stepped on at stride 62 is 8.6623
 RMSE for GCP 64 stepped on at stride 63 is 9.1499
 RMSE for GCP 65 stepped on at stride 64 is 9.6606
 RMSE for GCP 66 stepped on at stride 65 is 10.1768
 RMSE for GCP 67 stepped on at stride 66 is 10.7014
 RMSE for GCP 68 stepped on at stride 67 is 11.1996
-RMSE for GCP 69 stepped on at stride 68 is 11.5244
+RMSE for GCP 69 stepped on at stride 68 is 11.5243
 RMSE for GCP 70 stepped on at stride 69 is 11.4790
 RMSE for GCP 71 stepped on at stride 70 is 11.4665
 RMSE for GCP 72 stepped on at stride 71 is 11.5120
@@ -866,21 +811,21 @@ RMSE for GCP 77 stepped on at stride 76 is 10.9171
 RMSE for GCP 78 stepped on at stride 77 is 10.7293
 RMSE for GCP 79 stepped on at stride 78 is 10.2640
 RMSE for GCP 80 stepped on at stride 79 is 9.8051
-RMSE for GCP 81 stepped on at stride 80 is 9.4073
+RMSE for GCP 81 stepped on at stride 80 is 9.4072
 RMSE for GCP 82 stepped on at stride 81 is 9.7340
 RMSE for GCP 83 stepped on at stride 82 is 10.3290
 RMSE for GCP 84 stepped on at stride 83 is 10.8965
-RMSE for GCP 85 stepped on at stride 84 is 11.1740
+RMSE for GCP 85 stepped on at stride 84 is 11.1739
 RMSE for GCP 86 stepped on at stride 85 is 11.0980
 RMSE for GCP 87 stepped on at stride 86 is 11.0981
-RMSE for GCP 88 stepped on at stride 87 is 11.0253
+RMSE for GCP 88 stepped on at stride 87 is 11.0252
 RMSE for GCP 89 stepped on at stride 88 is 10.9240
 RMSE for GCP 90 stepped on at stride 89 is 10.3826
 RMSE for GCP 91 stepped on at stride 90 is 9.7076
 RMSE for GCP 92 stepped on at stride 91 is 9.0754
 RMSE for GCP 93 stepped on at stride 92 is 8.6540
-RMSE for GCP 94 stepped on at stride 93 is 8.5314
-RMSE for GCP 95 stepped on at stride 94 is 8.8189
+RMSE for GCP 94 stepped on at stride 93 is 8.5313
+RMSE for GCP 95 stepped on at stride 94 is 8.8188
 RMSE for GCP 96 stepped on at stride 95 is 9.4523
 RMSE for GCP 97 stepped on at stride 96 is 10.1437
 RMSE for GCP 98 stepped on at stride 97 is 10.5738
@@ -1092,17 +1037,6 @@ There are 46/46 strides detected in experiment #49.
 Experiment #49 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
 Traveled distance is 58.206 meters in experiment #49.
 Travel time is 47.795 seconds in experiment #49.
-===================================================================================================================
-Processing file data/own\SensorConnectData_5.csv
-GCP are available & correct for file SensorConnectData_5.
-Processing LSTM detector for file SensorConnectData_5.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_5.
-There are 38/50 strides detected in experiment #5.
-File SensorConnectData_5, i.e., experiment 5 will not be used in performance evaluation.
-There are 50/50 strides detected in experiment #5.
-Experiment #5 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 87.736 meters in experiment #5.
-Travel time is 51.998 seconds in experiment #5.
 ===================================================================================================================
 Processing file data/own\SensorConnectData_50.csv
 GCP are available & correct for file SensorConnectData_50.
@@ -1434,17 +1368,6 @@ Experiment #59 is annotated stride-wise (GCP) & going to be used in LLIO trainin
 Traveled distance is 83.658 meters in experiment #59.
 Travel time is 97.492 seconds in experiment #59.
 ===================================================================================================================
-Processing file data/own\SensorConnectData_6.csv
-GCP are available & correct for file SensorConnectData_6.
-Processing LSTM detector for file SensorConnectData_6.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_6.
-There are 27/48 strides detected in experiment #6.
-File SensorConnectData_6, i.e., experiment 6 will not be used in performance evaluation.
-There are 48/48 strides detected in experiment #6.
-Experiment #6 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 102.786 meters in experiment #6.
-Travel time is 44.993 seconds in experiment #6.
-===================================================================================================================
 Processing file data/own\SensorConnectData_60.csv
 GCP are available & correct for file SensorConnectData_60.
 Processing LSTM detector for file SensorConnectData_60.
@@ -1460,9 +1383,160 @@ Processing file data/own\SensorConnectData_61.csv
 GCP are available & correct for file SensorConnectData_61.
 Processing LSTM detector for file SensorConnectData_61.
 Plotting zero velocity detection for LSTM detector for file SensorConnectData_61.
-There are 75/75 strides detected in experiment #61.
-File SensorConnectData_61, i.e., experiment 61 will be used in performance evaluation.
-There are 76 GCP for file SensorConnectData_61, i.e., experiment 61.
+There are 39/47 strides detected in experiment #61.
+File SensorConnectData_61, i.e., experiment 61 will not be used in performance evaluation.
+There are 47/47 strides detected in experiment #61.
+Experiment #61 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 82.451 meters in experiment #61.
+Travel time is 54.998 seconds in experiment #61.
+===================================================================================================================
+Processing file data/own\SensorConnectData_62.csv
+GCP are available & correct for file SensorConnectData_62.
+Processing LSTM detector for file SensorConnectData_62.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_62.
+There are 35/37 strides detected in experiment #62.
+File SensorConnectData_62, i.e., experiment 62 will not be used in performance evaluation.
+There are 37/37 strides detected in experiment #62.
+Experiment #62 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 49.022 meters in experiment #62.
+Travel time is 52.993 seconds in experiment #62.
+===================================================================================================================
+Processing file data/own\SensorConnectData_63.csv
+GCP are available & correct for file SensorConnectData_63.
+Processing LSTM detector for file SensorConnectData_63.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_63.
+There are 54/67 strides detected in experiment #63.
+File SensorConnectData_63, i.e., experiment 63 will not be used in performance evaluation.
+There are 67/67 strides detected in experiment #63.
+Experiment #63 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 87.626 meters in experiment #63.
+Travel time is 74.498 seconds in experiment #63.
+===================================================================================================================
+Processing file data/own\SensorConnectData_64.csv
+GCP are available & correct for file SensorConnectData_64.
+Processing LSTM detector for file SensorConnectData_64.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_64.
+There are 49/50 strides detected in experiment #64.
+File SensorConnectData_64, i.e., experiment 64 will not be used in performance evaluation.
+There are 50/50 strides detected in experiment #64.
+Experiment #64 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 57.535 meters in experiment #64.
+Travel time is 60.998 seconds in experiment #64.
+===================================================================================================================
+Processing file data/own\SensorConnectData_65.csv
+GCP are available & correct for file SensorConnectData_65.
+Processing LSTM detector for file SensorConnectData_65.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_65.
+There are 38/50 strides detected in experiment #65.
+File SensorConnectData_65, i.e., experiment 65 will not be used in performance evaluation.
+There are 50/50 strides detected in experiment #65.
+Experiment #65 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 87.736 meters in experiment #65.
+Travel time is 51.998 seconds in experiment #65.
+===================================================================================================================
+Processing file data/own\SensorConnectData_66.csv
+GCP are available & correct for file SensorConnectData_66.
+Processing LSTM detector for file SensorConnectData_66.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_66.
+There are 27/48 strides detected in experiment #66.
+File SensorConnectData_66, i.e., experiment 66 will not be used in performance evaluation.
+There are 48/48 strides detected in experiment #66.
+Experiment #66 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 102.786 meters in experiment #66.
+Travel time is 44.993 seconds in experiment #66.
+===================================================================================================================
+Processing file data/own\SensorConnectData_67.csv
+GCP are available & correct for file SensorConnectData_67.
+Processing LSTM detector for file SensorConnectData_67.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_67.
+There are 38/38 strides detected in experiment #67.
+File SensorConnectData_67, i.e., experiment 67 will be used in performance evaluation.
+There are 39 GCP for file SensorConnectData_67, i.e., experiment 67.
+RMSE for GCP 1 stepped on at stride 0 is 0.0004
+RMSE for GCP 2 stepped on at stride 1 is 0.0265
+RMSE for GCP 3 stepped on at stride 2 is 0.0333
+RMSE for GCP 4 stepped on at stride 3 is 0.0632
+RMSE for GCP 5 stepped on at stride 4 is 0.0964
+RMSE for GCP 6 stepped on at stride 5 is 0.0913
+RMSE for GCP 7 stepped on at stride 6 is 0.0730
+RMSE for GCP 8 stepped on at stride 7 is 0.0490
+RMSE for GCP 9 stepped on at stride 8 is 0.0216
+RMSE for GCP 10 stepped on at stride 9 is 0.1168
+RMSE for GCP 11 stepped on at stride 10 is 0.1620
+RMSE for GCP 12 stepped on at stride 11 is 0.2007
+RMSE for GCP 13 stepped on at stride 12 is 0.2350
+RMSE for GCP 14 stepped on at stride 13 is 0.3102
+RMSE for GCP 15 stepped on at stride 14 is 0.3275
+RMSE for GCP 16 stepped on at stride 15 is 0.2939
+RMSE for GCP 17 stepped on at stride 16 is 0.2618
+RMSE for GCP 18 stepped on at stride 17 is 0.2932
+RMSE for GCP 19 stepped on at stride 18 is 0.2906
+RMSE for GCP 20 stepped on at stride 19 is 0.2996
+RMSE for GCP 21 stepped on at stride 20 is 0.3874
+RMSE for GCP 22 stepped on at stride 21 is 0.4665
+RMSE for GCP 23 stepped on at stride 22 is 0.4229
+RMSE for GCP 24 stepped on at stride 23 is 0.4017
+RMSE for GCP 25 stepped on at stride 24 is 0.3184
+RMSE for GCP 26 stepped on at stride 25 is 0.2661
+RMSE for GCP 27 stepped on at stride 26 is 0.2624
+RMSE for GCP 28 stepped on at stride 27 is 0.3892
+RMSE for GCP 29 stepped on at stride 28 is 0.5169
+RMSE for GCP 30 stepped on at stride 29 is 0.6464
+RMSE for GCP 31 stepped on at stride 30 is 0.8314
+RMSE for GCP 32 stepped on at stride 31 is 1.0330
+RMSE for GCP 33 stepped on at stride 32 is 1.2705
+RMSE for GCP 34 stepped on at stride 33 is 1.5345
+RMSE for GCP 35 stepped on at stride 34 is 1.6408
+RMSE for GCP 36 stepped on at stride 35 is 1.6149
+RMSE for GCP 37 stepped on at stride 36 is 1.4138
+RMSE for GCP 38 stepped on at stride 37 is 1.1970
+RMSE for GCP 39 stepped on at stride 38 is 1.0900
+Average RMSE for all GCP strides in experiment 67 is 0.4859
+There are 38/38 strides detected in experiment #67.
+Experiment #67 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 43.471 meters in experiment #67.
+Travel time is 45.994 seconds in experiment #67.
+===================================================================================================================
+Processing file data/own\SensorConnectData_68.csv
+GCP are available & correct for file SensorConnectData_68.
+Processing LSTM detector for file SensorConnectData_68.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_68.
+There are 47/68 strides detected in experiment #68.
+File SensorConnectData_68, i.e., experiment 68 will not be used in performance evaluation.
+There are 68/68 strides detected in experiment #68.
+Experiment #68 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 86.800 meters in experiment #68.
+Travel time is 66.498 seconds in experiment #68.
+===================================================================================================================
+Processing file data/own\SensorConnectData_69.csv
+GCP are available & correct for file SensorConnectData_69.
+Processing LSTM detector for file SensorConnectData_69.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_69.
+There are 64/68 strides detected in experiment #69.
+File SensorConnectData_69, i.e., experiment 69 will not be used in performance evaluation.
+There are 68/68 strides detected in experiment #69.
+Experiment #69 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 84.296 meters in experiment #69.
+Travel time is 70.996 seconds in experiment #69.
+===================================================================================================================
+Processing file data/own\SensorConnectData_70.csv
+GCP are available & correct for file SensorConnectData_70.
+Processing LSTM detector for file SensorConnectData_70.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_70.
+There are 30/54 strides detected in experiment #70.
+File SensorConnectData_70, i.e., experiment 70 will not be used in performance evaluation.
+There are 54/54 strides detected in experiment #70.
+Experiment #70 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 94.750 meters in experiment #70.
+Travel time is 43.994 seconds in experiment #70.
+===================================================================================================================
+Processing file data/own\SensorConnectData_72.csv
+GCP are available & correct for file SensorConnectData_72.
+Processing LSTM detector for file SensorConnectData_72.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_72.
+There are 75/75 strides detected in experiment #72.
+File SensorConnectData_72, i.e., experiment 72 will be used in performance evaluation.
+There are 76 GCP for file SensorConnectData_72, i.e., experiment 72.
 RMSE for GCP 1 stepped on at stride 0 is 0.0001
 RMSE for GCP 2 stepped on at stride 1 is 0.0217
 RMSE for GCP 3 stepped on at stride 2 is 0.0431
@@ -1539,19 +1613,19 @@ RMSE for GCP 73 stepped on at stride 72 is 0.3521
 RMSE for GCP 74 stepped on at stride 73 is 0.3420
 RMSE for GCP 75 stepped on at stride 74 is 0.3269
 RMSE for GCP 76 stepped on at stride 75 is 0.3140
-Average RMSE for all GCP strides in experiment 61 is 0.5880
-There are 75/75 strides detected in experiment #61.
-Experiment #61 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 92.126 meters in experiment #61.
-Travel time is 98.995 seconds in experiment #61.
+Average RMSE for all GCP strides in experiment 72 is 0.5880
+There are 75/75 strides detected in experiment #72.
+Experiment #72 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 92.126 meters in experiment #72.
+Travel time is 98.995 seconds in experiment #72.
 ===================================================================================================================
-Processing file data/own\SensorConnectData_62.csv
-GCP are available & correct for file SensorConnectData_62.
-Processing LSTM detector for file SensorConnectData_62.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_62.
-There are 72/72 strides detected in experiment #62.
-File SensorConnectData_62, i.e., experiment 62 will be used in performance evaluation.
-There are 73 GCP for file SensorConnectData_62, i.e., experiment 62.
+Processing file data/own\SensorConnectData_73.csv
+GCP are available & correct for file SensorConnectData_73.
+Processing LSTM detector for file SensorConnectData_73.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_73.
+There are 72/72 strides detected in experiment #73.
+File SensorConnectData_73, i.e., experiment 73 will be used in performance evaluation.
+There are 73 GCP for file SensorConnectData_73, i.e., experiment 73.
 RMSE for GCP 1 stepped on at stride 0 is 0.0003
 RMSE for GCP 2 stepped on at stride 1 is 0.0222
 RMSE for GCP 3 stepped on at stride 2 is 0.0421
@@ -1587,7 +1661,7 @@ RMSE for GCP 32 stepped on at stride 31 is 0.6527
 RMSE for GCP 33 stepped on at stride 32 is 0.6676
 RMSE for GCP 34 stepped on at stride 33 is 0.7051
 RMSE for GCP 35 stepped on at stride 34 is 0.7770
-RMSE for GCP 36 stepped on at stride 35 is 0.7440
+RMSE for GCP 36 stepped on at stride 35 is 0.7441
 RMSE for GCP 37 stepped on at stride 36 is 0.7516
 RMSE for GCP 38 stepped on at stride 37 is 0.8123
 RMSE for GCP 39 stepped on at stride 38 is 0.7774
@@ -1624,122 +1698,42 @@ RMSE for GCP 69 stepped on at stride 68 is 0.3455
 RMSE for GCP 70 stepped on at stride 69 is 0.3292
 RMSE for GCP 71 stepped on at stride 70 is 0.3091
 RMSE for GCP 72 stepped on at stride 71 is 0.2854
-RMSE for GCP 73 stepped on at stride 72 is 0.2477
-Average RMSE for all GCP strides in experiment 62 is 0.5222
-There are 72/72 strides detected in experiment #62.
-Experiment #62 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 88.494 meters in experiment #62.
-Travel time is 93.496 seconds in experiment #62.
+RMSE for GCP 73 stepped on at stride 72 is 0.2478
+Average RMSE for all GCP strides in experiment 73 is 0.5222
+There are 72/72 strides detected in experiment #73.
+Experiment #73 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 88.494 meters in experiment #73.
+Travel time is 93.496 seconds in experiment #73.
 ===================================================================================================================
-Processing file data/own\SensorConnectData_63.csv
-GCP are available & correct for file SensorConnectData_63.
-Processing LSTM detector for file SensorConnectData_63.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_63.
-There are 56/58 strides detected in experiment #63.
-File SensorConnectData_63, i.e., experiment 63 will not be used in performance evaluation.
-There are 58/58 strides detected in experiment #63.
-Experiment #63 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 91.956 meters in experiment #63.
-Travel time is 61.993 seconds in experiment #63.
+Processing file data/own\SensorConnectData_74.csv
+GCP are available & correct for file SensorConnectData_74.
+Processing LSTM detector for file SensorConnectData_74.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_74.
+There are 56/58 strides detected in experiment #74.
+File SensorConnectData_74, i.e., experiment 74 will not be used in performance evaluation.
+There are 58/58 strides detected in experiment #74.
+Experiment #74 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 91.956 meters in experiment #74.
+Travel time is 61.993 seconds in experiment #74.
 ===================================================================================================================
-Processing file data/own\SensorConnectData_64.csv
-GCP are available & correct for file SensorConnectData_64.
-Processing LSTM detector for file SensorConnectData_64.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_64.
-There are 32/52 strides detected in experiment #64.
-File SensorConnectData_64, i.e., experiment 64 will not be used in performance evaluation.
-There are 52/52 strides detected in experiment #64.
-Experiment #64 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 88.657 meters in experiment #64.
-Travel time is 57.998 seconds in experiment #64.
+Processing file data/own\SensorConnectData_75.csv
+GCP are available & correct for file SensorConnectData_75.
+Processing LSTM detector for file SensorConnectData_75.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_75.
+There are 32/52 strides detected in experiment #75.
+File SensorConnectData_75, i.e., experiment 75 will not be used in performance evaluation.
+There are 52/52 strides detected in experiment #75.
+Experiment #75 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 88.657 meters in experiment #75.
+Travel time is 57.998 seconds in experiment #75.
 ===================================================================================================================
-Processing file data/own\SensorConnectData_7.csv
-GCP are available & correct for file SensorConnectData_7.
-Processing LSTM detector for file SensorConnectData_7.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_7.
-There are 38/38 strides detected in experiment #7.
-File SensorConnectData_7, i.e., experiment 7 will be used in performance evaluation.
-There are 39 GCP for file SensorConnectData_7, i.e., experiment 7.
-RMSE for GCP 1 stepped on at stride 0 is 0.0004
-RMSE for GCP 2 stepped on at stride 1 is 0.0265
-RMSE for GCP 3 stepped on at stride 2 is 0.0333
-RMSE for GCP 4 stepped on at stride 3 is 0.0632
-RMSE for GCP 5 stepped on at stride 4 is 0.0964
-RMSE for GCP 6 stepped on at stride 5 is 0.0913
-RMSE for GCP 7 stepped on at stride 6 is 0.0730
-RMSE for GCP 8 stepped on at stride 7 is 0.0490
-RMSE for GCP 9 stepped on at stride 8 is 0.0216
-RMSE for GCP 10 stepped on at stride 9 is 0.1168
-RMSE for GCP 11 stepped on at stride 10 is 0.1620
-RMSE for GCP 12 stepped on at stride 11 is 0.2007
-RMSE for GCP 13 stepped on at stride 12 is 0.2350
-RMSE for GCP 14 stepped on at stride 13 is 0.3102
-RMSE for GCP 15 stepped on at stride 14 is 0.3275
-RMSE for GCP 16 stepped on at stride 15 is 0.2939
-RMSE for GCP 17 stepped on at stride 16 is 0.2618
-RMSE for GCP 18 stepped on at stride 17 is 0.2932
-RMSE for GCP 19 stepped on at stride 18 is 0.2906
-RMSE for GCP 20 stepped on at stride 19 is 0.2996
-RMSE for GCP 21 stepped on at stride 20 is 0.3874
-RMSE for GCP 22 stepped on at stride 21 is 0.4665
-RMSE for GCP 23 stepped on at stride 22 is 0.4229
-RMSE for GCP 24 stepped on at stride 23 is 0.4017
-RMSE for GCP 25 stepped on at stride 24 is 0.3184
-RMSE for GCP 26 stepped on at stride 25 is 0.2661
-RMSE for GCP 27 stepped on at stride 26 is 0.2624
-RMSE for GCP 28 stepped on at stride 27 is 0.3892
-RMSE for GCP 29 stepped on at stride 28 is 0.5169
-RMSE for GCP 30 stepped on at stride 29 is 0.6464
-RMSE for GCP 31 stepped on at stride 30 is 0.8314
-RMSE for GCP 32 stepped on at stride 31 is 1.0330
-RMSE for GCP 33 stepped on at stride 32 is 1.2705
-RMSE for GCP 34 stepped on at stride 33 is 1.5345
-RMSE for GCP 35 stepped on at stride 34 is 1.6408
-RMSE for GCP 36 stepped on at stride 35 is 1.6149
-RMSE for GCP 37 stepped on at stride 36 is 1.4138
-RMSE for GCP 38 stepped on at stride 37 is 1.1970
-RMSE for GCP 39 stepped on at stride 38 is 1.0900
-Average RMSE for all GCP strides in experiment 7 is 0.4859
-There are 38/38 strides detected in experiment #7.
-Experiment #7 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 43.471 meters in experiment #7.
-Travel time is 45.994 seconds in experiment #7.
-===================================================================================================================
-Processing file data/own\SensorConnectData_8.csv
-GCP are available & correct for file SensorConnectData_8.
-Processing LSTM detector for file SensorConnectData_8.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_8.
-There are 47/68 strides detected in experiment #8.
-File SensorConnectData_8, i.e., experiment 8 will not be used in performance evaluation.
-There are 68/68 strides detected in experiment #8.
-Experiment #8 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 86.800 meters in experiment #8.
-Travel time is 66.498 seconds in experiment #8.
-===================================================================================================================
-Processing file data/own\SensorConnectData_9.csv
-GCP are available & correct for file SensorConnectData_9.
-Processing LSTM detector for file SensorConnectData_9.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_9.
-There are 64/68 strides detected in experiment #9.
-File SensorConnectData_9, i.e., experiment 9 will not be used in performance evaluation.
-There are 68/68 strides detected in experiment #9.
-Experiment #9 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 84.296 meters in experiment #9.
-Travel time is 70.996 seconds in experiment #9.
-===================================================================================================================
-Total traveled distance in 45 hallway experiments (to be used for LLIO training/test) is 3832.808 meters.
-Total traverse time in 45 hallway experiments (to be used for LLIO training/test) is 2996.646s = 49.944mins.
-===================================================================================================================
-There are 45 experiments processed.
-Processing complete for all files.
-===================================================================================================================
-Processing file data/own\SensorConnectData_65.csv
-GCP are available & correct for file SensorConnectData_65.
-Processing LSTM detector for file SensorConnectData_65.
-Plotting zero velocity detection for LSTM detector for file SensorConnectData_65.
-There are 92/92 strides detected in experiment #65.
-File SensorConnectData_65, i.e., experiment 65 will be used in performance evaluation.
-There are 93 GCP for file SensorConnectData_65, i.e., experiment 65.
+Processing file data/own\SensorConnectData_76.csv
+GCP are available & correct for file SensorConnectData_76.
+Processing LSTM detector for file SensorConnectData_76.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_76.
+There are 92/92 strides detected in experiment #76.
+File SensorConnectData_76, i.e., experiment 76 will be used in performance evaluation.
+There are 93 GCP for file SensorConnectData_76, i.e., experiment 76.
 RMSE for GCP 1 stepped on at stride 0 is 0.0008
 RMSE for GCP 2 stepped on at stride 1 is 0.0199
 RMSE for GCP 3 stepped on at stride 2 is 0.0364
@@ -1833,14 +1827,14 @@ RMSE for GCP 90 stepped on at stride 89 is 0.7976
 RMSE for GCP 91 stepped on at stride 90 is 0.8717
 RMSE for GCP 92 stepped on at stride 91 is 0.9175
 RMSE for GCP 93 stepped on at stride 92 is 0.9560
-Average RMSE for all GCP strides in experiment 65 is 0.4895
-There are 92/92 strides detected in experiment #65.
-Experiment #65 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
-Traveled distance is 117.880 meters in experiment #65.
-Travel time is 114.495 seconds in experiment #65.
+Average RMSE for all GCP strides in experiment 76 is 0.4895
+There are 92/92 strides detected in experiment #76.
+Experiment #76 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 117.880 meters in experiment #76.
+Travel time is 114.495 seconds in experiment #76.
 ===================================================================================================================
-Total traveled distance in 1 hallway experiments (to be used for LLIO training/test) is 117.880 meters.
-Total traverse time in 1 hallway experiments (to be used for LLIO training/test) is 114.495s = 1.908mins.
+Total traveled distance in 46 hallway experiments (to be used for LLIO training/test) is 3950.295 meters.
+Total traverse time in 46 hallway experiments (to be used for LLIO training/test) is 3111.142s = 51.852mins.
 ===================================================================================================================
-There are 1 experiments processed.
+There are 46 experiments processed.
 Processing complete for all files.

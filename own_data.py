@@ -147,8 +147,8 @@ for file in sensor_data_files:
     # extract the number after _ in base_filename
     expNumberData = int(base_filename.split('_')[1])
     # calibrated (200Hz) vs. compensated (250Hz) IMU data experiments
-    calibratedIMUdata = expNumberData > 10 and expNumberData <= 40
-    compensatedIMUdata = expNumberData <= 10 or expNumberData > 40
+    calibratedIMUdata = expNumberData >= 30 and expNumberData <= 40
+    compensatedIMUdata = expNumberData > 40
     # Extract the relevant columns from csv data files (SensorConnect by LORD Microstrain)
     timestamps = sensor_data['Time'].values
     if calibratedIMUdata: # calibrated imu data at 200Hz that is compatible with PyShoe LSTM detector
@@ -182,7 +182,7 @@ for file in sensor_data_files:
     GCP_stride_numbers = np.squeeze(GCP_data['GCP_stride_numbers'])
     numberOfStrides =  GCP_data['numberOfStrides'].item() # total number of strides is equal to the last GCP stride number, i.e., GCP_stride_numbers[-1]
     
-    if expNumber <= 70: # update this statement later to include only the experiments that are manually annotated for LLIO training
+    if expNumber >= 30: # update this statement later to include only the experiments that are manually annotated for LLIO training
         extract_LLIO_training_data = True
 
     # Initialize INS object with correct parameters - adopted the exact parameters used in PyShoe research (makes sense as our sensor is in the same family)
@@ -227,11 +227,11 @@ for file in sensor_data_files:
     
     # MANUAL ANNOTATION OF STRIDE INDEXES for EXPERIMENTS THAT MISSED ANY STRIDE DETECTION w/ PyShoe IN THE FIRST THREE STRIDES
     # missed stride numbers are counted at MATLAB side and correponding indexes are retrieved by using timestamp values as index at MATLAB side
-    if expNumber == 4: # not a running motion experiment (missed the very first stride detection w/ PyShoe LSTM)
+    if expNumber == 64: # not a running motion experiment (missed the very first stride detection w/ PyShoe LSTM)
         missedStride = [1]; missedStrideIndex = [502]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    # if expNumber == 5: # extreme running motion experiment
+    # if expNumber == 65: # extreme running motion experiment
     #     missedStride = [1, 2, *range(8,16), *range(17,23), *range(25,29), 30, 32, 33, *range(35,47)]
     #     missedStrideIndex = [175, 278, 883, 972, 1061, 1147, 1237, 1327, 1417, 1507, 1665, 1737, 1809, 
     #                          1885, 1957, 2031, 2256, 2327, 2402, 2486, 2634, 2786, 2857, 2979, 3041, 
@@ -275,7 +275,7 @@ for file in sensor_data_files:
     # Align the trajectory wrt the selected stride - obsolete (this is an arbitrary rotation to align the trajectory along with x axis)
     # Align the trajectory wrt the selected GCP - this is a rotation from navigation coordinate frame to world-fix coordinate frame
     strideAlign = 3; GCP_align = strideAlign
-    if expNumber in [4, 40, 57, 58]:
+    if expNumber in [40, 57, 58, 64]:
         strideAlign = 10; GCP_align = strideAlign
     elif expNumber in [53, 54]: # Exp#51, 53, 54, 55, 56 are running motion
         strideAlign = 1; GCP_align = strideAlign
@@ -456,18 +456,18 @@ for file in sensor_data_files:
     
     #################### MANUAL STRIDE INDEX ANNOTATION (IN CASE OF PYSHOE (LSTM) MISSES ZV INTERVALS) ##########################
     # missed stride numbers are counted at MATLAB side and correponding indexes are retrieved by using timestamp values as index at MATLAB side
-    if expNumber == 1:
+    if expNumber == 61:
         strideIndex[4] = 1318
         missedStride = [37, 38, 39, 40, 41, 42, 43, 44]
         missedStrideIndex = [9047, 9211, 9374, 9530, 9685, 9839, 9993, 10153]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 2:
+    elif expNumber == 62:
         missedStride = [4, 11]
         missedStrideIndex = [1566, 3638]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 3:
+    elif expNumber == 63:
         strideIndex[46] = 11804
         missedStride = [40, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
         missedStrideIndex = [10411, 12089, 12385, 12540, 12694, 12831, 12961, 13096, 13231, 13366, 13502, 13631, 13759]
@@ -477,18 +477,18 @@ for file in sensor_data_files:
     #     missedStride = [1]; missedStrideIndex = [502]
     #     for i in range(len(missedStride)):
     #         strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 5:
+    elif expNumber == 65:
         strideIndex[1] = 649; strideIndex[37] = 8315
         missedStride = [*range(38,50)]; missedStrideIndex = [8481, 8634, 8772, 8905, 9025, 9141, 9256, 9367,9506, 9650, 9813, 9981]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 6:
+    elif expNumber == 66:
         missedStride = [16, 17, 19, *range(21,29), 30, 33, 35, *range(39,46)]
         missedStrideIndex = [3855, 4029, 4350, 4669, 4823, 4981, 5137, 5292, 5445, 5608, 5766, 6080, 6566, 
                              6881, 7435, 7567, 7706, 7819, 7936, 8063, 8202]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 8:
+    elif expNumber == 68:
         missedStride = [29, 32, *range(41,45), *range(46,61)]
         missedStrideIndex = [6310, 6797, 8511, 8667, 8809, 8953, 9281, 9427, 9580, 9732, 9880, 10022, 10159, 10296, 10440, 10579, 10720, 10859, 10990, 11126, 11261]
         for i in range(len(missedStride)):
@@ -500,19 +500,19 @@ for file in sensor_data_files:
             strideIndex[idx] = value
         # strideIndex[1] = 393; strideIndex[2] = 629; strideIndex[6] = 1582; strideIndex[10] = 2491; strideIndex[12] = 2949; strideIndex[13] = 3183; 
         # strideIndex[25] = 5550; strideIndex[26] = 5762; strideIndex[61] = 11462; strideIndex[62] = 11679; strideIndex[64] = 12166; strideIndex[65] = 12410
-    elif expNumber == 9:
+    elif expNumber == 69:
         strideIndex = np.delete(strideIndex, -2)
         missedStride = [25, 33, 45, 54, 55]
         missedStrideIndex = [6167, 7922, 10524, 12042, 12168]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 10:
+    elif expNumber == 70:
         missedStride = [*range(6,12), 17, *range(21,26), 28, *range(31,34), 35, 37, 38, 42, 44, 46, 49, 50]
         missedStrideIndex = [1635, 1789, 1941, 2079, 2224, 2363, 3174, 3840, 3981, 4124, 4265, 4416, 4872, 5312, 5453, 5583,
                              5848, 6110, 6242, 6772, 7084, 7389, 7848, 7992]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 11:
+    elif expNumber == 30:
         missedStride = [7, *range(13,16), *range(17,21), 29, 30, 33, *range(35,44), 48, 50]
         missedStrideIndex = [1905, 3035, 3210, 3377, 3714, 3880, 4044, 4212, 5808, 5985, 6509, 6803, 6931, 7049, 7159, 7265, 
                              7371, 7488, 7620, 7777, 8677, 9057]
@@ -649,12 +649,12 @@ for file in sensor_data_files:
         missedStrideIndex = [2330, 5726, 5899, 6247, 6417, 6770, 7106, 7280, 7448, 7779, 7947]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
-    elif expNumber == 63:
+    elif expNumber == 74:
         missedStride = [40, 55]
         missedStrideIndex = [8760, 11574]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i])
-    elif expNumber == 64:
+    elif expNumber == 75:
         missedStride = [16, 18, 25, 26, 30, 32, 37, *range(39,52)]
         missedStrideIndex = [4545, 4971, 6599, 6786, 7620, 8015, 9002, 9350, 9527, 9682, 9835, 9988, 10135, 10284, 10426, 10583, 10736, 10886, 11040, 11230]
         for i in range(len(missedStride)):
@@ -662,7 +662,7 @@ for file in sensor_data_files:
     
     ############################### CORRECTED PLOTS ########################################
     # these experiments either needed stride index correction or introduction
-    if expNumber in [*range(1,11), 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60, 63, 64]:
+    if expNumber in [30, 32, 33, 34, 35, 36, 37, 38, 40, 42, 43, 44, 45, 51, 53, 54, 55, 56, 59, 60, *range(61,71), 74, 75]:
         # Plot annotated stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity
         plt.figure()
         if calibratedIMUdata:
