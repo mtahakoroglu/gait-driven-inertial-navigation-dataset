@@ -158,14 +158,14 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h3>Training Dataset Expansion/Enlargement for LLIO</h3>
 
-<p align="justify">Here PyShoe (pre-trained LSTM based INS) is applied on our own-collected data for stride index extraction, which is required for LLIO training. In the experiments, we used <a href="https://www.microstrain.com/sites/default/files/applications/files/3dm-gx5-25_datasheet_8400-0093_rev_n.pdf">3DM-GX5-25</a> Lord Microstrain IMU with the sensor <a href="https://www.youtube.com/shorts/olD6FWZON0w">data acquisition &  capture software</a> <a href="https://www.microstrain.com/software/sensorconnect">SensorConnect</a>. Notice that the employed IMU is of the same brand (and the family as well) that is used in PyShoe experiments. In this regard, expanded data are expected to be compatible with VICON room data in terms of data properties (e.g., distribution of data).</p>
+<p align="justify">Here PyShoe (pre-trained LSTM based INS) is applied on our own-collected data for stride index extraction, which is required for LLIO training. In the experiments, we used <a href="https://www.microstrain.com/sites/default/files/applications/files/3dm-gx5-25_datasheet_8400-0093_rev_n.pdf">3DM-GX5-25</a> Lord Microstrain IMU with the sensor <a href="https://www.youtube.com/shorts/olD6FWZON0w">data acquisition &  capture software</a> <a href="https://www.microstrain.com/software/sensorconnect">SensorConnect</a>. Notice that the employed IMU is of the same brand (and the family as well) that is used in PyShoe experiments. In this regard, expanded data are expected to be compatible with Vicon room data in terms of data properties (e.g., distribution of data).</p>
 
 | 3DM-GX5-25 Sensor | SensorConnect software screen |
 | :---: | :---: |
-| <img src="https://www.zse.de/db_pics/shop_content/500x500/3dm-gx5-25.png" alt="3DM-GX5-25" width=auto height=200> | <img src="https://www.microstrain.com/sites/default/files/bitmap.png" alt="SensorConnect" width=auto height=200> |
+| <img src="https://www.zse.de/db_pics/shop_content/500x500/3dm-gx5-25.png" alt="3DM-GX5-25" width=auto height=200> | <img src="https://media.hbkworld.com/transform/ed18b7dd-5d1f-46f7-9e7d-825668fb2bb5/SensorConnect-Cafe?io=transform:fill,width:1024&quality=80" alt="SensorConnect" width=auto height=200> |
 
 
-<p align="justify">Experiments conducted here are manually <a href="https://www.dropbox.com/scl/fo/xl6szvjqfh129hxdpxas4/AGWk_iRdc8VASGbUhnKX1Vw?rlkey=9sbdq6vkctspe633cvb5a1jdh&st=gcj793t0&dl=0">annotated by using a tape measure</a>. As the Vicon room experiments of PyShoe dataset is characteristically very different than hallway traversals, proposed <a href="https://github.com/mtahakoroglu/LLIO">LLIO</a> system required a bigger dataset that accounts for straight walk gait characteristics (at various walking paces). Additionally, realistic experiments (e.g., faster motion, change in speed during the experiment, walking backwards and sideways) are conducted to make the dataset more diverse. Eventually the data-driven INS built on this dataset would be robust.</p>
+<p align="justify">Conducted experiments are manually <a href="https://www.dropbox.com/scl/fo/xl6szvjqfh129hxdpxas4/AGWk_iRdc8VASGbUhnKX1Vw?rlkey=9sbdq6vkctspe633cvb5a1jdh&st=gcj793t0&dl=0">annotated by using a tape measure</a>. As the Vicon room experiments of PyShoe dataset is characteristically very different than hallway traversals, proposed <a href="https://github.com/mtahakoroglu/gait-data-driven-INS">gait-driven</a> learning-based INSs would require a bigger dataset that accounts for straight walk gait characteristics (at various walking paces). Additionally, realistic experiments (e.g., faster motion, change in speed during the experiment, walking backwards and sideways) are performed to make the dataset more diverse. Eventually the data-driven INSs built on this dataset would be robust.</p>
 
 <p align="justify">Similar to the notation used for Vicon room experiments, the start point is called as stride #0, i.e., initial stride. If <b>vicon_data.py</b> is viewed, one can see that ZV labels are (intuitively) filtered for accurate stride index detection. However, the filtered ZV values are not used in the trajectory generation. In other words, the pedestrian trajectories are obtained with the raw (not filtered) LSTM based PyShoe generated ZV labels while the strides that are visualized on the trajectories with marker <b>x</b> correspond to the last index of the ZV intervals of the filtered ZV signals (i.e., stride index).</p>
 
@@ -176,17 +176,17 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <p align="justify"><b>Note:</b> One can run <b>own_data.py</b> to obtain the same results shown below. To learn more about experiment info and results, one can view <b>output.txt</b> log file (located at <b>results/figs/own</b>) recorded while the code was running.</p>
 
-<p align="justify">Past experiments are conducted without GCP data annotation. For this reason, they are not listed here.</p>
+<p align="justify">Past experiments (i.e., actions tracks until experiment #30, exclusive) are conducted without GCP data annotation. For this reason, they are not listed here.</p>
 
 <h4>Experiment 30 (calibrated IMU data)</h4>
 
 <p align="justify">The experiment was carried out by Pedestrian 1 in Science Road (Engineering Building, 2<sup>nd</sup> floor). Walking & running (sudden acceleration, sprinting at max speed for short time) motions are performed. Video of the action trajectory is not available for this experiment.</p>
 
-| Stride Indexes |  Trajectory (INS)  |
+| Stride Indexes |  Trajectory (sample-wise)  |
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_30_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_30_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-| Zero Velocity |  Trajectory (SHS) |
+| Zero Velocity |  Trajectory (stride-wise) |
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_30_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_30_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
