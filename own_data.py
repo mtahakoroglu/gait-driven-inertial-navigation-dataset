@@ -187,15 +187,15 @@ for file in sensor_data_files:
 
     # Initialize INS object with correct parameters - adopted the exact parameters used in PyShoe research (makes sense as our sensor is in the same family)
     if calibratedIMUdata:
-        ins = INS(imu_data.values, sigma_a=0.00098, sigma_w=8.7266463e-5, T=1.0/200)
+        ins = INS(imu_data.values) # sigma_a=0.00098, sigma_w=8.7266463e-5, T=1.0/200
     elif compensatedIMUdata:
-        ins = INS(imu_data, sigma_a=0.00098, sigma_w=8.7266463e-5, T=1.0/200)
+        ins = INS(imu_data) # sigma_a=0.00098, sigma_w=8.7266463e-5, T=1.0/200
 
     traj_list, zv_list = [], []
     for i, detector in enumerate(det_list):
         logging.info(f"Processing {detector.upper()} detector for file {base_filename}.")
         zv = ins.Localizer.compute_zv_lrt(W=W_list[i], G=thresh_list[i], detector=detector)
-        x, acc_n = ins.baseline(zv=zv)
+        x, acc_n = ins.baseline(detector=detector, zv=zv) # ins.baseline(zv=zv)
         traj_list.append(x)
         zv_list.append(zv)
 

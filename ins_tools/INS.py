@@ -3,7 +3,7 @@ from ins_tools.util import *
 from ins_tools.EKF import Localizer
 
 class INS():
-    def __init__(self, imudata, sigma_a=0.01, sigma_w=0.1*np.pi/180, T=1.0/125, dt=None):
+    def __init__(self, imudata, sigma_a=0.01, sigma_w=0.1*np.pi/180, T=1.0/200, dt=None): # T=1.0/125
         self.config = {
         "sigma_a": sigma_a,
         "sigma_w": sigma_w,
@@ -38,7 +38,7 @@ class INS():
         
         self.H = np.zeros((3,9))
         self.H[0:3,3:6] = np.identity(3)
-        self.config["H"]= self.H        
+        self.config["H"]= self.H
         
         self.Localizer = Localizer(self.config, imudata)
         
@@ -67,17 +67,17 @@ class INS():
             x_check[k,:], q[k,:], Rot, acc_n = self.Localizer.nav_eq(x_check[k-1,:], imudata[k,:], q[k-1,:], dt) # update state through motion model
             acc_n_list.append(acc_n)
             
-            F, G = self.Localizer.state_update(imudata[k,:], q[k-1,:], dt) 
+            F, G = self.Localizer.state_update(imudata[k,:], q[k-1,:], dt)
         
             P[k,:,:] = (F.dot(P[k-1,:,:])).dot(F.T) + (G.dot(self.Q)).dot(G.T)
             P[k,:,:] = (P[k,:,:] + P[k,:,:].T)/2 # make symmetric
             # corrector
-            if self.zv[k] == True: 
-                x_hat[k,:], P[k,:,:], q[k,:] = self.Localizer.corrector(x_check[k,:], P[k,:,:], Rot )
+            if self.zv[k] == True:
+                x_hat[k,:], P[k,:,:], q[k,:] = self.Localizer.corrector(x_check[k,:], P[k,:,:], Rot)
             else:
                 x_hat[k,:] = x_check[k,:]
             self.x[k,:] = x_hat[k,:]
-        self.x[:,2] = -self.x[:,2] 
+        self.x[:,2] = -self.x[:,2]
         self.rot = self.x[:,6:9]
         self.q = q
         self.P = P

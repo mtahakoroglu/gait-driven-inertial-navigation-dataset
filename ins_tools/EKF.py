@@ -5,7 +5,7 @@ import ins_tools.SVM as SVM # remove if there is no sci-kit-learn installation
 from ins_tools.util import *
 from ins_tools.geometry_helpers import quat2mat, mat2quat, euler2quat, quat2euler
 from sklearn.externals import joblib
-from ins_tools.LSTM import BiLSTM
+from ins_tools.LSTM import LSTM, BiLSTM
 import sys
 sys.path.append('../')
 
@@ -17,6 +17,7 @@ class Localizer():
         self.ts = None
         self.count=1
         self.bilstm_model = BiLSTM()
+        self.lstm_model = LSTM()
 
     def set_gt(self, gt):
         self.gt = gt  # Method to set the gt attribute later
@@ -61,11 +62,11 @@ class Localizer():
             q_out = qin
 
         attitude = quat2euler(q_out,'sxyz') # update euler angles
-        x_out[6:9] = attitude    
+        x_out[6:9] = attitude
         
         Rot_out = quat2mat(q_out) # get rotation matrix from quat
-        acc_n = Rot_out.dot(imu[0:3]) # transform acc to navigation frame,  
-        acc_n = acc_n + np.array([0,0,self.config["g"]]) # removing gravity (by adding)
+        acc_n = Rot_out.dot(imu[0:3]) # transform acc from body to navigation frame,
+        acc_n = acc_n + np.array([0,0,self.config["g"]]) # removing gravity (by adding) - specific force
         
         x_out[3:6] += dt*acc_n # velocity update
         x_out[0:3] += dt*x_out[3:6] +0.5*np.power(dt,2)*acc_n # position update
@@ -80,7 +81,7 @@ class Localizer():
         Rot = quat2mat(q)
         imu_r = Rot.dot(imu[0:3])
         f_skew = np.array([[0,-imu_r[2],imu_r[1]],[imu_r[2],0,-imu_r[0]],[-imu_r[1],imu_r[0],0]])
-        F[3:6,6:9] = -dt*f_skew 
+        F[3:6,6:9] = -dt*f_skew
         
         G = np.zeros((9,6))
         G[3:6,0:3] = dt*Rot
