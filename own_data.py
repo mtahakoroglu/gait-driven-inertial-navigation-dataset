@@ -127,6 +127,7 @@ def downsample(data, original_freq, target_freq):
 extract_LLIO_training_data = False # used to save csv files for LLIO SHS training (displacement, heading change) and (stride indexes, timestamps, GCP stride coordinates)
 traveled_distances = [] # to keep track of the traveled distances in each experiment for LLIO training data generation
 traverse_times = [] # to keep track of experiment times and eventually total experiment time for LLIO training data generation
+total_strides_list = [] # to keep track of the total strides made in each experiment for LLIO training data generation
 number_of_stride_wise_verified_experiments = 0 # detected stride points must be equal to the actual number
 
 g = 9.8029 # gravity constant
@@ -707,8 +708,11 @@ for file in sensor_data_files:
         logging.info(f"Traveled distance is {traveled_distance:.3f} meters in experiment #{expNumber}.")
         traverse_time = timestamps[-1] - timestamps[0]
         logging.info(f"Travel time is {traverse_time:.3f} seconds in experiment #{expNumber}.")
+        strides_made = numberOfStrides
+        logging.info(f"Number of strides made is {strides_made} in experiment #{expNumber}.")
         traveled_distances.append(traveled_distance) # sum all traveled distances cumulatively to get the total distance made in the experiments for LLIO training
         traverse_times.append(traverse_time) # sum all traversal times cumulatively to obtain the total experiment time for LLIO training
+        total_strides_list.append(strides_made) # sum all strides cumulatively to get the total strides made in the experiments for LLIO training
         
         # imu_data = imu_data.values
         # accX = imu_data[:,0]; accY = imu_data[:,1]; accZ = imu_data[:,2]
@@ -738,10 +742,12 @@ for file in sensor_data_files:
             sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_nontraining_data/{base_filename}_LLIO_nontraining_data.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'imu_data': imu_data})
 
-total_distance, total_traverse_time = sum(traveled_distances), sum(traverse_times)
+total_distance, total_traverse_time, total_strides = sum(traveled_distances), sum(traverse_times), sum(total_strides_list)
 logging.info(f"===================================================================================================================")
-logging.info(f"Total traveled distance in {number_of_stride_wise_verified_experiments} hallway experiments (to be used for LLIO training/test) is {total_distance:.3f} meters.")
-logging.info(f"Total traverse time in {number_of_stride_wise_verified_experiments} hallway experiments (to be used for LLIO training/test) is {total_traverse_time:.3f}s = {total_traverse_time/60:.3f}mins.")
+logging.info(f"Total of {number_of_stride_wise_verified_experiments} hallway experiments conducted.")
+logging.info(f"Total traveled distance is {total_distance:.3f} meters.")
+logging.info(f"Total traverse time is {total_traverse_time:.3f}s = {total_traverse_time/60:.3f}mins.")
+logging.info(f"Total strides made: {total_strides}")
 logging.info(f"===================================================================================================================")
 logging.info(f"There are {expCount} experiments processed.")
 logging.info("Processing complete for all files.")
