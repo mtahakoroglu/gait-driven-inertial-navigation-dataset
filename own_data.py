@@ -722,14 +722,14 @@ for file in sensor_data_files:
         if calibratedIMUdata:
             sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_LLIO.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'GCP': GCP, 'imu_data': imu_data.values, 
-                        'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n,
+                        'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n, 'expID': expNumber,
                         'euler_angles_imu': euler_angles.values, 'thetaPyShoe': thetaPyShoe, 'thetaGCP': thetaGCP, 
                         'theta': theta, 'traveled_distance': traveled_distance, 'traverse_time': traverse_time, 
                         'GCP_wcf': GCP_wcf, 'traj_wcf': traj_wcf, 'reconstructed_traj_wcf': reconstructed_traj_wcf})
         elif compensatedIMUdata:
             sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_LLIO.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'GCP': GCP, 'imu_data': imu_data, 
-                        'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n,
+                        'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n, 'expID': expNumber,
                         'euler_angles_imu': euler_angles, 'thetaPyShoe': thetaPyShoe, 'thetaGCP': thetaGCP, 
                         'theta': theta, 'traveled_distance': traveled_distance, 'traverse_time': traverse_time, 
                         'GCP_wcf': GCP_wcf, 'traj_wcf': traj_wcf, 'reconstructed_traj_wcf': reconstructed_traj_wcf})
