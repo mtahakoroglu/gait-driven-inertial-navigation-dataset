@@ -755,24 +755,22 @@ Total travel time in 47 hallway experiments is 53 mins.
 Total strides made in 47 hallway experiments is 2739 strides.
 ```
 
-
-
-<!--
 <h2>Citation</h2>
 
-<p align="justify">If you use the code or the dataset in your research, please cite:</p>
+<p align="justify">If you use the code or dataset in your research, please cite:</p>
 
 ```
-@article{gait-driven-inertial-navigation-dataset,
-title={Gait Driven Inertial Odometry with a Pioneering Stride-Wise Annotated Dataset}, 
-author={Gokhan Cetin and Muhammed Taha Koroglu},
-year={2026},
-eprint={2510.048745},
-archivePrefix={arXiv},
-primaryClass={cs.RO}
+@article{GCetin2026TubitakJECE,
+  title = {A {P}ioneering {S}tride-Wise {A}nnotated {M}ini-{D}ataset for {G}ait-Driven {L}earning-Based {I}nertial {N}avigation},
+  author = {Gökhan Çetin and Muhammed Taha Köroğlu},
+  journal = {Arxiv},
+  pages = {823--835},
+  number = {1},
+  url = {______________},
+  volume = {1},
+  year = {2026}
 }
 ```
--->
 
 <!--
 
