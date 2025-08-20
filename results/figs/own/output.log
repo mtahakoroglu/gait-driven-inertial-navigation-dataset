@@ -1944,3 +1944,70 @@ Total strides made: 2739
 ===================================================================================================================
 There are 47 experiments processed.
 Processing complete for all files.
+===================================================================================================================
+Processing file data/own\SensorConnectData_71.csv
+GCP are available & correct for file SensorConnectData_71.
+Processing LSTM detector for file SensorConnectData_71.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_71.
+There are 44/44 strides detected in experiment #71.
+File SensorConnectData_71, i.e., experiment 71 will be used in performance evaluation.
+There are 45 GCP for file SensorConnectData_71, i.e., experiment 71.
+RMSE for GCP 1 stepped on at stride 0 is 0.0001
+RMSE for GCP 2 stepped on at stride 1 is 0.3213
+RMSE for GCP 3 stepped on at stride 2 is 0.3549
+RMSE for GCP 4 stepped on at stride 3 is 0.3901
+RMSE for GCP 5 stepped on at stride 4 is 0.3954
+RMSE for GCP 6 stepped on at stride 5 is 0.3984
+RMSE for GCP 7 stepped on at stride 6 is 0.3856
+RMSE for GCP 8 stepped on at stride 7 is 0.3815
+RMSE for GCP 9 stepped on at stride 8 is 0.4092
+RMSE for GCP 10 stepped on at stride 9 is 0.4462
+RMSE for GCP 11 stepped on at stride 10 is 0.4711
+RMSE for GCP 12 stepped on at stride 11 is 0.4941
+RMSE for GCP 13 stepped on at stride 12 is 0.5135
+RMSE for GCP 14 stepped on at stride 13 is 0.5450
+RMSE for GCP 15 stepped on at stride 14 is 0.5340
+RMSE for GCP 16 stepped on at stride 15 is 0.5360
+RMSE for GCP 17 stepped on at stride 16 is 0.5655
+RMSE for GCP 18 stepped on at stride 17 is 0.5974
+RMSE for GCP 19 stepped on at stride 18 is 0.6165
+RMSE for GCP 20 stepped on at stride 19 is 0.6427
+RMSE for GCP 21 stepped on at stride 20 is 0.6694
+RMSE for GCP 22 stepped on at stride 21 is 0.7003
+RMSE for GCP 23 stepped on at stride 22 is 0.7259
+RMSE for GCP 24 stepped on at stride 23 is 0.7564
+RMSE for GCP 25 stepped on at stride 24 is 0.7703
+RMSE for GCP 26 stepped on at stride 25 is 0.7878
+RMSE for GCP 27 stepped on at stride 26 is 0.8250
+RMSE for GCP 28 stepped on at stride 27 is 0.8575
+RMSE for GCP 29 stepped on at stride 28 is 0.8951
+RMSE for GCP 30 stepped on at stride 29 is 0.9208
+RMSE for GCP 31 stepped on at stride 30 is 0.9577
+RMSE for GCP 32 stepped on at stride 31 is 1.0093
+RMSE for GCP 33 stepped on at stride 32 is 1.0229
+RMSE for GCP 34 stepped on at stride 33 is 1.0205
+RMSE for GCP 35 stepped on at stride 34 is 1.0347
+RMSE for GCP 36 stepped on at stride 35 is 1.0914
+RMSE for GCP 37 stepped on at stride 36 is 1.1188
+RMSE for GCP 38 stepped on at stride 37 is 1.1353
+RMSE for GCP 39 stepped on at stride 38 is 1.1769
+RMSE for GCP 40 stepped on at stride 39 is 1.2196
+RMSE for GCP 41 stepped on at stride 40 is 1.2565
+RMSE for GCP 42 stepped on at stride 41 is 1.2650
+RMSE for GCP 43 stepped on at stride 42 is 1.2477
+RMSE for GCP 44 stepped on at stride 43 is 1.2232
+RMSE for GCP 45 stepped on at stride 44 is 1.1788
+Average RMSE for all GCP strides in experiment 71 is 0.7526
+There are 44/44 strides detected in experiment #71.
+Experiment #71 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 52.261 meters in experiment #71.
+Travel time is 63.496 seconds in experiment #71.
+Number of strides made is 44 in experiment #71.
+===================================================================================================================
+Total of 1 hallway experiments conducted.
+Total traveled distance is 52.261 meters.
+Total traverse time is 63.496s = 1.058mins.
+Total strides made: 44
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.
