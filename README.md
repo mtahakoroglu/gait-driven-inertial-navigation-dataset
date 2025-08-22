@@ -190,7 +190,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_30_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_30_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 31</h4>
+<h4>Experiment 31 (calibrated IMU data)</h4>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -200,7 +200,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_31_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_31_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 32</h4>
+<h4>Experiment 32 (calibrated IMU data)</h4>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -210,7 +210,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_32_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_32_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 33</h4>
+<h4>Experiment 33 (calibrated IMU data)</h4>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -224,7 +224,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 <img src="results/figs/own/SensorConnectData_33_stride_annotation.png" alt="Stride indexes plotted on top of IMU data" width=%100 height=auto>
 -->
 
-<h4>Experiment 34</h4>
+<h4>Experiment 34 (calibrated IMU data)</h4>
 
 <p align="justify">Here, the motion speed varies during the experiment as can be seen in the <a href="https://www.youtube.com/shorts/kLczRGQx4Ds">video</a>. PyShoe (LSTM based ZUPT aided ESKF) is able to detect only 22 of 24 strides as can be seen below.</p>
 
@@ -240,7 +240,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 <img src="results/figs/own/SensorConnectData_34_stride_annotation.png" alt="Stride indexes plotted on top of IMU data" width=%100 height=auto>
 -->
 
-<h4>Experiment 35</h4>
+<h4>Experiment 35 (calibrated IMU data)</h4>
 
 <p align="justify">Here, the motion speed varies during the experiment as can be seen in the <a href="https://www.youtube.com/shorts/R2UBuftXXrE">video</a>. PyShoe (LSTM based ZUPT aided ESKF) is able to detect only 23 of 28 strides as can be seen below.</p>
 
@@ -256,7 +256,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 <img src="results/figs/own/SensorConnectData_35_stride_annotation.png" alt="Stride indexes plotted on top of IMU data" width=%100 height=auto>
 -->
 
-<h4>Experiment 36</h4>
+<h4>Experiment 36 (calibrated IMU data)</h4>
 
 <p align="justify">Here, the motion speed is slow and constant during the experiment as can be seen in the <a href="https://youtu.be/uT7wL-taX08">video</a>. PyShoe (LSTM based ZUPT aided ESKF) is able to detect all 58 strides successfully. Stride#17 annotation is slightly corrected after examination of detected stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity vectors.</p>
 
@@ -274,7 +274,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 | <img src="results/figs/own/SensorConnectData_36_stride_annotation.png" alt="Stride indexes plotted on top of IMU data" width=%100 height=auto> |
 -->
 
-<h4>Experiment 37</h4>
+<h4>Experiment 37 (calibrated IMU data)</h4>
 
 <p align="justify">Here, the pedestrian speed is normal (walking style) during the experiment. The video of this experiment was recorded but due to a computer SSD hard disk failure, unfortunately it could not be retrieved. Stride #{33, 34, 41, 43, 60} annotations are slightly corrected after coarse examination of detected stride indexes on IMU data, i.e., the magnitudes of acceleration and angular velocity vectors.</p>
 
@@ -286,7 +286,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_37_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_37_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 38</h4>
+<h4>Experiment 38 (calibrated IMU data)</h4>
 
 <p align="justify">Here, the pedestrian motion becomes extreme in some moments. Therefore, PyShoe LSTM was able to detect 43/60 ZV intervals (and strides) in the trajectory. Missing 17 strides are manually annotated after careful examination of IMU data. Also two stride indexes (i.e., stride 45 and 59) are manually corrected to form the training data for LLIO.</p>
 
@@ -298,7 +298,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_38_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_38_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 39</h4>
+<h4>Experiment 39 (calibrated IMU data)</h4>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -308,7 +308,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_39_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_39_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
-<h4>Experiment 40</h4>
+<h4>Experiment 40 (calibrated IMU data)</h4>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -749,10 +749,34 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_76_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_76_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 77 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian 1 walked all the way to the end of the hallway at a slow pace by making a lot of heading changes. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/0M0m8IJpzhc">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_77_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_77_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_77_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_77_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+<h4>Experiment 78 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian X walked all the way to the end of the hallway at a slow pace by making a lot of heading changes. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/2xdNCzGWfI0">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_78_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_78_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_78_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_78_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 ```
-Total traveled distance in 47 hallway experiments is 4.0 km.
-Total travel time in 47 hallway experiments is 53 mins.
-Total strides made in 47 hallway experiments is 2739 strides.
+Total traveled distance in 51 hallway experiments is 4._ km.
+Total travel time in 51 hallway experiments is 6_._ mins \approx 1h.
+Total strides made in 51 hallway experiments is 30__ strides.
 ```
 
 <h2>Citation</h2>
