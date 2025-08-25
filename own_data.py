@@ -272,6 +272,10 @@ for file in sensor_data_files:
         missedStrideIndex = [438, 799, 967, 1133, 1297, 1629, 2302, 2654, 3004, 3354, 3532, 3710, 4238, 5461, 5991, 6165]
         for i in range(len(missedStride)):
             strideIndex = np.insert(strideIndex, missedStride[i], missedStrideIndex[i]) # Stride #i index is inserted
+    elif expNumber == 81: # only corrections
+        corrections = {0: 304, 11: 2924, 15: 3817, 35: 8552}  
+        for idx, value in corrections.items():
+            strideIndex[idx] = value
 
     # Align the trajectory wrt the selected stride - obsolete (this is an arbitrary rotation to align the trajectory along with x axis)
     # Align the trajectory wrt the selected GCP - this is a rotation from navigation coordinate frame to world-fix coordinate frame
@@ -313,8 +317,8 @@ for file in sensor_data_files:
         rmse_GCP = np.sqrt(np.sum((reconstructed_traj[GCP_stride_numbers] - GCP)**2, axis=1))
         logging.info(f"There are {rmse_GCP.shape[0]} GCP for file {base_filename}, i.e., experiment {expNumber}.")
         for i in range(rmse_GCP.shape[0]):
-            k += 1 # GCP index
             logging.info(f"RMSE for GCP {k} stepped on at stride {GCP_stride_numbers[i]} is {rmse_GCP[i]:.4f}")
+            k += 1 # GCP index
         logging.info(f"Average RMSE for all GCP strides in experiment {expNumber} is {np.mean(rmse_GCP):.4f}")
     else:
         logging.info(f"File {base_filename}, i.e., experiment {expNumber} will not be used in performance evaluation.")
