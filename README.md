@@ -565,7 +565,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 61 (compensated IMU data)</h4>
 
-<p align="justify">The experiment was carried out in the hallway adjacent to the Martyr Teacher Necmettin Yılmaz Hallway. The pedestrian covered the first half of the distance at a steady walking pace. After reaching the end of the hallway and turning back, the pedestrian began running and completed the return path at the fastest possible speed. The experiment was performed by Pedestrian 1, who is 5" 8' inches tall. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/V36Lu44EJxw">viewing</a>.</p>
+<p align="justify">The experiment was carried out in the hallway adjacent to the marty teacher hallway. The pedestrian covered the first half of the distance at a steady walking pace. After reaching the end of the hallway and turning back, the pedestrian began running and completed the return path at the fastest possible speed. The experiment was performed by Pedestrian 1, who is 5" 8' inches tall. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/V36Lu44EJxw">viewing</a>.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -577,7 +577,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 62 (compensated IMU data)</h4>
 
-<p align="justify">The experiment was carried out in the Martyr Teacher Hallway. Pedestrian 2, who is 6" tall, traversed the hallway like a sine-wave at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/_DqLATIYWY0">viewing</a>.</p>
+<p align="justify">The experiment was carried out in the marty teacher hallway. Pedestrian 2, who is 6" tall, traversed the hallway like a sine-wave at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/_DqLATIYWY0">viewing</a>.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -589,7 +589,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 63 (compensated IMU data)</h4>
 
-<p align="justify">The experiment was carried out in the Martyr Teacher Necmettin Yilmaz Hallway. Pedestrian 3, who is 5"11' tall, walked all the way to the end of the hallway at a slow pace. Subsequently, the pedestrian returned back to the start point at a higher pace. A video recording of the action trajectory is available for <a href="https://youtube.com/shorts/6sTDNu-OFLc">viewing</a>.</p>
+<p align="justify">The experiment was carried out in the marty teacher hallway. Pedestrian 3, who is 5"11' tall, walked all the way to the end of the hallway at a slow pace. Subsequently, the pedestrian returned back to the start point at a higher pace. A video recording of the action trajectory is available for <a href="https://youtube.com/shorts/6sTDNu-OFLc">viewing</a>.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
@@ -601,7 +601,7 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 
 <h4>Experiment 64 (compensated IMU data)</h4>
 
-<p align="justify">The experiment was carried out in a region nearby Necmettin Yilmaz Hallway. Pedestrian 4, who is a kid, walked a circular trajectory (rotating direction is clockwise) at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/7bj3s-9ikkM">viewing</a>.</p>
+<p align="justify">The experiment was carried out in a region nearby marty teacher hallway. Pedestrian 4, who is a kid, walked a circular trajectory (rotating direction is clockwise) at a slow pace. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/7bj3s-9ikkM">viewing</a>.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |
