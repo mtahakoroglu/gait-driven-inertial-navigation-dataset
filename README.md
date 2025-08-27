@@ -779,6 +779,18 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_78_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_78_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 79 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian Gokhan Cetin walked all the way to the end of the hallway at a slow pace by making a lot of heading changes. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/eyUqhc9Vmq0">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_79_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_79_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_79_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_79_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 <h4>Experiment 81 (compensated IMU data)</h4>
 
 <p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian MU (10 year old kid, female) walked all the way to the end of the hallway at a slow pace by making a lot of heading changes. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/ZCnut2Jl7yA">viewing</a>.</p>

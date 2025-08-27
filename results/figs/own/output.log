@@ -2396,3 +2396,42 @@ Total strides made: 47
 ===================================================================================================================
 There are 1 experiments processed.
 Processing complete for all files.
+===================================================================================================================
+Processing file data/own\SensorConnectData_79.csv
+GCP are available & correct for file SensorConnectData_79.
+Processing LSTM detector for file SensorConnectData_79.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_79.
+There are 46/49 strides detected in experiment #79.
+File SensorConnectData_79, i.e., experiment 79 will not be used in performance evaluation.
+Experiment #79 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 57.176 meters in experiment #79.
+Travel time is 65.996 seconds in experiment #79.
+Number of strides made is 49 in experiment #79.
+===================================================================================================================
+Total of 0 hallway experiments conducted.
+Total traveled distance is 57.176 meters.
+Total traverse time is 65.996s = 1.100mins.
+Total strides made: 49
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.
+===================================================================================================================
+Processing file data/own\SensorConnectData_79.csv
+GCP are available & correct for file SensorConnectData_79.
+Processing LSTM detector for file SensorConnectData_79.
+Plotting zero velocity detection for LSTM detector for file SensorConnectData_79.
+There are 46/49 strides detected in experiment #79.
+File SensorConnectData_79, i.e., experiment 79 will not be used in performance evaluation.
+There are 49/49 strides detected in experiment #79.
+Experiment #79 is annotated stride-wise (GCP) & going to be used in LLIO training/testing.
+Traveled distance is 57.176 meters in experiment #79.
+Travel time is 65.996 seconds in experiment #79.
+Number of strides made is 49 in experiment #79.
+===================================================================================================================
+Total of 1 hallway experiments conducted.
+Total traveled distance is 57.176 meters.
+Total traverse time is 65.996s = 1.100mins.
+Total strides made: 49
+===================================================================================================================
+There are 1 experiments processed.
+Processing complete for all files.
