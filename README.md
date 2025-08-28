@@ -791,6 +791,18 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_79_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_79_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 80 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian "Gokturk Ulutas" walked all the way to the end of the hallway at a slow pace by making a lot of heading changes. A video recording of the action trajectory is available for <a href="https://www.youtube.com/watch?v=ZTtBgvzEnT0&list=PLMoe16OQDeeBYR3uHsF0PU_tjkhkwoPnU&index=44">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_80_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_80_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_80_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_80_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 <h4>Experiment 81 (compensated IMU data)</h4>
 
 <p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian MU (10 year old kid, female) walked all the way to the end of the hallway at a slow pace by making a lot of heading changes. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/ZCnut2Jl7yA">viewing</a>.</p>
@@ -804,9 +816,9 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 | <img src="results/figs/own/SensorConnectData_81_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_81_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
 ```
-Total traveled distance in 51 hallway experiments is 4._ km.
-Total travel time in 51 hallway experiments is 6_._ mins \approx 1h.
-Total strides made in 51 hallway experiments is 30__ strides.
+Total traveled distance in 52 hallway experiments is 4.3 km.
+Total travel time in 52 hallway experiments is 58.17 mins \approx 1h.
+Total strides made in 52 hallway experiments is 2981 strides.
 ```
 
 <h2>Citation</h2>
@@ -817,7 +829,7 @@ Total strides made in 51 hallway experiments is 30__ strides.
 @article{GCetin2026TubitakJECE,
   title = {A {P}ioneering {S}tride-Wise {A}nnotated {M}ini-{D}ataset for {G}ait-Driven {L}earning-Based {I}nertial {N}avigation},
   author = {Gökhan Çetin and Muhammed Taha Köroğlu},
-  journal = {Arxiv},
+  journal = {Turkish Journal of Electrical Engineering and Computer Sciences},
   pages = {823--835},
   number = {1},
   url = {______________},
