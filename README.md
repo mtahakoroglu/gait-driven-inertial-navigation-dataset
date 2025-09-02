@@ -6,7 +6,7 @@
 <p align="justify"><b>Note:</b> The Anaconda virtual environment is named <b>pyshoe</b> because initially our research of developing a gait driven inertial navigation system (INS) (also known as a stride and heading (inertial navigation) system - SHS) was completely based on <a href="https://ieeexplore.ieee.org/abstract/document/8533770">PyShoe study</a> and <a href="https://ieee-dataport.org/open-access/university-toronto-foot-mounted-inertial-navigation-dataset">public dataset</a> made by Brandon Wagstaff <i>et al.</i> (<a href="https://starslab.ca/foot-mounted-inertial-navigation-dataset/">University of Toronto STARS Lab. Foot-Mounted Inertial Navigation Dataset</a>). Despite the transition to using exclusively self-collected data and building own inertial odometry public dataset, the original name was retained.</p>
 -->
 
-<p align="justify"><b>Note:</b> The Anaconda virtual environment is named <b>pyshoe</b> because our initial research on developing a gait-driven inertial navigation system (INS), also known as a stride and heading system (SHS), was entirely based on the <a href="https://ieeexplore.ieee.org/abstract/document/8533770">PyShoe study</a> and the <a href="https://ieee-dataport.org/open-access/university-toronto-foot-mounted-inertial-navigation-dataset">public dataset</a> released by Brandon Wagstaff <i>et al.</i> (<a href="https://starslab.ca/foot-mounted-inertial-navigation-dataset/">University of Toronto STARS Lab. Foot-Mounted Inertial Navigation Dataset</a>). Although we have since transitioned to using exclusively self-collected data and have built our own inertial odometry public dataset, the original name (for the Python virtual environment) has been retained here.</p>
+<p align="justify"><b>Note:</b> The Anaconda virtual environment is named <b>pyshoe</b> because our initial research on developing a gait-driven learning-based inertial navigation system (INS), also known as a stride and heading system (SHS), was entirely based on the <a href="https://ieeexplore.ieee.org/abstract/document/8533770">PyShoe study</a> and the <a href="https://ieee-dataport.org/open-access/university-toronto-foot-mounted-inertial-navigation-dataset">public dataset</a> released by Brandon Wagstaff <i>et al.</i> (<a href="https://starslab.ca/foot-mounted-inertial-navigation-dataset/">University of Toronto STARS Lab. Foot-Mounted Inertial Navigation Dataset</a>). Although we have since transitioned to using exclusively self-collected data and have built our own inertial odometry public dataset, the original name (for the Python virtual environment) has been retained here.</p>
 
 <h3>Creating <b>pyshoe</b> Virtual Environment in Anaconda</h3>
 <p align="justify">After installing Anaconda, launch <b>Anaconda PowerShell</b> and then type</p>
@@ -72,7 +72,7 @@ pip install .
 
 <h3>PyShoe Vicon Room Experiments - Annotation & Corrections</h3>
 
-<p align="justify">We aim to form a new dataset for developing various <b>gait-driven inertial navigation system (INS)</b> from Vicon room experiments of PyShoe dataset where the experiments are sample-wise annotated pedestrian trajectories. Stride indexes would later be required for training various gait-driven INS.</p>
+<p align="justify">We aim to form a new dataset for developing various <b>gait-driven learning-based inertial navigation system (INS)</b> from Vicon room experiments of PyShoe dataset where the experiments are sample-wise annotated pedestrian trajectories. Stride indexes would later be required for training various gait-driven INS.</p>
 
 <p align="justify">Here, some troublesome experiments are shown to understand Zero Velocity (ZV) interval and stride detection problems. The optimal ZV detectors are selected (e.g., SHOE for experiment 4, ARED for experiment 6) with the corresponding optimal threshold values (optimal values are supplied by Wagstaff <i>et. al.</i> in the structure of the mat files for Vicon room experiments of PyShoe dataset) for all Vicon room experiments.</p>
 
@@ -87,7 +87,7 @@ pip install .
 
 <h4>Experiment 18 (2017-11-22-11-48-35)</h4>
 
-<p align="justify">We see that the 7<sup>th</sup> stride is not detected in the plots below. Notice that this is the example experiment that is shown in the paper.</p>
+<p align="justify">We see that the 7<sup>th</sup> stride is not detected in the plots below (look at the paper to see PyShoe LSTM robust ZV detector result - it is even worse than SHOE or VICON for this experiment).</p>
 
 <!---
 <img src="results/figs/vicon_obsolete/exp18.jpg" alt="optimal detector results for experiment 18 (2017-11-22-11-48-35) VICON dataset" width=%100 height=auto>
@@ -136,29 +136,34 @@ pip install .
 <p align="justify"><a href="https://github.com/mtahakoroglu/gait-driven-inertial-navigation-dataset/tree/main/results/figs/vicon">Thus far, due to some undetected steps in Vicon room experiments data</a> (recall that Wagstaff <i>et. al.</i> conducted crawling motion experiments in PyShoe), we examined 56 experiments coarsely in the training dataset <i><b>(i)</b></i> to correct for undetected steps (they are classified as 0 in ZV signal plot despite them actually being 1) and <i><b>(ii)</b></i> to exclude motions like crawling, which are not of type bipedal locomotion. As can be seen above, experiments {4, 6, 11, 18, 30, 32, 36, 38, 43} are corrected with ZV interval and stride index annotations by utilizing supplementary detectors. In <b>vicon_data.py</b> file, right before processing experimental data in a loop, annotated experiments are tagged as -1 as follows:</p>
 
 ```
-training_data_tag = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 1, 1, 1, 1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, -1, 1, -1, 0, 0, 0, -1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+training_data_tag = [1, 1, 1, -1, 1, -1, 1, 0, 1, 1, -1, 1, 0, 1, 1, 1, 1, -1, 1, 1, 
+                     1, 1, 1, 1, 1, 1, 0, 1, 1, -1, 1, -1, 0, 0, 0, -1, 1, -1, 1, 1, 
+                     1, 1, -1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
 ```
 
 <p align="justify">where</p>
 
 ```
 len(training_data_tag) = 56
+import numpy as np
+training_tag = np.array(training_data_tag)
+n = sum(abs(training_tag)) = 42
 ```
 
-<p align="justify">In the signal processing main loop (where the loop visits each experiment one by one), experiments are accepted as training data for a future gait driven INS according to the absolute values of given tags. In other words, experiments labeled as 1's directly satisfy conditions while the ones labeled as -1s needed corrections on ZV intervals and stride indexes in order to be included in a stride and heading (inertial navigation) system (SHS) training dataset. On the other hand, 0s stand for eliminated experiments due to being nonbipedal locomotion data or unrecoverable errors in ZV intervals and/or stride indexes (we actually emailed Brandon Wagstaff about motion types of experiments yet no documentation was made regarding the motion types (e.g., walking, running, crawling) in the experiments at the time of PyShoe dataset generation). In the decision of labeling an experiment as 0, trajectory (spatial) plots along with IMU data (time series) plots with stride indexes are coarsely examined by using MATLAB and Python environments. Eventually, the elimination of Vicon room data yielded a shrink in the total traveled distance by the pedestrian, which negatively affected the development of a a robust gait and data driven INS. Consequently, additional training data are required. The next section describes dataset expansion/enlargement process.</p>
+<p align="justify">In the signal processing main loop (where the loop visits each experiment one by one), experiments are accepted as training data for a future gait driven INS according to the absolute values of given tags. In other words, experiments labeled as 1's directly satisfy conditions while the ones labeled as -1s needed corrections on ZV intervals and stride indexes in order to be included in a gait-driven learning-based training dataset. On the other hand, 0s stand for eliminated experiments due to being nonbipedal locomotion data or unrecoverable errors in ZV intervals and/or stride indexes (we actually emailed Brandon Wagstaff about motion types of experiments yet no documentation was made regarding the motion types (e.g., walking, running, crawling) in the experiments at the time of PyShoe dataset generation). In the decision of labeling an experiment as 0, trajectory (spatial) plots along with IMU data (time series) plots with stride indexes are coarsely examined by using MATLAB and Python environments. Eventually, the elimination of Vicon room data yielded a shrink in the total traveled distance by the pedestrian, which negatively affected the development of a a robust gait and data driven INS. Consequently, additional training data are required. The next section describes dataset expansion/enlargement process.</p>
 
 <p align="justify">After running <b>vicon_data.py</b> file, the following result can be seen in the terminal screen at the very end.</p>
 
 ```
-Total traveled distance in 34 VICON room experiments (to be used for LLIO training/test) is 920.588 meters.
-Total experiment time in 34 VICON room experiments (to be used for LLIO training/test) is 998.695s = 16.645mins.
+Total traveled distance in 42 VICON room experiments (to be used for GDLBIO training/test) is 1119.886 meters.
+Total experiment time in 42 VICON room experiments (to be used for GDLBIO training/test) is 1265.449s = 21.091mins.
 ```
 
-<p align="justify">Despite the significant reduction of Vicon room experiments based on the performance of Zero Velocity (ZV) interval and stride index detection accuracy, further refinement can be achieved. As we expand the dataset with our own collected data and apply gait-driven inertial navigation system (INS) training, analyzing data distributions will allow us to identify and exclude <b>more</b> outlier experiments. This process ensures a more robust and accurate model.</p>
+<p align="justify">Despite the significant reduction of Vicon room experiments based on the performance of Zero Velocity (ZV) interval and stride index detection accuracy, further refinement can be achieved. As we expand the dataset with our own collected data and apply gait-driven learning-based inertial navigation system (INS) training, analyzing data distributions will allow us to identify and exclude <b>more</b> outlier experiments. This process ensures a more robust and accurate model.</p>
 
-<h3>Training Dataset Expansion/Enlargement for LLIO</h3>
+<h3>Training Dataset Expansion/Enlargement for GDLBIO</h3>
 
-<p align="justify">Here PyShoe (pre-trained LSTM based INS) is applied on our own-collected data for stride index extraction, which is required for LLIO training. In the experiments, we used <a href="https://www.microstrain.com/sites/default/files/applications/files/3dm-gx5-25_datasheet_8400-0093_rev_n.pdf">3DM-GX5-25</a> Lord Microstrain IMU with the sensor <a href="https://www.youtube.com/shorts/olD6FWZON0w">data acquisition &  capture software</a> <a href="https://www.microstrain.com/software/sensorconnect">SensorConnect</a>. Notice that the employed IMU is of the same brand (and the family as well) that is used in PyShoe experiments. In this regard, expanded data are expected to be compatible with Vicon room data in terms of data properties (e.g., distribution of data).</p>
+<p align="justify">Here PyShoe (pre-trained LSTM based INS) is applied on our own-collected data for stride index extraction, which is required for GDLBIO training. In the experiments, we used <a href="https://www.microstrain.com/sites/default/files/applications/files/3dm-gx5-25_datasheet_8400-0093_rev_n.pdf">3DM-GX5-25</a> Lord Microstrain IMU with the sensor <a href="https://www.youtube.com/shorts/olD6FWZON0w">data acquisition &  capture software</a> <a href="https://www.microstrain.com/software/sensorconnect">SensorConnect</a>. Notice that the employed IMU is of the same brand (and the family as well) that is used in PyShoe experiments. In this regard, expanded data are expected to be compatible with Vicon room data in terms of data properties (e.g., distribution of data).</p>
 
 | 3DM-GX5-25 Sensor | SensorConnect software screen |
 | :---: | :---: |
@@ -294,7 +299,7 @@ Total experiment time in 34 VICON room experiments (to be used for LLIO training
 
 <h4>Experiment 38 (calibrated IMU data)</h4>
 
-<p align="justify">Here, the pedestrian motion becomes extreme in some moments. Therefore, PyShoe LSTM was able to detect 43/60 ZV intervals (and strides) in the trajectory. Missing 17 strides are manually annotated after careful examination of IMU data. Also two stride indexes (i.e., stride 45 and 59) are manually corrected to form the training data for LLIO.</p>
+<p align="justify">Here, the pedestrian motion becomes extreme in some moments. Therefore, PyShoe LSTM was able to detect 43/60 ZV intervals (and strides) in the trajectory. Missing 17 strides are manually annotated after careful examination of IMU data. Also two stride indexes (i.e., stride 45 and 59) are manually corrected to form the training data for GDLBIO.</p>
 
 | Stride Indexes |  Trajectory (INS)  |
 |  :---:  |  :---:  |

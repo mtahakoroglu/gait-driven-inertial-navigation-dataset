@@ -22,7 +22,7 @@ log_file = os.path.join(output_dir, 'output.log')
 logging.basicConfig(level=logging.INFO, format='%(message)s',
                     handlers=[logging.FileHandler(log_file), logging.StreamHandler()])
 
-extracted_training_data_dir = "data/" # training data (imu, zv) for LSTM retraining & (displacement, heading change, stride indexes, timestamps) for LLIO training
+extracted_training_data_dir = "data/" # training data (imu, zv) for LSTM retraining & (displacement, heading change, stride indexes, timestamps) for GDLBIO training
 
 # Detectors and labels
 det_list = ['lstm'] # 'ared', 'shoe'
@@ -123,11 +123,11 @@ def downsample(data, original_freq, target_freq):
     downsampled_data = interpolation_function(target_time_points)
     return downsampled_data
 
-# Flag to save LLIO training data - DO NOT CHANGE THIS VALUE AS IT IS AUTOMATICALLY UPDATED BELOW
-extract_LLIO_training_data = False # used to save csv files for LLIO SHS training (displacement, heading change) and (stride indexes, timestamps, GCP stride coordinates)
-traveled_distances = [] # to keep track of the traveled distances in each experiment for LLIO training data generation
-traverse_times = [] # to keep track of experiment times and eventually total experiment time for LLIO training data generation
-total_strides_list = [] # to keep track of the total strides made in each experiment for LLIO training data generation
+# Flag to save GDLBIO training data - DO NOT CHANGE THIS VALUE AS IT IS AUTOMATICALLY UPDATED BELOW
+extract_GDLBIO_training_data = False # used to save csv files for GDLBIO SHS training (displacement, heading change) and (stride indexes, timestamps, GCP stride coordinates)
+traveled_distances = [] # to keep track of the traveled distances in each experiment for GDLBIO training data generation
+traverse_times = [] # to keep track of experiment times and eventually total experiment time for GDLBIO training data generation
+total_strides_list = [] # to keep track of the total strides made in each experiment for GDLBIO training data generation
 number_of_stride_wise_verified_experiments = 0 # detected stride points must be equal to the actual number
 
 g = 9.8029 # gravity constant
@@ -183,8 +183,8 @@ for file in sensor_data_files:
     GCP_stride_numbers = np.squeeze(GCP_data['GCP_stride_numbers'])
     numberOfStrides =  GCP_data['numberOfStrides'].item() # total number of strides is equal to the last GCP stride number, i.e., GCP_stride_numbers[-1]
     
-    if expNumber >= 30: # update this statement later to include only the experiments that are manually annotated for LLIO training
-        extract_LLIO_training_data = True
+    if expNumber >= 30: # update this statement later to include only the experiments that are manually annotated for GDLBIO training
+        extract_GDLBIO_training_data = True
 
     # Initialize INS object with correct parameters - adopted the exact parameters used in PyShoe research (makes sense as our sensor is in the same family)
     if calibratedIMUdata:
@@ -200,7 +200,7 @@ for file in sensor_data_files:
         traj_list.append(x)
         zv_list.append(zv)
 
-    strideIndex = None # stride indexes will be used to chop imu data for LLIO training & are provided by PyShoe (LSTM) detector
+    strideIndex = None # stride indexes will be used to chop imu data for GDLBIO training & are provided by PyShoe (LSTM) detector
     for i, zv in enumerate(zv_list):
         logging.info(f"Plotting zero velocity detection for {det_list[i].upper()} detector for file {base_filename}.")
         # Apply a heuristic filter to zero velocity labels (via LSTM) to eliminate undesired jumps & achieve correct stride detection
@@ -329,7 +329,7 @@ for file in sensor_data_files:
     if GCP_data['GCP_exist_and_correct'].item():
         # plt.scatter(GCP[:,0], GCP[:,1], color='r', s=30, marker='s', edgecolors='k', label="GCP")
         plt.plot(GCP[:,0], GCP[:,1], 'ks-', linewidth=1.4, markersize=5, markerfacecolor='r', markeredgecolor='k', markeredgewidth=1.2, label="GCP")
-    if n == numberOfStrides and not extract_LLIO_training_data: # experiments after 30 are conducted for expanding/enlarging LLIO training dataset
+    if n == numberOfStrides and not extract_GDLBIO_training_data: # experiments after 30 are conducted for expanding/enlarging GDLBIO training dataset
         plt.scatter(reconstructed_traj[GCP_stride_numbers,0], reconstructed_traj[GCP_stride_numbers,1], color='r', s=45, 
                     marker='o', facecolor='none', linewidths=1.5, label="GCP stride")
     plt.plot(traj_list[-1][:,:2][:,0], traj_list[-1][:,:2][:,1], linewidth = 1.5, color='b', label=legend[-1])
@@ -349,7 +349,7 @@ for file in sensor_data_files:
         plt.plot(GCP[:,0], GCP[:,1], 'ks-', linewidth=1.4, markersize=5, markerfacecolor='r', markeredgewidth=1.2, markeredgecolor='k', label="GCP")
     plt.plot(reconstructed_traj[:,0], reconstructed_traj[:,1], 'b.-', linewidth = 1.4, markersize=5, markeredgewidth=1.2, label="PyShoe (LSTM) SHS")
     # plt.plot(reconstructed_traj[-3:,0], reconstructed_traj[-3:,1], 'bx-', linewidth = 1.4, markersize=5, markeredgewidth=1.2, label="PyShoe (LSTM) SHS last three")
-    if n == numberOfStrides and not extract_LLIO_training_data: # experiments after 30 are conducted for expanding/enlarging LLIO training dataset
+    if n == numberOfStrides and not extract_GDLBIO_training_data: # experiments after 30 are conducted for expanding/enlarging GDLBIO training dataset
         plt.scatter(reconstructed_traj[GCP_stride_numbers,0], reconstructed_traj[GCP_stride_numbers,1], color='r', s=45, 
                 marker='o', facecolor='none', linewidths=1.5, label="GCP stride")
     plt.legend(fontsize=15); plt.xlabel('x [m]', fontsize=22); plt.ylabel('y [m]', fontsize=22)
@@ -367,7 +367,7 @@ for file in sensor_data_files:
     if GCP_data['GCP_exist_and_correct'].item():
         # plt.scatter(GCP_wcf[:,0], GCP_wcf[:,1], color='r', s=30, marker='s', edgecolors='k', label="GCP")
         plt.plot(GCP_wcf[:,0], GCP_wcf[:,1], 'ks-', linewidth=1.4, markersize=5, markerfacecolor='r', markeredgecolor='k', markeredgewidth=1.2, label="GCP")
-    if n == numberOfStrides and not extract_LLIO_training_data: # experiments after 30 are conducted for expanding/enlarging LLIO training dataset
+    if n == numberOfStrides and not extract_GDLBIO_training_data: # experiments after 30 are conducted for expanding/enlarging GDLBIO training dataset
         plt.scatter(reconstructed_traj_wcf[GCP_stride_numbers,0], reconstructed_traj_wcf[GCP_stride_numbers,1], color='r', s=45, 
                     marker='o', facecolor='none', linewidths=1.5, label="GCP stride")
     plt.plot(traj_wcf[:,0], traj_wcf[:,1], linewidth = 1.5, color='b', label=legend[-1])
@@ -387,7 +387,7 @@ for file in sensor_data_files:
         plt.plot(GCP_wcf[:,0], GCP_wcf[:,1], 'ks-', linewidth=1.4, markersize=5, markerfacecolor='r', markeredgecolor='k', markeredgewidth=1.2, label="GCP")
     plt.plot(reconstructed_traj_wcf[:,0], reconstructed_traj_wcf[:,1], 'b.-', linewidth = 1.4, markersize=5, markeredgewidth=1.2, label="PyShoe (LSTM) SHS")
     # plt.plot(reconstructed_traj[-3:,0], reconstructed_traj[-3:,1], 'bx-', linewidth = 1.4, markersize=5, markeredgewidth=1.2, label="PyShoe (LSTM) SHS last three")
-    if n == numberOfStrides and not extract_LLIO_training_data: # experiments after 30 are conducted for expanding/enlarging LLIO training dataset
+    if n == numberOfStrides and not extract_GDLBIO_training_data: # experiments after 30 are conducted for expanding/enlarging GDLBIO training dataset
         plt.scatter(reconstructed_traj_wcf[GCP_stride_numbers,0], reconstructed_traj_wcf[GCP_stride_numbers,1], color='r', s=45, 
                 marker='o', facecolor='none', linewidths=1.5, label="GCP stride")
     plt.legend(fontsize=15); plt.xlabel('x [m]', fontsize=22); plt.ylabel('y [m]', fontsize=22)
@@ -699,9 +699,9 @@ for file in sensor_data_files:
         plt.grid(True, which='both', linestyle='--', linewidth=1.5)
         plt.savefig(os.path.join(output_dir, f'{base_filename}_stride_detection_annotation.png'), dpi=600, bbox_inches='tight')
         plt.close()
-    ################################################ SAVE TRAINING DATA for LLIO TRAINING ###############################################
-    if extract_LLIO_training_data:
-        # Stride coordinates (GCP) is the target in LLIO training yet we can save polar coordinates for the sake of completeness
+    ################################################ SAVE TRAINING DATA for GDLBIO TRAINING ###############################################
+    if extract_GDLBIO_training_data:
+        # Stride coordinates (GCP) is the target in GDLBIO training yet we can save polar coordinates for the sake of completeness
         # combined_data = np.column_stack((displacements, heading_changes)) # Combine displacement and heading change data into one array
         print(f"strideIndex.shape = {strideIndex.shape} len(strideIndex) = {len(strideIndex)}")
         print(f"strideIndex = {strideIndex}")
@@ -713,10 +713,10 @@ for file in sensor_data_files:
             number_of_stride_wise_verified_experiments += 1
             logging.info(f"There are {len(strideIndex)-1}/{numberOfStrides} strides detected in experiment #{expNumber}.")
             combined_data = np.column_stack((strideIndex, timestamps[strideIndex], GCP[:,0], GCP[:,1]))
-            combined_csv_filename = os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_strideIndex_timestamp_gcpX_gcpY.csv')
+            combined_csv_filename = os.path.join(extracted_training_data_dir, f'GDLBIO-training-data/{base_filename}_strideIndex_timestamp_gcpX_gcpY.csv')
             np.savetxt(combined_csv_filename, combined_data, delimiter=',', header='strideIndex,timestamp,gcpX,gcpY', comments='')
 
-        logging.info(f"Experiment #{expNumber} is annotated stride-wise (GCP) & going to be used in LLIO training/testing.")
+        logging.info(f"Experiment #{expNumber} is annotated stride-wise (GCP) & going to be used in GDLBIO training/testing.")
         # compute stride distances and sum them up to get the traveled distance made in the current walk
         traveled_distance = np.sum(np.linalg.norm(np.diff(GCP, axis=0), axis=1))
         logging.info(f"Traveled distance is {traveled_distance:.3f} meters in experiment #{expNumber}.")
@@ -724,9 +724,9 @@ for file in sensor_data_files:
         logging.info(f"Travel time is {traverse_time:.3f} seconds in experiment #{expNumber}.")
         strides_made = numberOfStrides
         logging.info(f"Number of strides made is {strides_made} in experiment #{expNumber}.")
-        traveled_distances.append(traveled_distance) # sum all traveled distances cumulatively to get the total distance made in the experiments for LLIO training
-        traverse_times.append(traverse_time) # sum all traversal times cumulatively to obtain the total experiment time for LLIO training
-        total_strides_list.append(strides_made) # sum all strides cumulatively to get the total strides made in the experiments for LLIO training
+        traveled_distances.append(traveled_distance) # sum all traveled distances cumulatively to get the total distance made in the experiments for GDLBIO training
+        traverse_times.append(traverse_time) # sum all traversal times cumulatively to obtain the total experiment time for GDLBIO training
+        total_strides_list.append(strides_made) # sum all strides cumulatively to get the total strides made in the experiments for GDLBIO training
         
         # imu_data = imu_data.values
         # accX = imu_data[:,0]; accY = imu_data[:,1]; accZ = imu_data[:,2]
@@ -734,14 +734,14 @@ for file in sensor_data_files:
 
         # save stride indexes, timestamps, GCP stride coordinates and IMU data to mat file
         if calibratedIMUdata:
-            sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_LLIO.mat'), 
+            sio.savemat(os.path.join(extracted_training_data_dir, f'GDLBIO-training-data/{base_filename}_GDLBIO.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'GCP': GCP, 'imu_data': imu_data.values, 
                         'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n, 'expID': expNumber,
                         'euler_angles_imu': euler_angles.values, 'thetaPyShoe': thetaPyShoe, 'thetaGCP': thetaGCP, 
                         'theta': theta, 'traveled_distance': traveled_distance, 'traverse_time': traverse_time, 
                         'GCP_wcf': GCP_wcf, 'traj_wcf': traj_wcf, 'reconstructed_traj_wcf': reconstructed_traj_wcf})
         elif compensatedIMUdata:
-            sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_LLIO.mat'), 
+            sio.savemat(os.path.join(extracted_training_data_dir, f'GDLBIO-training-data/{base_filename}_GDLBIO.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'GCP': GCP, 'imu_data': imu_data, 
                         'pyshoeTrajectory': traj_list[-1][:,:2], 'euler_angles': x[:,6:], 'acc_n': acc_n, 'expID': expNumber,
                         'euler_angles_imu': euler_angles, 'thetaPyShoe': thetaPyShoe, 'thetaGCP': thetaGCP, 
@@ -750,10 +750,10 @@ for file in sensor_data_files:
     else:
         # still save the stride indexes and the associated timestamps for further analysis in MATLAB side
         if calibratedIMUdata:
-            sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_nontraining_data/{base_filename}_LLIO_nontraining_data.mat'), 
+            sio.savemat(os.path.join(extracted_training_data_dir, f'GDLBIO-nontraining-data/{base_filename}_GDLBIO-nontraining-data.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'imu_data': imu_data.values})
         elif compensatedIMUdata:
-            sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_nontraining_data/{base_filename}_LLIO_nontraining_data.mat'), 
+            sio.savemat(os.path.join(extracted_training_data_dir, f'GDLBIO-nontraining-data/{base_filename}_GDLBIO-nontraining-data.mat'), 
                         {'strideIndex': strideIndex, 'timestamps': timestamps, 'imu_data': imu_data})
 
 total_distance, total_traverse_time, total_strides = sum(traveled_distances), sum(traverse_times), sum(total_strides_list)

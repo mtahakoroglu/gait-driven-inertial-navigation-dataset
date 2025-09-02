@@ -19,7 +19,7 @@ log_file = os.path.join(output_dir, 'output.log')
 logging.basicConfig(level=logging.INFO, format='%(message)s',
                     handlers=[logging.FileHandler(log_file), logging.StreamHandler()])
 
-extracted_training_data_dir = "data/" # training data (imu, zv) for LSTM retraining & (displacement, heading change, stride indexes, timestamps) for LLIO training
+extracted_training_data_dir = "data/" # training data (imu, zv) for LSTM retraining & (displacement, heading change, stride indexes, timestamps) for GDLBIO training
 
 # Following optimal ZV detectors are extracted from the mat files yet some "not optimal" detectors needed to be corrected manually
 # 16th experiment: Despite showing MBGTD is the optimal detector in the mat file, VICON & ARED performs a lot better. Optimal detector is selected as ARED.
@@ -143,25 +143,29 @@ i = 0  # experiment index
 count_training_exp = 0
 # following two lines are used to run selected experiment results
 # training_data_tag = [0]*56; training_data_tag[8] = 1 # we left off at exp#8
-# training_data_tag are the experiments to be used in extracting displacement and heading change data for LLIO training
-# Exp {2,3,5,6} are excluded after examining LLIO prediction results
-training_data_tag = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 1, 1, 1, 1, -1, 1, 1, # Exp 8 is excluded due to an extreme jump in a ZV region
-                    1, 1, 1, 1, 1, 1, 0, 1, 1, -1, 1, -1, 0, 0, 0, -1, 1, -1, 1, 1, # Exp {27,33,34,35} is excluded after further examination 
-                    1, 1, -1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0] # Exp {49,53,54,56} are excluded after further examination
+# training_data_tag are the experiments to be used in extracting displacement and heading change data for GDLBIO training
+# Exp {2,3,5,6} are excluded after examining GDLBIO prediction results - number of 34 experiments taken
+# training_data_tag = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 1, 1, 1, 1, -1, 1, 1, # Exp 8 is excluded due to an extreme jump in a ZV region
+#                     1, 1, 1, 1, 1, 1, 0, 1, 1, -1, 1, -1, 0, 0, 0, -1, 1, -1, 1, 1, # Exp {27,33,34,35} is excluded after further examination 
+#                     1, 1, -1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0] # Exp {49,53,54,56} are excluded after further examination
 # training_data_tag = [1, 1, 1, -1, 1, -1, 1, 1, 1, 1, -1, 1, 0, 1, 1, 1, 1, -1, 1, 1, 
 #                     1, 1, 1, 1, 1, 1, -1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 
 #                     1, 1, -1, 1, 1, 1, 0, 0, -1, 0, 1, 1, 1, 1, 0, 1]
+# number of 42 experiments taken | THIS IS THE FINAL CONFIGURATION
+training_data_tag = [1, 1, 1, -1, 1, -1, 1, 0, 1, 1, -1, 1, 0, 1, 1, 1, 1, -1, 1, 1, 
+                    1, 1, 1, 1, 1, 1, 0, 1, 1, -1, 1, -1, 0, 0, 0, -1, 1, -1, 1, 1, 
+                    1, 1, -1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
 annotated_experiment_index = [4, 6, 11, 18, 27, 30, 32, 36, 38, 43, 49]
 nGT = [22, 21, 21, 18, 26, 24, 18, 20, 29, 35, 29, 22, 30, 34, 24, 36, 20, 15, 10, 33, 
        22, 19, 13, 16, 17, 21, 20, 28, 18, 12, 13, 26, 34, 25, 24, 24, 43, 42, 15, 12, 
        13, 14, 24, 27, 25, 26, 0, 28, 13, 41, 33, 26, 16, 16, 11, 9] # number of actual strides
 training_data_tag = [abs(x) for x in training_data_tag]
 extract_bilstm_training_data = False # used to save csv files for zv and stride detection training
-extract_LLIO_training_data = True # used to save csv files for LLIO SHS training - (displacement, heading change) and (stride indexes, timestamps)
+extract_GDLBIO_training_data = True # used to save csv files for GDLBIO SHS training - (displacement, heading change) and (stride indexes, timestamps)
 # if sum(training_data_tag) == 56: # if total of 56 experiments are plotted (5 of them is not training data)
 #     extract_bilstm_training_data = False # then do not write imu and zv data to file for BiLSTM training
-traveled_distances = [] # to keep track of the traveled distances in each experiment for LLIO training data generation
-traverse_times = [] # to keep track of experiment times and eventually total experiment time for LLIO training data generation
+traveled_distances = [] # to keep track of the traveled distances in each experiment for GDLBIO training data generation
+traverse_times = [] # to keep track of experiment times and eventually total experiment time for GDLBIO training data generation
 number_of_stride_wise_verified_experiments = 0 # detected stride points must be equal to the actual number
 
 # Process each VICON room training data file
@@ -192,7 +196,7 @@ for file in vicon_data_files:
         x, _ = ins.baseline(zv=zv)
         x_lstm, acc_n = ins.baseline(zv=zv_lstm)
         # Align trajectories using Procrustes analysis with scaling
-        # !!!DEACTIVATED!!! for LLIO training data extraction
+        # !!!DEACTIVATED!!! for GDLBIO training data extraction
         # aligned_x_lstm, aligned_gt, scale_lstm = align_trajectories(x_lstm, gt)
 
         # Apply filter to zero velocity detection results for stride detection corrections
@@ -418,10 +422,10 @@ for file in vicon_data_files:
 
             np.savetxt(combined_csv_filename, combined_data, delimiter=',',
                     header='t,ax,ay,az,wx,wy,wz,zv', comments='')
-        #################### SAVE TRAINING DATA for LLIO TRAINING #################
-        if extract_LLIO_training_data:
+        #################### SAVE TRAINING DATA for GDLBIO TRAINING #################
+        if extract_GDLBIO_training_data:
             number_of_stride_wise_verified_experiments += 1
-            # Stride coordinates (GCP) is the target in Gradient Boosting (LLIO) training yet we can save polar coordinates for the sake of completeness
+            # Stride coordinates (GCP) is the target in Gradient Boosting (GDLBIO) training yet we can save polar coordinates for the sake of completeness
             # combined_data = np.column_stack((displacements, heading_changes)) # Combine displacement and heading change data into one array
             GCP = gt[strideIndex, :2] # extract the stride coordinates (GCP) from the ground truth data
             print(f"strideIndex.shape = {strideIndex.shape}")
@@ -432,28 +436,29 @@ for file in vicon_data_files:
 
             # Save the combined data to a CSV file
             combined_data = np.column_stack((strideIndex, timestamps[strideIndex], GCP[:,0], GCP[:,1]))
-            combined_csv_filename = os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_strideIndex_timestamp_gcpX_gcpY.csv')
+            combined_csv_filename = os.path.join(extracted_training_data_dir, f'GDLBIO-training-data/{base_filename}_strideIndex_timestamp_gcpX_gcpY.csv')
             np.savetxt(combined_csv_filename, combined_data, delimiter=',', header='strideIndex,timestamp,gcpX,gcpY', comments='')
 
             # Save stride indexes, timestamps, GCP stride coordinates and IMU data to mat file
-            sio.savemat(os.path.join(extracted_training_data_dir, f'LLIO_training_data/{base_filename}_LLIO.mat'),
+            sio.savemat(os.path.join(extracted_training_data_dir, f'GDLBIO-training-data/{base_filename}_GDLBIO.mat'),
                         {'strideIndex': strideIndex, 'timestamps': timestamps[strideIndex], 'GCP': GCP, 'imu_data': imu_data, 'gt': gt, 
-                         'pyshoeTrajectory': x_lstm[:,:2], 'timestamps_all': timestamps, 'euler_angles': x_lstm[:,6:], 'acc_n': acc_n})
-            
-        logging.info(f"Experiment #{i+1} is annotated stride-wise & going to be used in LLIO training/testing.")
+                         'pyshoeTrajectory': x_lstm[:,:2], 'timestamps_all': timestamps, 'euler_angles': x_lstm[:,6:], 'acc_n': acc_n, 
+                         'zv_lstm': zv_lstm, 'zv_lstm_filtered': zv_lstm_filtered})
+
+        logging.info(f"Experiment #{i+1} is annotated stride-wise & going to be used in GDLBIO training/testing.")
         # compute stride distances and sum them up to get the traveled distance made in the current walk
         traveled_distance = np.sum(np.linalg.norm(np.diff(GCP, axis=0), axis=1))
         logging.info(f"Traveled distance is {traveled_distance:.3f} meters in experiment #{i+1}.")
         traverse_time = timestamps[-1] - timestamps[0]
         logging.info(f"Travel time is {traverse_time:.3f} seconds in experiment #{i+1}.")
-        traveled_distances.append(traveled_distance) # sum all traveled distances cumulatively to get the total distance made in the experiments for LLIO training
-        traverse_times.append(traverse_time) # sum all traversal times cumulatively to obtain the total experiment time for LLIO training
+        traveled_distances.append(traveled_distance) # sum all traveled distances cumulatively to get the total distance made in the experiments for GDLBIO training
+        traverse_times.append(traverse_time) # sum all traversal times cumulatively to obtain the total experiment time for GDLBIO training
         
         count_training_exp += 1
     else:
         logging.info(f"===================================================================================================================")
         logging.info(f"Processing file {file}")
-        print(f"Experiment {i+1} data is not considered as bipedal locomotion data for LLIO training.".upper())
+        print(f"Experiment {i+1} data is not considered as bipedal locomotion data for GDLBIO training.".upper())
         # 13th experiment shows a lot of 180° turns, which causes multiple ZV phase and stride detections during the turns.
         # Labeled as 0, i.e., non bi-pedal locomotion data, temporarily. It will be included in future for further research. 
         # 20th experiment: The pedestrian stops in every 5 or 6 strides for a while but it is a valid bipedal locomotion data (confirmed by GCetin's ML code)
@@ -468,7 +473,7 @@ for file in vicon_data_files:
 
 total_distance, total_traverse_time = sum(traveled_distances), sum(traverse_times)
 logging.info(f"===================================================================================================================")
-logging.info(f"Total traveled distance in {number_of_stride_wise_verified_experiments} VICON room experiments (to be used for LLIO training/test) is {total_distance:.3f} meters.")
-logging.info(f"Total experiment time in {number_of_stride_wise_verified_experiments} VICON room experiments (to be used for LLIO training/test) is {total_traverse_time:.3f}s = {total_traverse_time/60:.3f}mins.")
+logging.info(f"Total traveled distance in {number_of_stride_wise_verified_experiments} VICON room experiments (to be used for GDLBIO training/test) is {total_distance:.3f} meters.")
+logging.info(f"Total experiment time in {number_of_stride_wise_verified_experiments} VICON room experiments (to be used for GDLBIO training/test) is {total_traverse_time:.3f}s = {total_traverse_time/60:.3f}mins.")
 logging.info(f"===================================================================================================================")
 logging.info("Processing complete for all files.")
