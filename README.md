@@ -820,10 +820,22 @@ Total traverse time in 23 hallway experiments is 1568.983s = 26.150mins.
 |  :---:  |  :---:  |
 | <img src="results/figs/own/SensorConnectData_81_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_81_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
 
+<h4>Experiment 82 (compensated IMU data)</h4>
+
+<p align="justify">The experiment was carried out at the marty teacher hallway. Pedestrian Yasin Emir (7 year old kid, male) walked all the way to the end of the hallway at a slow pace by making a lot of heading changes. A video recording of the action trajectory is available for <a href="https://www.youtube.com/shorts/StmISkduw78">viewing</a>.</p>
+
+| Stride Indexes |  Trajectory (INS)  |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_82_stride_detection.png" alt="Stride indexes plotted on top of IMU data" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_82_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
+| Zero Velocity |  Trajectory (SHS) |
+|  :---:  |  :---:  |
+| <img src="results/figs/own/SensorConnectData_82_ZV_LSTM_filtered.png" alt="ZV labels produced with robust ZUPT (LSTM filtered) detector" width=400 height=auto> | <img src="results/figs/own/SensorConnectData_82_SHS_WCF.png" alt="trajectory obtained with robust ZUPT detector (LSTM) aided (Error-State Kalman Filter based) foot-mounted INS" width=400 height=auto> |
+
 ```
-Total traveled distance in 52 hallway experiments is 4.3 km.
-Total travel time in 52 hallway experiments is 58.17 mins \approx 1h.
-Total strides made in 52 hallway experiments is 2981 strides.
+Total traveled distance in 53 hallway experiments is 4.355 km.
+Total travel time in 53 hallway experiments is 59.46 mins ≈ 1h.
+Total strides made in 53 hallway experiments is 3038 strides.
 ```
 
 <h2>Citation</h2>
@@ -832,7 +844,7 @@ Total strides made in 52 hallway experiments is 2981 strides.
 
 ```
 @article{GCetin2026TubitakJECE,
-  title = {A {P}ioneering {S}tride-Wise {A}nnotated {M}ini-{D}ataset for {G}ait-Driven {L}earning-Based {I}nertial {N}avigation},
+  title = {A {S}tride-Wise {A}nnotated {M}ini-{D}ataset for {G}ait-Driven {L}earning-Based {I}nertial {N}avigation},
   author = {Gökhan Çetin and Muhammed Taha Köroğlu},
   journal = {Turkish Journal of Electrical Engineering and Computer Sciences},
   pages = {823--835},
