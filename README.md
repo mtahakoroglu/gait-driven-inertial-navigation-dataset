@@ -107,6 +107,8 @@ pip install .
 
 <img src="results/figs/vicon_obsolete/gif/exp18.gif" alt="experiment 18 results after ZV correction" width=%100 height=auto>
 
+<img src="results/figs/vicon_obsolete/gif/PyShoe-exp18.gif" alt="experiment 18 results after ZV correction - extended" width=%100 height=auto>
+
 <!---
 <img src="results/figs/vicon_obsolete/stride_detection_exp_18.png" alt="stride detection results on imu data for experiment 18 of VICON dataset">
 --->
